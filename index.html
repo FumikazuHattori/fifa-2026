@@ -41,6 +41,19 @@ const FLAGS = {
 };
 const f = t => FLAGS[t] || "🏳";
 
+// 3文字コード → フルの英語国名。AR/BELのようなコードだけでは分かりにくいので表示用に使う。
+const ENGLISH_NAME = {
+  BRA:"Brazil",ARG:"Argentina",FRA:"France",ENG:"England",ESP:"Spain",GER:"Germany",POR:"Portugal",
+  NED:"Netherlands",BEL:"Belgium",URU:"Uruguay",COL:"Colombia",MEX:"Mexico",USA:"USA",JPN:"Japan",
+  KOR:"South Korea",AUS:"Australia",MAR:"Morocco",SEN:"Senegal",EGY:"Egypt",NGA:"Nigeria",CIV:"Ivory Coast",
+  CMR:"Cameroon",TUR:"Turkey",CRO:"Croatia",SUI:"Switzerland",NOR:"Norway",SWE:"Sweden",
+  CAN:"Canada",ECU:"Ecuador",PAR:"Paraguay",PAN:"Panama",COD:"DR Congo",QAT:"Qatar",
+  IRN:"Iran",KSA:"Saudi Arabia",IRQ:"Iraq",JOR:"Jordan",DZA:"Algeria",TUN:"Tunisia",UZB:"Uzbekistan",
+  NZL:"New Zealand",GHA:"Ghana",CPV:"Cape Verde",CUW:"Curacao",HTI:"Haiti",BIH:"Bosnia",AUT:"Austria",
+  CZE:"Czechia",RSA:"South Africa",SCO:"Scotland",CHL:"Chile",
+};
+const nm = t => ENGLISH_NAME[t] || t;
+
 // スプレッドシートの「投票シート」タブで使われる日本語チーム名 → 3文字コードの対応表。
 // 既存のFLAGSキーに合わせてあるので、新しいチームが出てきた場合はここに追記する。
 const JP_TEAM_CODE = {
@@ -108,7 +121,7 @@ const ALL_PREDICTIONS = [
 ];
 
 const GROUP_TEAMS = {
-  A:["USA","PAN","BIH","TUR"],  B:["ARG","CHI","CRO","CUW"],
+  A:["USA","PAN","BIH","TUR"],  B:["ARG","CHL","CRO","CUW"],
   C:["MEX","ESP","JPN","NZL"],  D:["FRA","NOR","BEL","IRQ"],
   E:["BRA","CIV","NED","PAR"],  F:["ENG","GER","SUI","GHA"],
   G:["POR","COL","ECU","CPV"],  H:["URU","QAT","EGY","JOR"],
@@ -402,6 +415,7 @@ function App() {
               <div style={{fontSize:"9px",color:T.muted}}>{l}</div>
               <div style={{fontSize:"15px"}}>{f(t)}</div>
               <div style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:gc(t)}}>{t}</div>
+              <div style={{fontFamily:T.font,fontSize:"7px",color:gc(t),opacity:0.7,whiteSpace:"nowrap"}}>{nm(t)}</div>
               <div style={{fontSize:"8px",color:gc(t),opacity:0.8}}>{gl(t)}</div>
             </div>
           ))}
@@ -424,7 +438,7 @@ function App() {
         {live&&<div style={{width:"6px",height:"6px",borderRadius:"50%",background:T.red,marginRight:"8px",animation:"pulse 1s infinite"}}/>}
         <div style={{flex:1,display:"flex",alignItems:"center",gap:"8px"}}>
           <div style={{flex:1,display:"flex",alignItems:"center",gap:"5px",justifyContent:"flex-end"}}>
-            <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&hs>as)?T.green:fin?"#aacaaa":T.muted}}>{game.home}</span>
+            <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&hs>as)?T.green:fin?"#aacaaa":T.muted,textAlign:"right"}}>{nm(game.home)}</span>
             <span style={{fontSize:"15px"}}>{f(game.home)}</span>
           </div>
           <div style={{minWidth:"60px",textAlign:"center",fontFamily:T.font,fontWeight:900,fontSize:"17px"}}>
@@ -434,7 +448,7 @@ function App() {
           </div>
           <div style={{flex:1,display:"flex",alignItems:"center",gap:"5px"}}>
             <span style={{fontSize:"15px"}}>{f(game.away)}</span>
-            <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&as>hs)?T.green:fin?"#aacaaa":T.muted}}>{game.away}</span>
+            <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&as>hs)?T.green:fin?"#aacaaa":T.muted}}>{nm(game.away)}</span>
           </div>
         </div>
         <div style={{marginLeft:"8px",padding:"2px 7px",borderRadius:"3px",fontFamily:T.font,fontSize:"10px",fontWeight:700,letterSpacing:"1px",background:live?T.red:fin?"#1e3a1e":"#111d11",color:live?"#fff":fin?T.green:T.muted}}>
@@ -461,7 +475,7 @@ function App() {
               return (
                 <tr key={s.team} style={{borderLeft:q?`2px solid ${T.green}`:"2px solid transparent",background:q?"rgba(0,255,136,0.03)":"transparent"}}>
                   <td style={{padding:"7px 6px",textAlign:"center",color:T.dim,fontFamily:T.font,fontWeight:700}}>{i+1}</td>
-                  <td style={{padding:"7px 6px",color:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px"}}><span style={{marginRight:"5px"}}>{f(s.team)}</span>{s.team}</td>
+                  <td style={{padding:"7px 6px",color:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px"}}><span style={{marginRight:"5px"}}>{f(s.team)}</span>{nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span></td>
                   {[s.mp,s.w,s.d,s.l,s.gf,s.ga].map((v,j)=>(
                     <td key={j} style={{padding:"7px 6px",textAlign:"center",color:"#7a9a7a",fontSize:"11px"}}>{v}</td>
                   ))}
@@ -540,7 +554,7 @@ function App() {
         {[m?.a,m?.b].map((t,i)=>(
           <div key={i} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",padding:"0 8px",borderBottom:i===0?`1px solid ${T.border}`:"none"}}>
             {t
-              ? <><span style={{fontSize:"13px"}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"11px",fontWeight:700,color:"#aacaaa"}}>{t}</span></>
+              ? <span title={nm(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden"}}><span style={{fontSize:"13px",flexShrink:0}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span></span>
               : <span style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>TBD</span>}
           </div>
         ))}
@@ -710,7 +724,7 @@ function App() {
             {popularity.map(({t,n})=>(
               <div key={t} style={{display:"flex",alignItems:"center",gap:"5px",padding:"5px 10px",borderRadius:"4px",background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.09)":"#111d11",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"33":T.border}`,opacity:ELIMINATED.has(t)?0.5:1}}>
                 <span style={{fontSize:"14px"}}>{f(t)}</span>
-                <span style={{fontFamily:T.font,fontSize:"12px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted}}>{t}</span>
+                <span style={{fontFamily:T.font,fontSize:"12px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted}}>{nm(t)}</span>
                 <span style={{fontFamily:T.font,fontSize:"15px",fontWeight:900,color:ELIMINATED.has(t)?"#553333":STILL_ALIVE.has(t)?T.yellow:T.dim}}>{n}</span>
               </div>
             ))}
@@ -755,10 +769,10 @@ function App() {
                   </div>
                   <div style={{display:"flex",gap:"5px"}}>
                     {[{t:best.p1,l:"🥇"},{t:best.p2,l:"🥈"},{t:best.p3,l:"🥉"},{t:best.p4,l:"4️⃣"}].map(({t,l},j)=>(
-                      <div key={j} style={{flex:1,background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.08)":"transparent",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"22":T.border}`,borderRadius:"4px",padding:"4px 2px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px"}}>
+                      <div key={j} title={nm(t)} style={{flex:1,background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.08)":"transparent",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"22":T.border}`,borderRadius:"4px",padding:"4px 2px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",overflow:"hidden"}}>
                         <div style={{fontSize:"8px",color:T.muted}}>{l}</div>
                         <div style={{fontSize:"13px"}}>{f(t)}</div>
-                        <div style={{fontFamily:T.font,fontSize:"9px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted}}>{t}</div>
+                        <div style={{fontFamily:T.font,fontSize:"7px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:"100%"}}>{nm(t)}</div>
                       </div>
                     ))}
                   </div>
