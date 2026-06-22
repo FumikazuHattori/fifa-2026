@@ -310,21 +310,40 @@ function useBreakpoint() {
   return { isMobile:w<640, isTablet:w>=640&&w<1024, isDesktop:w>=1024, w };
 }
 
+// 試合結果の再取得サイクル（秒）。更新頻度を上げたい場合はここだけ変更すればよい。
+const REFRESH_INTERVAL_SEC = 30 * 60;
+
+// 独立したコンポーネントとして切り出すことで、毎秒のカウントダウン更新が
+// App全体（および配下のタブ・パネル）を再レンダリングしないようにしている。
+// もしApp直下でuseState/setIntervalしていると、Appが毎秒再レンダリングされ、
+// その中で定義されたコンポーネント（例：データソースパネル）が毎回新しい関数として
+// 生成され直し、Reactがそれを「別コンポーネント」と見なして毎秒マウント解除→再マウントしてしまう。
+// その結果、開いたつもりのトグルや入力中のテキストが1秒後に初期状態へリセットされていた。
+function CountdownTimer({ isDesktop }) {
+  const [remaining, setRemaining] = useState(REFRESH_INTERVAL_SEC);
+  useEffect(()=>{
+    const iv = setInterval(()=>setRemaining(c => c<=1 ? REFRESH_INTERVAL_SEC : c-1), 1000);
+    return ()=>clearInterval(iv);
+  },[]);
+  const mm = String(Math.floor(remaining/60)).padStart(2,"0");
+  const ss = String(remaining%60).padStart(2,"0");
+  return (
+    <div style={{textAlign:"right"}}>
+      <div style={{fontFamily:T.font,fontSize:"9px",color:T.muted,letterSpacing:"1px"}}>次回更新</div>
+      <div style={{fontFamily:T.font,fontSize:isDesktop?"22px":"20px",fontWeight:900,color:remaining<=30?T.red:T.green,lineHeight:1}}>{mm}:{ss}</div>
+    </div>
+  );
+}
+
 function App() {
   const [tab,setTab]          = useState("pred");
   const [activeGroup,setAG]   = useState("E");
   const [games]               = useState(SEED_GAMES);
-  const [countdown,setCD]     = useState(30);
   const [finalResult]         = useState({1:null,2:null,3:null,4:null});
   const [viewMode,setVM]      = useState("person");
   const [selectedPerson,setSP]= useState(null);
   const bp                    = useBreakpoint();
   const sheet                 = useSheetSource();
-
-  useEffect(()=>{
-    const iv=setInterval(()=>setCD(c=>c<=1?30:c-1),1000);
-    return()=>clearInterval(iv);
-  },[]);
 
   const allStats = buildStandings(games);
 
@@ -768,10 +787,7 @@ function App() {
             </div>
             <div style={{display:"flex",alignItems:"center",gap:bp.isDesktop?"20px":"10px"}}>
               {bp.isDesktop&&<div style={{fontFamily:T.font,fontSize:"12px",color:T.muted,letterSpacing:"1px"}}>{activePredictions.length}エントリー / {uniqueNames.length}人参加</div>}
-              <div style={{textAlign:"right"}}>
-                <div style={{fontFamily:T.font,fontSize:"9px",color:T.muted,letterSpacing:"1px"}}>次回更新</div>
-                <div style={{fontFamily:T.font,fontSize:bp.isDesktop?"22px":"20px",fontWeight:900,color:countdown<=5?T.red:T.green,lineHeight:1}}>{String(countdown).padStart(2,"0")}s</div>
-              </div>
+              <CountdownTimer isDesktop={bp.isDesktop}/>
             </div>
           </div>
           <div style={{display:"flex",borderBottom:`1px solid ${T.border}`,maxWidth:"500px"}}>
