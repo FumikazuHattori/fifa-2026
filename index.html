@@ -17,6 +17,11 @@
   ::-webkit-scrollbar-thumb{background:#1e3a1e;border-radius:3px}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
   input,button{font-family:inherit}
+  /* PC（広い画面）ではモバイル基準で組んだフォント/余白が小さく見えるため、
+     全体をまとめて拡大して視認性を上げる。ブレークポイント判定はwindow.innerWidthを
+     使っているのでzoomの影響を受けず、レイアウト分岐はそのまま機能する。 */
+  @media (min-width:1024px){ #root{ zoom:1.25; } }
+  @media (min-width:1440px){ #root{ zoom:1.4; } }
 </style>
 </head>
 <body>
