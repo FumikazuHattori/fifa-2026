@@ -568,11 +568,14 @@ function App() {
           </tr></thead>
           <tbody>
             {sortGroup(GROUP_TEAMS[grp]||[],allStats).map((s,i)=>{
-              const gd=s.gf-s.ga,q=i<2;
+              const gd=s.gf-s.ga,q=i<2,elim=ELIMINATED.has(s.team);
               return (
-                <tr key={s.team} style={{borderLeft:q?`2px solid ${T.green}`:"2px solid transparent",background:q?"rgba(0,255,136,0.03)":"transparent"}}>
+                <tr key={s.team} style={{borderLeft:elim?`2px solid ${T.red}`:q?`2px solid ${T.green}`:"2px solid transparent",background:elim?"rgba(255,68,85,0.05)":q?"rgba(0,255,136,0.03)":"transparent",opacity:elim?0.55:1}}>
                   <td style={{padding:"7px 6px",textAlign:"center",color:T.dim,fontFamily:T.font,fontWeight:700}}>{i+1}</td>
-                  <td onClick={()=>setST(s.team)} style={{padding:"7px 6px",color:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px",cursor:"pointer"}}><span style={{marginRight:"5px"}}>{f(s.team)}</span>{nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span></td>
+                  <td onClick={()=>setST(s.team)} style={{padding:"7px 6px",color:elim?T.red:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px",cursor:"pointer",textDecoration:elim?"line-through":"none"}}>
+                    <span style={{marginRight:"5px"}}>{f(s.team)}</span>{nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span>
+                    {elim&&<span style={{marginLeft:"6px",fontSize:"9px",fontWeight:700,letterSpacing:"1px",color:T.red,textDecoration:"none"}}>敗退</span>}
+                  </td>
                   {[s.mp,s.w,s.d,s.l,s.gf,s.ga].map((v,j)=>(
                     <td key={j} style={{padding:"7px 6px",textAlign:"center",color:"#7a9a7a",fontSize:"11px"}}>{v}</td>
                   ))}

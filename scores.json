@@ -56,11 +56,11 @@
       "status": "final"
     },
     {
-      "home": "HAI",
+      "home": "HTI",
       "away": "SCO",
       "score": {
-        "HAI": 0,
-        "SCO": 1
+        "SCO": 1,
+        "HTI": 0
       },
       "status": "final"
     },
@@ -165,10 +165,10 @@
     },
     {
       "home": "ARG",
-      "away": "ALG",
+      "away": "DZA",
       "score": {
         "ARG": 3,
-        "ALG": 0
+        "DZA": 0
       },
       "status": "final"
     },
@@ -273,10 +273,10 @@
     },
     {
       "home": "BRA",
-      "away": "HAI",
+      "away": "HTI",
       "score": {
         "BRA": 3,
-        "HAI": 0
+        "HTI": 0
       },
       "status": "final"
     },
@@ -390,10 +390,10 @@
     },
     {
       "home": "JOR",
-      "away": "ALG",
+      "away": "DZA",
       "score": {
         "JOR": 0,
-        "ALG": 0
+        "DZA": 0
       },
       "status": "scheduled"
     },
@@ -453,10 +453,10 @@
     },
     {
       "home": "MAR",
-      "away": "HAI",
+      "away": "HTI",
       "score": {
         "MAR": 0,
-        "HAI": 0
+        "HTI": 0
       },
       "status": "scheduled"
     },
@@ -641,11 +641,11 @@
       "status": "scheduled"
     },
     {
-      "home": "ALG",
+      "home": "DZA",
       "away": "AUT",
       "score": {
-        "ALG": 0,
-        "AUT": 0
+        "AUT": 0,
+        "DZA": 0
       },
       "status": "scheduled"
     }

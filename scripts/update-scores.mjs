@@ -10,7 +10,10 @@ if (!TOKEN) {
 }
 
 // football-data.org のtla（3文字コード）が、アプリ内のコードと食い違う場合だけ上書きする。
-const FD_TLA_OVERRIDE = {};
+const FD_TLA_OVERRIDE = {
+  HAI: "HTI", // ハイチ
+  ALG: "DZA", // アルジェリア
+};
 
 const fdToOurCode = team => {
   const tla = team?.tla;
