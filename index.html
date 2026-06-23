@@ -29,17 +29,10 @@
 <script type="text/babel">
 const { useState, useEffect } = React;
 
-const FLAGS = {
-  BRA:"🇧🇷",ARG:"🇦🇷",FRA:"🇫🇷",ENG:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",ESP:"🇪🇸",GER:"🇩🇪",POR:"🇵🇹",
-  NED:"🇳🇱",BEL:"🇧🇪",URU:"🇺🇾",COL:"🇨🇴",MEX:"🇲🇽",USA:"🇺🇸",JPN:"🇯🇵",
-  KOR:"🇰🇷",AUS:"🇦🇺",MAR:"🇲🇦",SEN:"🇸🇳",EGY:"🇪🇬",NGA:"🇳🇬",CIV:"🇨🇮",
-  CMR:"🇨🇲",TUR:"🇹🇷",CRO:"🇭🇷",SUI:"🇨🇭",NOR:"🇳🇴",SWE:"🇸🇪",
-  CAN:"🇨🇦",ECU:"🇪🇨",PAR:"🇵🇾",PAN:"🇵🇦",COD:"🇨🇩",QAT:"🇶🇦",
-  IRN:"🇮🇷",KSA:"🇸🇦",IRQ:"🇮🇶",JOR:"🇯🇴",DZA:"🇩🇿",TUN:"🇹🇳",UZB:"🇺🇿",
-  NZL:"🇳🇿",GHA:"🇬🇭",CPV:"🇨🇻",CUW:"🇨🇼",HTI:"🇭🇹",BIH:"🇧🇦",AUT:"🇦🇹",
-  CZE:"🇨🇿",RSA:"🇿🇦",SCO:"🏴󠁧󠁢󠁳󠁣󠁴󠁿",CHL:"🇨🇱",
-};
-const f = t => FLAGS[t] || "🏳";
+// Windowsの絵文字フォントは国旗絵文字（特にイングランド/スコットランドのような
+// タグシーケンス旗）の対応がmacOSと食い違うため、OSによって表示が崩れる/消える。
+// 絵文字に依存せず、3文字コードのテキストバッジで国を表す。
+const f = t => t || "???";
 
 // 3文字コード → フルの英語国名。AR/BELのようなコードだけでは分かりにくいので表示用に使う。
 const ENGLISH_NAME = {
@@ -510,8 +503,7 @@ function App() {
         <div style={{display:"flex",gap:"5px"}}>
           {positions.map(({t,pos})=>(
             <div key={pos} onClick={()=>setST(t)} style={{flex:1,background:gb(t),border:`1px solid ${gc(t)}33`,borderRadius:"5px",padding:"5px 3px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",cursor:"pointer"}}>
-              <div style={{fontSize:"15px"}}>{f(t)}</div>
-              <div style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:gc(t)}}>{t}</div>
+              <div style={{fontFamily:T.font,fontSize:"12px",fontWeight:900,color:gc(t)}}>{t}</div>
               <div style={{fontFamily:T.font,fontSize:"7px",color:gc(t),opacity:0.7,whiteSpace:"nowrap"}}>{nm(t)}</div>
               <div style={{fontSize:"8px",color:gc(t),opacity:0.8}}>{gl(t)}</div>
             </div>
@@ -536,7 +528,7 @@ function App() {
         <div style={{flex:1,display:"flex",alignItems:"center",gap:"8px"}}>
           <div onClick={()=>setST(game.home)} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",justifyContent:"flex-end",cursor:"pointer"}}>
             <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&hs>as)?T.green:fin?"#aacaaa":T.muted,textAlign:"right"}}>{nm(game.home)}</span>
-            <span style={{fontSize:"15px"}}>{f(game.home)}</span>
+            <span style={{fontFamily:T.font,fontSize:"10px",fontWeight:900,color:T.dim,letterSpacing:"1px"}}>{f(game.home)}</span>
           </div>
           <div style={{minWidth:"60px",textAlign:"center",fontFamily:T.font,fontWeight:900,fontSize:"17px"}}>
             {fin||live
@@ -544,7 +536,7 @@ function App() {
               :<span style={{color:T.dim,fontSize:"11px"}}>VS</span>}
           </div>
           <div onClick={()=>setST(game.away)} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",cursor:"pointer"}}>
-            <span style={{fontSize:"15px"}}>{f(game.away)}</span>
+            <span style={{fontFamily:T.font,fontSize:"10px",fontWeight:900,color:T.dim,letterSpacing:"1px"}}>{f(game.away)}</span>
             <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&as>hs)?T.green:fin?"#aacaaa":T.muted}}>{nm(game.away)}</span>
           </div>
         </div>
@@ -572,9 +564,9 @@ function App() {
               return (
                 <tr key={s.team} style={{borderLeft:elim?`2px solid ${T.red}`:q?`2px solid ${T.green}`:"2px solid transparent",background:elim?"rgba(255,68,85,0.05)":q?"rgba(0,255,136,0.03)":"transparent",opacity:elim?0.55:1}}>
                   <td style={{padding:"7px 6px",textAlign:"center",color:T.dim,fontFamily:T.font,fontWeight:700}}>{i+1}</td>
-                  <td onClick={()=>setST(s.team)} style={{padding:"7px 6px",color:elim?T.red:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px",cursor:"pointer",textDecoration:elim?"line-through":"none"}}>
-                    <span style={{marginRight:"5px"}}>{f(s.team)}</span>{nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span>
-                    {elim&&<span style={{marginLeft:"6px",fontSize:"9px",fontWeight:700,letterSpacing:"1px",color:T.red,textDecoration:"none"}}>敗退</span>}
+                  <td onClick={()=>setST(s.team)} style={{padding:"7px 6px",color:elim?T.red:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px",cursor:"pointer"}}>
+                    {nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span>
+                    {elim&&<span style={{marginLeft:"6px",fontSize:"9px",fontWeight:700,letterSpacing:"1px",color:T.red,padding:"1px 4px",border:`1px solid ${T.red}`,borderRadius:"3px"}}>敗退</span>}
                   </td>
                   {[s.mp,s.w,s.d,s.l,s.gf,s.ga].map((v,j)=>(
                     <td key={j} style={{padding:"7px 6px",textAlign:"center",color:"#7a9a7a",fontSize:"11px"}}>{v}</td>
@@ -599,7 +591,7 @@ function App() {
     const GroupBtn = ({g}) => (
       <button onClick={()=>setAG(g)} style={{padding:bp.isDesktop?"8px 12px":"5px 12px",border:"none",borderRadius:bp.isDesktop?"5px":"3px",cursor:"pointer",fontFamily:T.font,fontSize:"12px",fontWeight:700,background:activeGroup===g?T.green:"#111d11",color:activeGroup===g?"#080e08":T.muted,transition:"all 0.12s",textAlign:"left",borderLeft:`3px solid ${activeGroup===g?T.green:T.border}`}}>
         {bp.isDesktop
-          ? <><div style={{letterSpacing:"1px"}}>GROUP {g}</div><div style={{display:"flex",gap:"3px",marginTop:"3px"}}>{sortGroup(GROUP_TEAMS[g],allStats).map((s,i)=><span key={s.team} style={{fontSize:"11px",opacity:i<2?1:0.4}}>{f(s.team)}</span>)}</div></>
+          ? <><div style={{letterSpacing:"1px"}}>GROUP {g}</div><div style={{display:"flex",gap:"4px",marginTop:"3px"}}>{sortGroup(GROUP_TEAMS[g],allStats).map((s,i)=><span key={s.team} style={{fontSize:"9px",fontWeight:900,letterSpacing:"0.5px",opacity:i<2?1:0.4}}>{f(s.team)}</span>)}</div></>
           : `G${g}`}
       </button>
     );
@@ -607,9 +599,11 @@ function App() {
       <div style={{display:"flex",flexDirection:"column",gap:"14px"}}>
         <LiveScorePanel/>
         <div style={{display:"grid",gridTemplateColumns:"190px 1fr",gap:"16px",alignItems:"start"}}>
-          <div style={{display:"flex",flexDirection:"column",gap:"5px",position:"sticky",top:"76px",maxHeight:"calc(100vh - 96px)",overflowY:"auto"}}>
+          <div style={{position:"sticky",top:"76px",maxHeight:"calc(100vh - 96px)",display:"flex",flexDirection:"column"}}>
             <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"2px",color:T.muted,padding:"4px 8px",marginBottom:"2px"}}>SELECT GROUP</div>
-            {Object.keys(GROUP_TEAMS).map(g=><GroupBtn key={g} g={g}/>)}
+            <div style={{display:"flex",flexDirection:"column",gap:"5px",overflowY:"auto",paddingRight:"2px"}}>
+              {Object.keys(GROUP_TEAMS).map(g=><GroupBtn key={g} g={g}/>)}
+            </div>
           </div>
           <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
             <StandingsTable grp={activeGroup}/>
@@ -663,7 +657,7 @@ function App() {
         {[m?.a,m?.b].map((t,i)=>(
           <div key={i} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",padding:"0 8px",borderBottom:i===0?`1px solid ${T.border}`:"none"}}>
             {t
-              ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden",cursor:"pointer"}}><span style={{fontSize:"13px",flexShrink:0}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span></span>
+              ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden",cursor:"pointer"}}><span style={{fontFamily:T.font,fontSize:"9px",fontWeight:900,color:T.dim,flexShrink:0,letterSpacing:"0.5px"}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span></span>
               : <span style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>TBD</span>}
           </div>
         ))}
@@ -870,7 +864,7 @@ function App() {
           <div style={{padding:"10px",display:"flex",flexWrap:"wrap",gap:"6px"}}>
             {popularity.map(({t,n})=>(
               <div key={t} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",padding:"5px 10px",borderRadius:"4px",background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.09)":"#111d11",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"33":T.border}`,opacity:ELIMINATED.has(t)?0.5:1,cursor:"pointer"}}>
-                <span style={{fontSize:"14px"}}>{f(t)}</span>
+                <span style={{fontFamily:T.font,fontSize:"9px",fontWeight:900,color:T.dim,letterSpacing:"0.5px"}}>{f(t)}</span>
                 <span style={{fontFamily:T.font,fontSize:"12px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted}}>{nm(t)}</span>
                 <span style={{fontFamily:T.font,fontSize:"15px",fontWeight:900,color:ELIMINATED.has(t)?"#553333":STILL_ALIVE.has(t)?T.yellow:T.dim}}>{n}</span>
               </div>
@@ -949,7 +943,7 @@ function App() {
         <div style={{maxWidth:"640px",margin:"0 auto",display:"flex",flexDirection:"column",gap:"12px"}}>
           <button onClick={onClose} style={{alignSelf:"flex-start",padding:"6px 14px",background:"#111d11",border:`1px solid ${T.border}`,borderRadius:"4px",fontFamily:T.font,fontSize:"11px",color:T.muted,cursor:"pointer"}}>← 閉じる</button>
           <div style={{display:"flex",alignItems:"center",gap:"12px",background:T.surface,border:`1px solid ${T.border}`,borderRadius:"8px",padding:"16px"}}>
-            <div style={{fontSize:"40px"}}>{f(team)}</div>
+            <div style={{fontFamily:T.font,fontSize:"22px",fontWeight:900,color:T.dim,letterSpacing:"1px",padding:"8px 10px",border:`1px solid ${T.border}`,borderRadius:"6px"}}>{f(team)}</div>
             <div>
               <div style={{fontFamily:T.font,fontWeight:900,fontSize:"20px",color:"#e0ffe0"}}>{nm(team)}</div>
               <div style={{fontFamily:T.font,fontSize:"11px",color:T.dim,marginTop:"2px"}}>
