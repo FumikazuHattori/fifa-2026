@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T03:12:51.761Z",
+  "updatedAt": "2026-06-23T04:55:19.406Z",
   "games": [
     {
       "id": 537327,
@@ -479,8 +479,8 @@
       "home": "JOR",
       "away": "DZA",
       "score": {
-        "JOR": 0,
-        "DZA": 0
+        "JOR": 1,
+        "DZA": 2
       },
       "status": "live",
       "stage": "GROUP_STAGE"
