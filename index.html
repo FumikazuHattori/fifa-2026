@@ -463,6 +463,7 @@ function App() {
   const [finalResult]         = useState({1:null,2:null,3:null,4:null});
   const [viewMode,setVM]      = useState("person");
   const [selectedPerson,setSP]= useState(null);
+  const [selectedTeam,setST]  = useState(null);
   const bp                    = useBreakpoint();
   const sheet                 = useSheetSource();
   const live                  = useLiveScores();
@@ -545,7 +546,7 @@ function App() {
       <div style={{display:"flex",alignItems:"center",padding:"9px 12px",borderBottom:`1px solid ${T.border}`,background:live?"rgba(0,255,136,0.04)":"transparent"}}>
         {live&&<div style={{width:"6px",height:"6px",borderRadius:"50%",background:T.red,marginRight:"8px",animation:"pulse 1s infinite"}}/>}
         <div style={{flex:1,display:"flex",alignItems:"center",gap:"8px"}}>
-          <div style={{flex:1,display:"flex",alignItems:"center",gap:"5px",justifyContent:"flex-end"}}>
+          <div onClick={()=>setST(game.home)} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",justifyContent:"flex-end",cursor:"pointer"}}>
             <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&hs>as)?T.green:fin?"#aacaaa":T.muted,textAlign:"right"}}>{nm(game.home)}</span>
             <span style={{fontSize:"15px"}}>{f(game.home)}</span>
           </div>
@@ -554,7 +555,7 @@ function App() {
               ?<><span style={{color:(fin&&hs>as)?T.green:"#d0eed0"}}>{hs}</span><span style={{color:T.dim,margin:"0 3px",fontSize:"12px"}}>-</span><span style={{color:(fin&&as>hs)?T.green:"#d0eed0"}}>{as}</span></>
               :<span style={{color:T.dim,fontSize:"11px"}}>VS</span>}
           </div>
-          <div style={{flex:1,display:"flex",alignItems:"center",gap:"5px"}}>
+          <div onClick={()=>setST(game.away)} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",cursor:"pointer"}}>
             <span style={{fontSize:"15px"}}>{f(game.away)}</span>
             <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&as>hs)?T.green:fin?"#aacaaa":T.muted}}>{nm(game.away)}</span>
           </div>
@@ -583,7 +584,7 @@ function App() {
               return (
                 <tr key={s.team} style={{borderLeft:q?`2px solid ${T.green}`:"2px solid transparent",background:q?"rgba(0,255,136,0.03)":"transparent"}}>
                   <td style={{padding:"7px 6px",textAlign:"center",color:T.dim,fontFamily:T.font,fontWeight:700}}>{i+1}</td>
-                  <td style={{padding:"7px 6px",color:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px"}}><span style={{marginRight:"5px"}}>{f(s.team)}</span>{nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span></td>
+                  <td onClick={()=>setST(s.team)} style={{padding:"7px 6px",color:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px",cursor:"pointer"}}><span style={{marginRight:"5px"}}>{f(s.team)}</span>{nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span></td>
                   {[s.mp,s.w,s.d,s.l,s.gf,s.ga].map((v,j)=>(
                     <td key={j} style={{padding:"7px 6px",textAlign:"center",color:"#7a9a7a",fontSize:"11px"}}>{v}</td>
                   ))}
@@ -671,7 +672,7 @@ function App() {
         {[m?.a,m?.b].map((t,i)=>(
           <div key={i} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",padding:"0 8px",borderBottom:i===0?`1px solid ${T.border}`:"none"}}>
             {t
-              ? <span title={nm(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden"}}><span style={{fontSize:"13px",flexShrink:0}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span></span>
+              ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden",cursor:"pointer"}}><span style={{fontSize:"13px",flexShrink:0}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span></span>
               : <span style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>TBD</span>}
           </div>
         ))}
@@ -855,6 +856,9 @@ function App() {
         </div>
       );
     };
+    // 詳細画面に入る/戻るときにスクロール位置が前の画面のまま残ってしまい、
+    // 詳細の途中から表示されて先頭に戻れないように見えるので、切り替え時に必ず先頭へ戻す。
+    useEffect(()=>{ window.scrollTo(0,0); },[selectedPerson]);
     if(selectedPerson) return <PersonDetail name={selectedPerson} onBack={()=>setSP(null)}/>;
     const entryGridCols=bp.isDesktop?"1fr 1fr 1fr":bp.isTablet?"1fr 1fr":"1fr";
     const personGridCols=bp.isDesktop?"1fr 1fr":"1fr";
@@ -874,7 +878,7 @@ function App() {
           <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700}}>🔥 チーム別 被予想数（全{activePredictions.length}件）</div>
           <div style={{padding:"10px",display:"flex",flexWrap:"wrap",gap:"6px"}}>
             {popularity.map(({t,n})=>(
-              <div key={t} style={{display:"flex",alignItems:"center",gap:"5px",padding:"5px 10px",borderRadius:"4px",background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.09)":"#111d11",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"33":T.border}`,opacity:ELIMINATED.has(t)?0.5:1}}>
+              <div key={t} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",padding:"5px 10px",borderRadius:"4px",background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.09)":"#111d11",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"33":T.border}`,opacity:ELIMINATED.has(t)?0.5:1,cursor:"pointer"}}>
                 <span style={{fontSize:"14px"}}>{f(t)}</span>
                 <span style={{fontFamily:T.font,fontSize:"12px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted}}>{nm(t)}</span>
                 <span style={{fontFamily:T.font,fontSize:"15px",fontWeight:900,color:ELIMINATED.has(t)?"#553333":STILL_ALIVE.has(t)?T.yellow:T.dim}}>{n}</span>
@@ -921,7 +925,7 @@ function App() {
                   </div>
                   <div style={{display:"flex",gap:"5px"}}>
                     {[{t:best.p1,l:"🥇"},{t:best.p2,l:"🥈"},{t:best.p3,l:"🥉"},{t:best.p4,l:"4️⃣"}].map(({t,l},j)=>(
-                      <div key={j} title={nm(t)} style={{flex:1,background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.08)":"transparent",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"22":T.border}`,borderRadius:"4px",padding:"4px 2px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",overflow:"hidden"}}>
+                      <div key={j} title={nm(t)} onClick={e=>{e.stopPropagation();setST(t);}} style={{flex:1,background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.08)":"transparent",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"22":T.border}`,borderRadius:"4px",padding:"4px 2px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",overflow:"hidden",cursor:"pointer"}}>
                         <div style={{fontSize:"8px",color:T.muted}}>{l}</div>
                         <div style={{fontSize:"13px"}}>{f(t)}</div>
                         <div style={{fontFamily:T.font,fontSize:"7px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:"100%"}}>{nm(t)}</div>
@@ -943,12 +947,55 @@ function App() {
     );
   };
 
+  const TeamDetailPanel = ({team, onClose}) => {
+    useEffect(()=>{ window.scrollTo(0,0); },[team]);
+    const grp = Object.keys(GROUP_TEAMS).find(g=>GROUP_TEAMS[g].includes(team));
+    const standing = grp ? sortGroup(GROUP_TEAMS[grp],allStats) : [];
+    const rank = standing.findIndex(s=>s.team===team);
+    const s = standing[rank];
+    const teamGames = games.filter(g=>g.home===team||g.away===team);
+    return (
+      <div style={{position:"fixed",inset:0,background:"rgba(2,8,2,0.92)",zIndex:200,overflowY:"auto",padding:bp.isDesktop?"40px 24px":"16px"}}>
+        <div style={{maxWidth:"640px",margin:"0 auto",display:"flex",flexDirection:"column",gap:"12px"}}>
+          <button onClick={onClose} style={{alignSelf:"flex-start",padding:"6px 14px",background:"#111d11",border:`1px solid ${T.border}`,borderRadius:"4px",fontFamily:T.font,fontSize:"11px",color:T.muted,cursor:"pointer"}}>← 閉じる</button>
+          <div style={{display:"flex",alignItems:"center",gap:"12px",background:T.surface,border:`1px solid ${T.border}`,borderRadius:"8px",padding:"16px"}}>
+            <div style={{fontSize:"40px"}}>{f(team)}</div>
+            <div>
+              <div style={{fontFamily:T.font,fontWeight:900,fontSize:"20px",color:"#e0ffe0"}}>{nm(team)}</div>
+              <div style={{fontFamily:T.font,fontSize:"11px",color:T.dim,marginTop:"2px"}}>
+                {team}{grp?` ・ GROUP ${grp}`:""}
+                {ELIMINATED.has(team)&&<span style={{color:T.red,marginLeft:"8px"}}>● 敗退</span>}
+                {STILL_ALIVE.has(team)&&<span style={{color:T.yellow,marginLeft:"8px"}}>● 生存中</span>}
+              </div>
+            </div>
+          </div>
+          {s&&(
+            <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
+              <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>GROUP {grp} — {rank+1}位</div>
+              <div style={{display:"flex",gap:"10px",padding:"10px 14px",flexWrap:"wrap",fontFamily:T.font,fontSize:"12px",color:"#aacaaa"}}>
+                <span>試合 {s.mp}</span><span>勝 {s.w}</span><span>分 {s.d}</span><span>敗 {s.l}</span>
+                <span>得失点 {s.gf}-{s.ga}</span><span style={{color:T.green,fontWeight:900}}>勝点 {s.pts}</span>
+              </div>
+            </div>
+          )}
+          <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
+            <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>MATCHES</div>
+            {teamGames.length===0
+              ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>試合データなし</div>
+              :teamGames.map((g,i)=><MatchRow key={i} game={g}/>)}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const tabBtn = (key,label) => (
     <button key={key} onClick={()=>setTab(key)} style={{padding:"10px 0",flex:1,border:"none",cursor:"pointer",fontFamily:T.font,fontSize:bp.isDesktop?"13px":"12px",fontWeight:700,letterSpacing:"1.5px",background:tab===key?"#0e1a0e":"transparent",color:tab===key?T.green:T.muted,borderBottom:tab===key?`2px solid ${T.green}`:"2px solid transparent",transition:"all 0.15s"}}>{label}</button>
   );
 
   return (
     <div style={{minHeight:"100vh",background:T.bg}}>
+      {selectedTeam&&<TeamDetailPanel team={selectedTeam} onClose={()=>setST(null)}/>}
       <div style={{background:"#0a120a",borderBottom:`1px solid ${T.border}`,padding:bp.isDesktop?"14px 24px":"12px 14px",position:"sticky",top:0,zIndex:100}}>
         <div style={{maxWidth:"1200px",margin:"0 auto"}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:"12px",marginBottom:"10px"}}>
