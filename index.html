@@ -879,17 +879,22 @@ function App() {
     // 投票結果確認シートの「報酬一覧」「配当」「収支」に対応する集計。
     // エクセル側は優勝者の名前を大会終了後に手入力する仕組みだったが、ここでは
     // football-data.orgが確定させた決勝・3位決定戦の結果（finalResult）から自動判定する。
-    // 同じ予想をした人が複数いる場合は、その賞金を該当者で等分する。
-    const personsPredicting = (pos,team) => team ? uniqueNames.filter(name =>
-      activePredictions.some(p=>p.name===name && p[`p${pos}`]===team)
-    ) : [];
-    const champPersons    = personsPredicting(1, finalResult[1]);
-    const runnerUpPersons = personsPredicting(2, finalResult[2]);
-    const thirdPersons    = personsPredicting(3, finalResult[3]);
+    // 同じ予想が複数いる場合は、最も早く投票した人（dateが最も早いエントリー）を優先する。
+    const earliestPredictor = (pos,team) => {
+      if(!team) return null;
+      const matching = activePredictions
+        .map((p,idx)=>({...p,idx}))
+        .filter(p=>p[`p${pos}`]===team)
+        .sort((a,b)=> (a.date<b.date?-1:a.date>b.date?1:a.idx-b.idx));
+      return matching.length ? matching[0].name : null;
+    };
+    const champPerson    = earliestPredictor(1, finalResult[1]);
+    const runnerUpPerson = earliestPredictor(2, finalResult[2]);
+    const thirdPerson    = earliestPredictor(3, finalResult[3]);
     const prizes = [
-      {label:"優勝予想", team:finalResult[1], amount:totalPool*0.7, persons:champPersons},
-      {label:"準優勝予想", team:finalResult[2], amount:totalPool*0.2, persons:runnerUpPersons},
-      {label:"3位予想", team:finalResult[3], amount:totalPool*0.1, persons:thirdPersons},
+      {label:"優勝予想", team:finalResult[1], amount:totalPool*0.7, persons: champPerson ? [champPerson] : []},
+      {label:"準優勝予想", team:finalResult[2], amount:totalPool*0.2, persons: runnerUpPerson ? [runnerUpPerson] : []},
+      {label:"3位予想", team:finalResult[3], amount:totalPool*0.1, persons: thirdPerson ? [thirdPerson] : []},
     ];
     const resultDecided = !!(finalResult[1] && finalResult[2] && finalResult[3]);
     const payoutByPerson = name => prizes.reduce((sum,pr)=>
@@ -979,7 +984,7 @@ function App() {
                     <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"1px",color:T.muted}}>{pr.label}（{f(pr.team)} {nm(pr.team)}）</div>
                     <div style={{fontFamily:T.font,fontSize:"16px",fontWeight:900,color:T.yellow,marginTop:"2px"}}>{pr.amount.toLocaleString()}コジー</div>
                     <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim,marginTop:"2px"}}>
-                      {pr.persons.length ? `${pr.persons.join("・")}（${pr.persons.length}人で等分）` : "正解者なし"}
+                      {pr.persons.length ? `${pr.persons[0]}（最速投票者）` : "正解者なし"}
                     </div>
                   </div>
                 ))}
