@@ -447,8 +447,6 @@ function App() {
   const [selectedTeam,setST]  = useState(null);
   const [headerH,setHeaderH]  = useState(96);
   const headerRef             = useRef(null);
-  const [groupListScrolls,setGLS] = useState(false);
-  const groupListRef          = useRef(null);
   const bp                    = useBreakpoint();
   const sheet                 = useSheetSource();
   const live                  = useLiveScores();
@@ -469,22 +467,6 @@ function App() {
     ro.observe(headerRef.current);
     return () => ro.disconnect();
   },[]);
-
-  // リストが実際にあふれている時だけoverscrollBehavior:containを使い、
-  // ページ全体への伝播を止める。あふれていない時にcontainを使うと、
-  // スクロール先（リスト内）が無いことになり、ホイール操作が丸ごと
-  // 無視されてページも一切スクロールできなくなってしまう。
-  useEffect(()=>{
-    if(!groupListRef.current) return;
-    const update = () => {
-      const el = groupListRef.current;
-      if(el) setGLS(el.scrollHeight > el.clientHeight + 1);
-    };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(groupListRef.current);
-    return () => ro.disconnect();
-  },[headerH,tab]);
 
   const allStats = buildStandings(games);
 
@@ -631,9 +613,9 @@ function App() {
       <div style={{display:"flex",flexDirection:"column",gap:"14px"}}>
         <LiveScorePanel/>
         <div style={{display:"grid",gridTemplateColumns:"190px 1fr",gap:"16px",alignItems:"start"}}>
-          <div style={{position:"sticky",top:`${headerH+12}px`,maxHeight:`calc(100vh - ${headerH+24}px)`,display:"flex",flexDirection:"column"}}>
+          <div style={{position:"sticky",top:`${headerH+12}px`,display:"flex",flexDirection:"column"}}>
             <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"2px",color:T.muted,padding:"4px 8px",marginBottom:"2px"}}>SELECT GROUP</div>
-            <div ref={groupListRef} style={{display:"flex",flexDirection:"column",gap:"5px",overflowY:"auto",paddingRight:"2px",overscrollBehavior:groupListScrolls?"contain":"auto"}}>
+            <div style={{display:"flex",flexDirection:"column",gap:"5px"}}>
               {Object.keys(GROUP_TEAMS).map(g=><GroupBtn key={g} g={g}/>)}
             </div>
           </div>
