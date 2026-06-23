@@ -279,13 +279,14 @@ async function fetchSheetCSV(spreadsheetId, sheetName) {
   return res.text();
 }
 
-// 「投票シート」の固定レイアウト（行1=投票者名, 行2=投票日, 行4=列見出し,
+// 「投票シート」の固定レイアウト（行1=投票者名, 行2=投票日, 行3=賭けコジー額, 行4=列見出し,
 //  行5以降=グループ/出場国/(1)〜(4)の予想マーク）をパースしてALL_PREDICTIONS形式に変換する。
 function parseVotePredictions(rows) {
   const headerRowIdx = rows.findIndex(r => (r[2]||"").trim() === "出場国");
   if(headerRowIdx < 0) throw new Error("「出場国」列が見つかりません。投票シートのフォーマットと一致しないようです。");
   const namesRow = rows[headerRowIdx-3] || [];
   const datesRow  = rows[headerRowIdx-2] || [];
+  const stakeRow  = rows[headerRowIdx-1] || [];
   const dataRows = [];
   for(let r = headerRowIdx+1; r<rows.length; r++){
     const row = rows[r];
@@ -297,6 +298,11 @@ function parseVotePredictions(rows) {
     const m = String(v).match(/(\d{4})[-\/](\d{1,2})[-\/](\d{1,2})/);
     if(m) return `${m[1]}-${m[2].padStart(2,"0")}-${m[3].padStart(2,"0")}`;
     return String(v).trim();
+  };
+  // 「500コジー」のような文字列から数字だけを取り出す。未入力なら0。
+  const parseStake = v => {
+    const digits = String(v||"").replace(/[^\d]/g,"");
+    return digits ? parseInt(digits,10) : 0;
   };
   const entries = [];
   const maxCol = Math.max(namesRow.length, ...dataRows.map(r=>r.length));
@@ -317,7 +323,7 @@ function parseVotePredictions(rows) {
         name: voter,
         date: fmtDate(datesRow[c]),
         p1: picks[1]||"", p2: picks[2]||"", p3: picks[3]||"", p4: picks[4]||"",
-        stake: 500,
+        stake: parseStake(stakeRow[c]),
       });
     }
   }
