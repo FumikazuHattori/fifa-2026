@@ -26,13 +26,13 @@
     background-attachment:scroll,scroll,fixed;
     color:#e0ffe0;font-family:system-ui,sans-serif;
     /* マウスカーソルを、ページ内の他の場所（「試合結果の自動取得状況」など）でも
-       使っている⚽絵文字そのものに差し替える。SVGのtext要素に絵文字を置くことで、
-       システムの絵文字フォントがそのまま描画される。Windowsでは絵文字フォントが
-       無いと白黒の輪郭のみで描画されるため、fill/strokeを白にして暗い背景でも
-       見えるようにしている。 */
-    cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="16" y="25" font-size="26" text-anchor="middle" fill="%23ffffff" stroke="%23ffffff">%E2%9A%BD</text></svg>') 16 16, auto;
+       使っている⚽のイメージに合わせたボールアイコンに差し替える。文字（絵文字）を
+       そのまま使うとWindowsでは色付きの絵文字フォントが使われず黒い輪郭だけが
+       描画され暗い背景で見えなくなるため、OSに依存しないベクター図形として
+       白いボール（黒い模様つき）を直接描画している。 */
+    cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><circle cx="14" cy="14" r="12" fill="%23ffffff" stroke="%23111111" stroke-width="1.5"/><polygon points="14,7 18,10 16.5,15 11.5,15 10,10" fill="%23111111"/><path d="M14,7 L14,2.5 M18,10 L22.5,7.5 M16.5,15 L19,20 M11.5,15 L9,20 M10,10 L5.5,7.5" stroke="%23111111" stroke-width="1.3" fill="none"/></svg>') 14 14, auto;
   }
-  button,[onclick],a{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="16" y="25" font-size="26" text-anchor="middle" fill="%23ffffff" stroke="%23ffffff">%E2%9A%BD</text></svg>') 16 16, pointer}
+  button,[onclick],a{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><circle cx="14" cy="14" r="12" fill="%23ffffff" stroke="%23111111" stroke-width="1.5"/><polygon points="14,7 18,10 16.5,15 11.5,15 10,10" fill="%23111111"/><path d="M14,7 L14,2.5 M18,10 L22.5,7.5 M16.5,15 L19,20 M11.5,15 L9,20 M10,10 L5.5,7.5" stroke="%23111111" stroke-width="1.3" fill="none"/></svg>') 14 14, pointer}
   ::-webkit-scrollbar{width:6px;height:6px}
   ::-webkit-scrollbar-track{background:#080e08}
   ::-webkit-scrollbar-thumb{background:#1e3a1e;border-radius:3px}
@@ -541,6 +541,17 @@ function App() {
     .sort((a,b)=>b.bestScore-a.bestScore||b.entries[0].maxPoss-a.entries[0].maxPoss);
   const uniqueNames = [...new Set(activePredictions.map(p=>p.name))];
 
+  // 各順位（1〜4位）×予想チームについて、誰が予想しているかを集計しておき、
+  // 自分以外にも同じ予想をしている人がいる場合に「被り」として表示する。
+  const positionPickers = {1:{},2:{},3:{},4:{}};
+  activePredictions.forEach(p=>{
+    [[p.p1,1],[p.p2,2],[p.p3,3],[p.p4,4]].forEach(([t,pos])=>{
+      if(!t) return;
+      if(!positionPickers[pos][t]) positionPickers[pos][t]=new Set();
+      positionPickers[pos][t].add(p.name);
+    });
+  });
+
   const EntryCard = ({e, rank, showRank=true}) => {
     const positions=[{l:"🥇",t:e.p1,pos:1},{l:"🥈",t:e.p2,pos:2},{l:"🥉",t:e.p3,pos:3},{l:"4️⃣",t:e.p4,pos:4}];
     const gc = t => ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted;
@@ -561,13 +572,18 @@ function App() {
           </div>
         </div>
         <div style={{display:"flex",gap:"5px"}}>
-          {positions.map(({t,pos})=>(
-            <div key={pos} onClick={()=>setST(t)} style={{flex:1,background:gb(t),border:`1px solid ${gc(t)}33`,borderRadius:"5px",padding:"5px 3px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",cursor:"pointer"}}>
-              <div style={{fontFamily:T.font,fontSize:"12px",fontWeight:900,color:gc(t)}}>{t}</div>
-              <div style={{fontFamily:T.font,fontSize:"7px",color:gc(t),opacity:0.7,whiteSpace:"nowrap"}}>{nm(t)}</div>
-              <div style={{fontSize:"8px",color:gc(t),opacity:0.8}}>{gl(t)}</div>
-            </div>
-          ))}
+          {positions.map(({t,pos})=>{
+            const others=[...(positionPickers[pos][t]||[])].filter(n=>n!==e.name);
+            const overlapped=others.length>0;
+            return (
+              <div key={pos} onClick={()=>setST(t)} title={overlapped?`同じ予想: ${others.join("、")}`:undefined} style={{flex:1,position:"relative",background:gb(t),border:`1px solid ${overlapped?T.yellow:gc(t)+"33"}`,borderRadius:"5px",padding:"5px 3px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",cursor:"pointer"}}>
+                {overlapped&&<div style={{position:"absolute",top:"-6px",right:"-4px",background:T.yellow,color:"#080e08",fontSize:"7px",fontWeight:900,fontFamily:T.font,borderRadius:"7px",padding:"1px 4px",lineHeight:1.3}}>被{others.length}</div>}
+                <div style={{fontFamily:T.font,fontSize:"12px",fontWeight:900,color:gc(t)}}>{t}</div>
+                <div style={{fontFamily:T.font,fontSize:"7px",color:gc(t),opacity:0.7,whiteSpace:"nowrap"}}>{nm(t)}</div>
+                <div style={{fontSize:"8px",color:gc(t),opacity:0.8}}>{gl(t)}</div>
+              </div>
+            );
+          })}
         </div>
         <div style={{marginTop:"8px",height:"3px",background:"#1a2a1a",borderRadius:"2px",overflow:"hidden"}}>
           <div style={{height:"100%",width:`${(e.alive/4)*100}%`,background:e.alive===4?T.green:e.alive>=2?T.yellow:T.red,borderRadius:"2px",transition:"width 0.4s"}}/>
