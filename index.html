@@ -37,7 +37,7 @@ const FLAGS = {
   CAN:"🇨🇦",ECU:"🇪🇨",PAR:"🇵🇾",PAN:"🇵🇦",COD:"🇨🇩",QAT:"🇶🇦",
   IRN:"🇮🇷",KSA:"🇸🇦",IRQ:"🇮🇶",JOR:"🇯🇴",DZA:"🇩🇿",TUN:"🇹🇳",UZB:"🇺🇿",
   NZL:"🇳🇿",GHA:"🇬🇭",CPV:"🇨🇻",CUW:"🇨🇼",HTI:"🇭🇹",BIH:"🇧🇦",AUT:"🇦🇹",
-  CZE:"🇨🇿",RSA:"🇿🇦",SCO:"🏴",CHL:"🇨🇱",
+  CZE:"🇨🇿",RSA:"🇿🇦",SCO:"🏴󠁧󠁢󠁳󠁣󠁴󠁿",CHL:"🇨🇱",
 };
 const f = t => FLAGS[t] || "🏳";
 
@@ -519,9 +519,8 @@ function App() {
           </div>
         </div>
         <div style={{display:"flex",gap:"5px"}}>
-          {positions.map(({l,t,pos})=>(
-            <div key={pos} style={{flex:1,background:gb(t),border:`1px solid ${gc(t)}33`,borderRadius:"5px",padding:"5px 3px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px"}}>
-              <div style={{fontSize:"9px",color:T.muted}}>{l}</div>
+          {positions.map(({t,pos})=>(
+            <div key={pos} onClick={()=>setST(t)} style={{flex:1,background:gb(t),border:`1px solid ${gc(t)}33`,borderRadius:"5px",padding:"5px 3px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",cursor:"pointer"}}>
               <div style={{fontSize:"15px"}}>{f(t)}</div>
               <div style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:gc(t)}}>{t}</div>
               <div style={{fontFamily:T.font,fontSize:"7px",color:gc(t),opacity:0.7,whiteSpace:"nowrap"}}>{nm(t)}</div>
@@ -924,9 +923,8 @@ function App() {
                     </div>
                   </div>
                   <div style={{display:"flex",gap:"5px"}}>
-                    {[{t:best.p1,l:"🥇"},{t:best.p2,l:"🥈"},{t:best.p3,l:"🥉"},{t:best.p4,l:"4️⃣"}].map(({t,l},j)=>(
+                    {[best.p1,best.p2,best.p3,best.p4].map((t,j)=>(
                       <div key={j} title={nm(t)} onClick={e=>{e.stopPropagation();setST(t);}} style={{flex:1,background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.08)":"transparent",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"22":T.border}`,borderRadius:"4px",padding:"4px 2px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",overflow:"hidden",cursor:"pointer"}}>
-                        <div style={{fontSize:"8px",color:T.muted}}>{l}</div>
                         <div style={{fontSize:"13px"}}>{f(t)}</div>
                         <div style={{fontFamily:T.font,fontSize:"7px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:"100%"}}>{nm(t)}</div>
                       </div>

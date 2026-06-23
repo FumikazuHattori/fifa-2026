@@ -1,5 +1,7 @@
 name: Update World Cup scores
 
+# schedule実行がしばらく発火していない状態が確認できたため、ワークフローファイルへの
+# コミットを挟んでGitHub側のスケジューラを再アクティブ化する。
 on:
   schedule:
     - cron: "*/30 * * * *"
