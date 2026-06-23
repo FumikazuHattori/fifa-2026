@@ -11,7 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#080e08;color:#e0ffe0;font-family:system-ui,sans-serif}
+  body{
+    background-color:#080e08;
+    /* 芝を刈った後にできる縞模様を模した、ごく薄いストライプ。サッカーらしさを
+       出すための装飾であり、コンテンツとのコントラストを潰さないよう極めて薄くしている。 */
+    background-image:repeating-linear-gradient(100deg,
+      rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 60px,
+      transparent 60px, transparent 120px);
+    color:#e0ffe0;font-family:system-ui,sans-serif;
+  }
   ::-webkit-scrollbar{width:6px;height:6px}
   ::-webkit-scrollbar-track{background:#080e08}
   ::-webkit-scrollbar-thumb{background:#1e3a1e;border-radius:3px}
@@ -590,7 +598,7 @@ function App() {
     const grpGames=g=>games.filter(m=>GROUP_TEAMS[g]?.includes(m.home)&&GROUP_TEAMS[g]?.includes(m.away));
     const StandingsTable = ({grp}) => (
       <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>GROUP {grp} — STANDINGS</div>
+        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>GROUP {grp} — STANDINGS</div>
         <table style={{width:"100%",borderCollapse:"collapse",fontSize:"12px"}}>
           <thead><tr style={{background:"#111d11"}}>
             {["#","TEAM","MP","W","D","L","GF","GA","GD","PTS"].map(h=>(
@@ -621,7 +629,7 @@ function App() {
     );
     const MatchList = ({grp}) => (
       <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>MATCHES</div>
+        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>MATCHES</div>
         {grpGames(grp).length===0
           ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>このグループの試合データなし</div>
           :grpGames(grp).map((g,i)=><MatchRow key={i} game={g}/>)}
@@ -935,7 +943,7 @@ function App() {
           </div>
         </div>
         <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-          <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700}}>🔥 チーム別 被予想数（全{activePredictions.length}件）</div>
+          <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700,borderBottom:`1px dashed ${T.yellow}33`}}>🔥 チーム別 被予想数（全{activePredictions.length}件）</div>
           <div style={{padding:"10px",display:"flex",flexWrap:"wrap",gap:"6px"}}>
             {popularity.map(({t,n})=>(
               <div key={t} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",padding:"5px 10px",borderRadius:"4px",background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.09)":"#111d11",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"33":T.border}`,opacity:ELIMINATED.has(t)?0.5:1,cursor:"pointer"}}>
@@ -947,7 +955,7 @@ function App() {
           </div>
         </div>
         <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-          <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700,display:"flex",justifyContent:"space-between",alignItems:"center",borderBottom:`1px dashed ${T.yellow}33`}}>
             <span>💰 賭けコジー額</span>
             <span style={{color:T.green,fontSize:"13px"}}>大会合計 {totalPool.toLocaleString()}コジー</span>
           </div>
@@ -977,7 +985,7 @@ function App() {
           </div>
         </div>
         <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-          <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700}}>🏆 報酬一覧（決勝・3位決定戦の結果から自動計算）</div>
+          <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700,borderBottom:`1px dashed ${T.yellow}33`}}>🏆 報酬一覧（決勝・3位決定戦の結果から自動計算）</div>
           {!resultDecided ? (
             <div style={{padding:"14px",fontFamily:T.font,fontSize:"11px",color:T.muted,lineHeight:1.7}}>
               決勝・3位決定戦の結果が確定するまでは配当を計算できません（現在：優勝{finalResult[1]?nm(finalResult[1]):"未確定"} / 準優勝{finalResult[2]?nm(finalResult[2]):"未確定"} / 3位{finalResult[3]?nm(finalResult[3]):"未確定"}）。
@@ -1096,7 +1104,7 @@ function App() {
           </div>
           {s&&(
             <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-              <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>GROUP {grp} — {rank+1}位</div>
+              <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>GROUP {grp} — {rank+1}位</div>
               <div style={{display:"flex",gap:"10px",padding:"10px 14px",flexWrap:"wrap",fontFamily:T.font,fontSize:"12px",color:"#aacaaa"}}>
                 <span>試合 {s.mp}</span><span>勝 {s.w}</span><span>分 {s.d}</span><span>敗 {s.l}</span>
                 <span>得失点 {s.gf}-{s.ga}</span><span style={{color:T.green,fontWeight:900}}>勝点 {s.pts}</span>
@@ -1104,7 +1112,7 @@ function App() {
             </div>
           )}
           <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-            <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>MATCHES</div>
+            <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>MATCHES</div>
             {teamGames.length===0
               ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>試合データなし</div>
               :teamGames.map((g,i)=><MatchRow key={i} game={g}/>)}
@@ -1121,8 +1129,14 @@ function App() {
   return (
     <div style={{minHeight:"100vh",background:T.bg}}>
       {selectedTeam&&<TeamDetailPanel team={selectedTeam} onClose={()=>setST(null)}/>}
-      <div ref={headerRef} style={{background:"#0a120a",borderBottom:`1px solid ${T.border}`,padding:bp.isDesktop?"14px 24px":"12px 14px",position:"sticky",top:0,zIndex:100}}>
-        <div style={{maxWidth:"1200px",margin:"0 auto"}}>
+      <div ref={headerRef} style={{background:"#0a120a",borderBottom:`2px solid ${T.green}`,padding:bp.isDesktop?"14px 24px":"12px 14px",position:"sticky",top:0,zIndex:100,overflow:"hidden"}}>
+        {/* ピッチのセンターサークル＋ハーフウェイラインを模した、ごく薄い装飾。
+            ヘッダーの背景に「サッカーらしさ」を足すだけで、レイアウトには影響しない。 */}
+        <div aria-hidden="true" style={{position:"absolute",inset:0,pointerEvents:"none",opacity:0.5}}>
+          <div style={{position:"absolute",left:"50%",top:0,bottom:0,width:"1px",background:`linear-gradient(${T.green}22,transparent)`}}/>
+          <div style={{position:"absolute",left:"50%",top:"50%",width:"90px",height:"90px",marginLeft:"-45px",marginTop:"-45px",borderRadius:"50%",border:`1px solid ${T.green}1a`}}/>
+        </div>
+        <div style={{maxWidth:"1200px",margin:"0 auto",position:"relative"}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:"12px",marginBottom:"10px"}}>
             <div>
               <div style={{fontFamily:T.font,fontWeight:900,fontSize:bp.isDesktop?"24px":"19px",letterSpacing:"2px",color:"#e0ffe0",lineHeight:1}}>⚽ FIFA WORLD CUP 2026</div>
@@ -1132,7 +1146,7 @@ function App() {
               {bp.isDesktop&&<div style={{fontFamily:T.font,fontSize:"12px",color:T.muted,letterSpacing:"1px"}}>{activePredictions.length}エントリー / {uniqueNames.length}人参加</div>}
             </div>
           </div>
-          <div style={{display:"flex",borderBottom:`1px solid ${T.border}`,maxWidth:"500px"}}>
+          <div style={{display:"flex",borderBottom:`1px dashed ${T.border}`,maxWidth:"500px"}}>
             {tabBtn("pred","🎯 予想バトル")}
             {tabBtn("group","📊 グループ")}
             {tabBtn("bracket","🏆 トーナメント")}
