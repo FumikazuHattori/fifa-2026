@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T04:55:19.406Z",
+  "updatedAt": "2026-06-23T07:35:57.785Z",
   "games": [
     {
       "id": 537327,
@@ -10,7 +10,8 @@
         "RSA": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537328,
@@ -21,7 +22,8 @@
         "CZE": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537333,
@@ -32,7 +34,8 @@
         "BIH": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537345,
@@ -43,7 +46,8 @@
         "PAR": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537334,
@@ -54,7 +58,8 @@
         "SUI": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537339,
@@ -65,7 +70,8 @@
         "MAR": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537340,
@@ -76,7 +82,8 @@
         "SCO": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "away"
     },
     {
       "id": 537346,
@@ -87,7 +94,8 @@
         "TUR": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537351,
@@ -98,7 +106,8 @@
         "CUW": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537357,
@@ -109,7 +118,8 @@
         "JPN": 2
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537352,
@@ -120,7 +130,8 @@
         "ECU": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537358,
@@ -131,7 +142,8 @@
         "TUN": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537369,
@@ -142,7 +154,8 @@
         "CPV": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537363,
@@ -153,7 +166,8 @@
         "EGY": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537370,
@@ -164,7 +178,8 @@
         "URU": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537364,
@@ -175,7 +190,8 @@
         "NZL": 2
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537391,
@@ -186,7 +202,8 @@
         "SEN": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537392,
@@ -197,7 +214,8 @@
         "NOR": 4
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "away"
     },
     {
       "id": 537397,
@@ -208,7 +226,8 @@
         "DZA": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537398,
@@ -219,7 +238,8 @@
         "JOR": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537403,
@@ -230,7 +250,8 @@
         "COD": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537409,
@@ -241,7 +262,8 @@
         "CRO": 2
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537410,
@@ -252,7 +274,8 @@
         "PAN": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537404,
@@ -263,7 +286,8 @@
         "COL": 3
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "away"
     },
     {
       "id": 537329,
@@ -274,7 +298,8 @@
         "RSA": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537335,
@@ -285,7 +310,8 @@
         "BIH": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537336,
@@ -296,7 +322,8 @@
         "QAT": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537330,
@@ -307,7 +334,8 @@
         "KOR": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537348,
@@ -318,7 +346,8 @@
         "AUS": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537342,
@@ -329,7 +358,8 @@
         "MAR": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "away"
     },
     {
       "id": 537341,
@@ -340,7 +370,8 @@
         "HTI": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537347,
@@ -351,7 +382,8 @@
         "PAR": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "away"
     },
     {
       "id": 537359,
@@ -362,7 +394,8 @@
         "SWE": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537353,
@@ -373,7 +406,8 @@
         "CIV": 1
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537354,
@@ -384,7 +418,8 @@
         "CUW": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537360,
@@ -395,7 +430,8 @@
         "JPN": 4
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "away"
     },
     {
       "id": 537371,
@@ -406,7 +442,8 @@
         "KSA": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537365,
@@ -417,7 +454,8 @@
         "IRN": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537372,
@@ -428,7 +466,8 @@
         "CPV": 2
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537366,
@@ -439,7 +478,8 @@
         "EGY": 3
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "away"
     },
     {
       "id": 537399,
@@ -450,7 +490,8 @@
         "AUT": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537393,
@@ -461,7 +502,8 @@
         "IRQ": 0
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537394,
@@ -472,7 +514,8 @@
         "SEN": 2
       },
       "status": "final",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": "home"
     },
     {
       "id": 537400,
@@ -482,8 +525,9 @@
         "JOR": 1,
         "DZA": 2
       },
-      "status": "live",
-      "stage": "GROUP_STAGE"
+      "status": "final",
+      "stage": "GROUP_STAGE",
+      "winner": "away"
     },
     {
       "id": 537405,
@@ -494,7 +538,8 @@
         "UZB": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537411,
@@ -505,7 +550,8 @@
         "GHA": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537412,
@@ -516,7 +562,8 @@
         "CRO": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537406,
@@ -527,7 +574,8 @@
         "COD": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537337,
@@ -538,7 +586,8 @@
         "CAN": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537338,
@@ -549,7 +598,8 @@
         "QAT": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537344,
@@ -560,7 +610,8 @@
         "HTI": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537343,
@@ -571,7 +622,8 @@
         "BRA": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537331,
@@ -582,7 +634,8 @@
         "MEX": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537332,
@@ -593,7 +646,8 @@
         "KOR": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537355,
@@ -604,7 +658,8 @@
         "GER": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537356,
@@ -615,7 +670,8 @@
         "CIV": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537361,
@@ -626,7 +682,8 @@
         "NED": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537362,
@@ -637,7 +694,8 @@
         "SWE": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537349,
@@ -648,7 +706,8 @@
         "USA": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537350,
@@ -659,7 +718,8 @@
         "AUS": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537395,
@@ -670,7 +730,8 @@
         "FRA": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537396,
@@ -681,7 +742,8 @@
         "IRQ": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537373,
@@ -692,7 +754,8 @@
         "ESP": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537374,
@@ -703,7 +766,8 @@
         "KSA": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537367,
@@ -714,7 +778,8 @@
         "BEL": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537368,
@@ -725,7 +790,8 @@
         "IRN": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537413,
@@ -736,7 +802,8 @@
         "ENG": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537414,
@@ -747,7 +814,8 @@
         "GHA": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537407,
@@ -758,7 +826,8 @@
         "POR": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537408,
@@ -769,7 +838,8 @@
         "UZB": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537401,
@@ -780,7 +850,8 @@
         "ARG": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     },
     {
       "id": 537402,
@@ -791,7 +862,8 @@
         "AUT": 0
       },
       "status": "scheduled",
-      "stage": "GROUP_STAGE"
+      "stage": "GROUP_STAGE",
+      "winner": null
     }
   ]
 }
