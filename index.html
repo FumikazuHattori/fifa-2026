@@ -393,79 +393,31 @@ function useBreakpoint() {
   return { isMobile:w<640, isTablet:w>=640&&w<1024, isDesktop:w>=1024, w };
 }
 
-// ===================== football-data.org 試合結果連携 =====================
-// 無料登録すれば発行されるAPIトークンで、FIFAワールドカップの試合結果を取得できる
-// （登録: https://www.football-data.org/client/register ）。
-// football-data.org は Access-Control-Allow-Origin: * を返すため、サーバ無しの
-// 静的サイト（GitHub Pages）からブラウザのfetchで直接呼んでも動作する。
-const FD_API_BASE = "https://api.football-data.org/v4";
-const FD_TOKEN_STORAGE_KEY = "fifa2026_fdToken";
-
-// football-data.org のtla（3文字コード）が、このアプリのコードと食い違う場合だけ上書きする。
-const FD_TLA_OVERRIDE = {};
-
-const fdToOurCode = team => {
-  const tla = team?.tla;
-  if (!tla) return null;
-  return FD_TLA_OVERRIDE[tla] || tla;
-};
-
-const fdStatusToOurs = s => {
-  if (s === "FINISHED") return "final";
-  if (s === "IN_PLAY" || s === "PAUSED") return "live";
-  return "scheduled";
-};
-
-async function fetchFDMatches(apiToken) {
-  const res = await fetch(`${FD_API_BASE}/competitions/WC/matches`, {
-    headers: { "X-Auth-Token": apiToken },
-  });
-  if (!res.ok) {
-    if (res.status === 403) throw new Error("APIトークンが無効か、アクセス権限がありません。");
-    if (res.status === 429) throw new Error("APIのリクエスト数上限に達しました。1分ほど待って再試行してください。");
-    throw new Error(`取得に失敗しました（HTTP ${res.status}）`);
-  }
-  const data = await res.json();
-  return (data.matches || [])
-    .map(m => {
-      const home = fdToOurCode(m.homeTeam);
-      const away = fdToOurCode(m.awayTeam);
-      if (!home || !away) return null;
-      const hs = m.score?.fullTime?.home;
-      const as = m.score?.fullTime?.away;
-      return {
-        home, away,
-        score: { [home]: hs ?? 0, [away]: as ?? 0 },
-        status: fdStatusToOurs(m.status),
-      };
-    })
-    .filter(Boolean);
-}
-
+// ===================== 試合結果（scores.json）連携 =====================
+// football-data.orgはブラウザからの直接fetchをCORSで許可していない
+// （トークンに紐づくAllow-Originがlocalhost固定で返ってくる）ため、
+// GitHub Actions（.github/workflows/update-scores.yml）がサーバー側で定期的に
+// football-data.orgを叩き、結果をリポジトリ内の scores.json に書き出している。
+// アプリは同一オリジンの scores.json を読むだけなので、CORSの問題が発生しない。
 function useLiveScores() {
-  const [apiToken, setApiTokenState] = useState(() => localStorage.getItem(FD_TOKEN_STORAGE_KEY) || "");
   const [games, setGames] = useState(SEED_GAMES);
   const [status, setStatus] = useState("idle"); // idle / loading / success / error
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  const setApiToken = token => {
-    setApiTokenState(token);
-    localStorage.setItem(FD_TOKEN_STORAGE_KEY, token);
-  };
-
   const load = async () => {
-    if (!apiToken) { setStatus("error"); setError("APIトークンが未設定です。"); return; }
     setStatus("loading"); setError(null);
     try {
-      const matches = await fetchFDMatches(apiToken);
-      if (matches.length) {
-        setGames(matches);
+      const res = await fetch(`scores.json?t=${Date.now()}`, { cache: "no-store" });
+      if (!res.ok) throw new Error(`scores.json の取得に失敗しました（HTTP ${res.status}）`);
+      const data = await res.json();
+      if (data.games && data.games.length) {
+        setGames(data.games);
         setStatus("success");
-        setLastUpdated(new Date());
+        setLastUpdated(data.updatedAt ? new Date(data.updatedAt) : new Date());
       } else {
         setStatus("error");
-        setError("試合データが0件でした。トークンを確認してください。");
+        setError("scores.jsonがまだ更新されていません（GitHub Actionsの初回実行待ちかもしれません）。");
       }
     } catch (e) {
       setStatus("error");
@@ -473,9 +425,9 @@ function useLiveScores() {
     }
   };
 
-  return { apiToken, setApiToken, games, status, error, lastUpdated, load };
+  return { games, status, error, lastUpdated, load };
 }
-// =================== /football-data.org 試合結果連携 ===================
+// =================== /試合結果連携 ===================
 
 // 試合結果の再取得サイクル（秒）。更新頻度を上げたい場合はここだけ変更すればよい。
 const REFRESH_INTERVAL_SEC = 30 * 60;
@@ -516,8 +468,8 @@ function App() {
   const live                  = useLiveScores();
   const games                 = live.games;
 
-  // APIトークンが設定済みなら起動時に一度だけ自動取得する。
-  useEffect(()=>{ if (live.apiToken) live.load(); },[]); // eslint-disable-line
+  // 起動時に一度、scores.json（GitHub Actionsが定期更新）を読み込む。
+  useEffect(()=>{ live.load(); },[]); // eslint-disable-line
 
   const allStats = buildStandings(games);
 
@@ -850,51 +802,40 @@ function App() {
   };
   // =================== /シート連携設定パネル ===================
 
-  // ===================== 試合結果（football-data.org）設定パネル =====================
+  // ===================== 試合結果（scores.json）状態パネル =====================
   const LiveScorePanel = () => {
-    const [tokenInput, setTokenInput] = useState(live.apiToken);
-    const [open, setOpen] = useState(!!live.apiToken);
-
-    const saveToken = () => { live.setApiToken(tokenInput); };
-
+    const [open, setOpen] = useState(false);
     return (
       <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
         <button onClick={()=>setOpen(o=>!o)} style={{width:"100%",textAlign:"left",background:"#0a120a",border:"none",cursor:"pointer",padding:"8px 14px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-          <span style={{fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>⚽ 試合結果の自動取得設定</span>
+          <span style={{fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>⚽ 試合結果の自動取得状況</span>
           <span style={{fontFamily:T.font,fontSize:"10px",color:T.muted}}>{open?"▲ 閉じる":"▼ 開く"}</span>
         </button>
         {open && (
           <div style={{padding:"12px 14px",display:"flex",flexDirection:"column",gap:"10px"}}>
             <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim,lineHeight:1.6}}>
-              football-data.org の無料APIトークンを登録すると、ワールドカップの試合結果を自動取得できます。
-              <a href="https://www.football-data.org/client/register" target="_blank" rel="noopener noreferrer" style={{color:T.green}}>こちらから無料登録</a>
-              （登録後にメールで届くトークンを下に入力）。未設定の間はサンプル/手入力データのまま表示されます。
-            </div>
-            <div>
-              <div style={{fontFamily:T.font,fontSize:"10px",color:T.muted,marginBottom:"4px"}}>APIトークン（X-Auth-Token）</div>
-              <div style={{display:"flex",gap:"6px"}}>
-                <input type="password" value={tokenInput} onChange={e=>setTokenInput(e.target.value)} placeholder="football-data.orgのトークンを入力"
-                  style={{flex:1,background:"#080e08",border:`1px solid ${T.border}`,borderRadius:"4px",padding:"7px 10px",color:"#d0eed0",fontSize:"12px"}}/>
-                <button onClick={saveToken} style={{padding:"7px 12px",background:"#111d11",border:`1px solid ${T.border}`,borderRadius:"4px",color:T.muted,fontFamily:T.font,fontSize:"11px",cursor:"pointer"}}>保存</button>
-              </div>
+              試合結果はGitHub Actions（{Math.round(REFRESH_INTERVAL_SEC/60)}分おとに自動実行）がfootball-data.orgから取得し、
+              <code style={{color:T.green}}>scores.json</code> に書き出しています。このアプリはそのファイルを読み込むだけなので、
+              ブラウザのCORS制限を受けません。
             </div>
             <div style={{display:"flex",alignItems:"center",gap:"10px",flexWrap:"wrap"}}>
-              <button onClick={live.load} disabled={live.status==="loading"||!live.apiToken} style={{padding:"8px 16px",background:T.green,border:"none",borderRadius:"4px",color:"#080e08",fontFamily:T.font,fontSize:"12px",fontWeight:700,cursor:"pointer",opacity:(live.status==="loading"||!live.apiToken)?0.6:1}}>
-                {live.status==="loading"?"取得中...":"⟳ 今すぐ取得"}
+              <button onClick={live.load} disabled={live.status==="loading"} style={{padding:"8px 16px",background:T.green,border:"none",borderRadius:"4px",color:"#080e08",fontFamily:T.font,fontSize:"12px",fontWeight:700,cursor:"pointer",opacity:live.status==="loading"?0.6:1}}>
+                {live.status==="loading"?"取得中...":"⟳ scores.jsonを再読込"}
               </button>
-              {live.status==="success" && <span style={{fontFamily:T.font,fontSize:11,color:T.green}}>✓ {live.games.length}試合を取得（{live.lastUpdated?.toLocaleTimeString("ja-JP")}時点）</span>}
+              {live.status==="success" && <span style={{fontFamily:T.font,fontSize:11,color:T.green}}>✓ {live.games.length}試合（更新: {live.lastUpdated?.toLocaleString("ja-JP")}）</span>}
               {live.status==="error" && <span style={{fontFamily:T.font,fontSize:11,color:T.red}}>⚠ {live.error}</span>}
-              {live.status==="idle" && <span style={{fontFamily:T.font,fontSize:11,color:T.dim}}>トークン未設定（サンプルデータを表示中）</span>}
             </div>
             <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim,lineHeight:1.6}}>
-              ※ トークン設定後は、上部の「次回更新」のカウントダウンが0になるたびに自動で再取得します（{Math.round(REFRESH_INTERVAL_SEC/60)}分間隔）。
+              ※ scores.jsonが空のままの場合は、リポジトリのSettings → Secrets and variables → Actions で
+              <code style={{color:T.green}}>FD_API_TOKEN</code> を登録し、Actionsタブから「Update World Cup scores」を
+              一度手動実行（workflow_dispatch）してください。
             </div>
           </div>
         )}
       </div>
     );
   };
-  // =================== /試合結果設定パネル ===================
+  // =================== /試合結果パネル ===================
 
   const PredTab = () => {
     const allTeams=[...new Set(activePredictions.flatMap(p=>[p.p1,p.p2,p.p3,p.p4]))];
