@@ -579,7 +579,7 @@ function App() {
           </div>
           <div style={{minWidth:"60px",textAlign:"center",fontFamily:T.font,fontWeight:900,fontSize:"17px"}}>
             {fin||live
-              ?<><span style={{color:(fin&&hs>as)?T.green:"#d0eed0"}}>{hs}</span><span style={{color:T.dim,margin:"0 3px",fontSize:"12px"}}>-</span><span style={{color:(fin&&as>hs)?T.green:"#d0eed0"}}>{as}</span></>
+              ?<><span style={{color:(fin&&hs>as)?T.green:"#d0eed0"}}>{hs}</span><span style={{color:T.dim,margin:"0 3px",fontSize:"10px"}}>⚽</span><span style={{color:(fin&&as>hs)?T.green:"#d0eed0"}}>{as}</span></>
               :<span style={{color:T.dim,fontSize:"11px"}}>VS</span>}
           </div>
           <div onClick={()=>setST(game.away)} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",cursor:"pointer"}}>
@@ -598,7 +598,7 @@ function App() {
     const grpGames=g=>games.filter(m=>GROUP_TEAMS[g]?.includes(m.home)&&GROUP_TEAMS[g]?.includes(m.away));
     const StandingsTable = ({grp}) => (
       <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>GROUP {grp} — STANDINGS</div>
+        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>🚩 GROUP {grp} — STANDINGS</div>
         <table style={{width:"100%",borderCollapse:"collapse",fontSize:"12px"}}>
           <thead><tr style={{background:"#111d11"}}>
             {["#","TEAM","MP","W","D","L","GF","GA","GD","PTS"].map(h=>(
@@ -610,7 +610,9 @@ function App() {
               const gd=s.gf-s.ga,q=i<2,elim=ELIMINATED.has(s.team);
               return (
                 <tr key={s.team} style={{borderLeft:elim?`2px solid ${T.red}`:q?`2px solid ${T.green}`:"2px solid transparent",background:elim?"rgba(255,68,85,0.05)":q?"rgba(0,255,136,0.03)":"transparent",opacity:elim?0.55:1}}>
-                  <td style={{padding:"7px 6px",textAlign:"center",color:T.dim,fontFamily:T.font,fontWeight:700}}>{i+1}</td>
+                  <td style={{padding:"7px 6px",textAlign:"center"}}>
+                    <span style={{display:"inline-flex",alignItems:"center",justifyContent:"center",width:"19px",height:"19px",borderRadius:"50%",border:`1px dashed ${q?T.green:T.dim}`,color:q?T.green:T.dim,fontFamily:T.font,fontWeight:700,fontSize:"11px"}}>{i+1}</span>
+                  </td>
                   <td onClick={()=>setST(s.team)} style={{padding:"7px 6px",color:elim?T.red:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px",cursor:"pointer"}}>
                     {nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span>
                     {elim&&<span style={{marginLeft:"6px",fontSize:"9px",fontWeight:700,letterSpacing:"1px",color:T.red,padding:"1px 4px",border:`1px solid ${T.red}`,borderRadius:"3px"}}>敗退</span>}
@@ -629,7 +631,7 @@ function App() {
     );
     const MatchList = ({grp}) => (
       <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>MATCHES</div>
+        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>⚽ MATCHES</div>
         {grpGames(grp).length===0
           ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>このグループの試合データなし</div>
           :grpGames(grp).map((g,i)=><MatchRow key={i} game={g}/>)}
@@ -1104,7 +1106,7 @@ function App() {
           </div>
           {s&&(
             <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-              <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>GROUP {grp} — {rank+1}位</div>
+              <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>🚩 GROUP {grp} — {rank+1}位</div>
               <div style={{display:"flex",gap:"10px",padding:"10px 14px",flexWrap:"wrap",fontFamily:T.font,fontSize:"12px",color:"#aacaaa"}}>
                 <span>試合 {s.mp}</span><span>勝 {s.w}</span><span>分 {s.d}</span><span>敗 {s.l}</span>
                 <span>得失点 {s.gf}-{s.ga}</span><span style={{color:T.green,fontWeight:900}}>勝点 {s.pts}</span>
@@ -1112,7 +1114,7 @@ function App() {
             </div>
           )}
           <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-            <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>MATCHES</div>
+            <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>⚽ MATCHES</div>
             {teamGames.length===0
               ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>試合データなし</div>
               :teamGames.map((g,i)=><MatchRow key={i} game={g}/>)}
