@@ -893,28 +893,42 @@ function App() {
       return {pos,ranked};
     });
     // 投票結果確認シートの「報酬一覧」「配当」「収支」に対応する集計。
-    // エクセル側は優勝者の名前を大会終了後に手入力する仕組みだったが、ここでは
-    // football-data.orgが確定させた決勝・3位決定戦の結果（finalResult）から自動判定する。
-    // 同じ予想が複数いる場合は、最も早く投票した人（dateが最も早いエントリー）を優先する。
-    const earliestPredictor = (pos,team) => {
-      if(!team) return null;
-      const matching = activePredictions
-        .map((p,idx)=>({...p,idx}))
-        .filter(p=>p[`p${pos}`]===team)
-        .sort((a,b)=> (a.date<b.date?-1:a.date>b.date?1:a.idx-b.idx));
-      return matching.length ? matching[0].name : null;
-    };
-    const champPerson    = earliestPredictor(1, finalResult[1]);
-    const runnerUpPerson = earliestPredictor(2, finalResult[2]);
-    const thirdPerson    = earliestPredictor(3, finalResult[3]);
+    // ルールブック【順位決定の優先順位（タイブレーク基準）】に従って、エントリー（口）
+    // 全体を1列にランキングし、上位3口が報酬1〜3位（賭けコジー総額の70%/20%/10%）を獲得する。
+    // 優勝/準優勝/3位/4位の全てが確定するまでは判定不能。
+    const resultDecided = !!(finalResult[1] && finalResult[2] && finalResult[3] && finalResult[4]);
+    const best4Set = new Set([finalResult[1],finalResult[2],finalResult[3],finalResult[4]]);
+    const rankedEntries = !resultDecided ? [] : activePredictions
+      .map((p,idx)=>{
+        const picks=[p.p1,p.p2,p.p3,p.p4];
+        return {
+          ...p, idx,
+          champCorrect: p.p1===finalResult[1] ? 1 : 0,                              // ①優勝チームの的中
+          finalCard: [p.p1,p.p2].slice().sort().join("|")===[finalResult[1],finalResult[2]].slice().sort().join("|") ? 1 : 0, // ②決勝カードの的中（順不問）
+          best4Hits: picks.filter(t=>best4Set.has(t)).length,                       // ③ベスト4チームの的中数
+          hasRunnerUp: picks.includes(finalResult[2]) ? 1 : 0,                      // ④より上位のチームの的中（2位>3位>4位）
+          hasThird: picks.includes(finalResult[3]) ? 1 : 0,
+          hasFourth: picks.includes(finalResult[4]) ? 1 : 0,
+          exactMatches: (p.p2===finalResult[2]?1:0)+(p.p3===finalResult[3]?1:0)+(p.p4===finalResult[4]?1:0), // ⑤最終順位のドンピシャ的中数（2〜4位）
+        };
+      })
+      .sort((a,b)=>
+        b.champCorrect-a.champCorrect ||
+        b.finalCard-a.finalCard ||
+        b.best4Hits-a.best4Hits ||
+        b.hasRunnerUp-a.hasRunnerUp ||
+        b.hasThird-a.hasThird ||
+        b.hasFourth-a.hasFourth ||
+        b.exactMatches-a.exactMatches ||
+        (a.date<b.date?-1:a.date>b.date?1:a.idx-b.idx)                              // ⑥予想の早さ
+      );
     const prizes = [
-      {label:"優勝予想", team:finalResult[1], amount:totalPool*0.7, persons: champPerson ? [champPerson] : []},
-      {label:"準優勝予想", team:finalResult[2], amount:totalPool*0.2, persons: runnerUpPerson ? [runnerUpPerson] : []},
-      {label:"3位予想", team:finalResult[3], amount:totalPool*0.1, persons: thirdPerson ? [thirdPerson] : []},
+      {label:"1位", amount:totalPool*0.7, entry: rankedEntries[0]||null},
+      {label:"2位", amount:totalPool*0.2, entry: rankedEntries[1]||null},
+      {label:"3位", amount:totalPool*0.1, entry: rankedEntries[2]||null},
     ];
-    const resultDecided = !!(finalResult[1] && finalResult[2] && finalResult[3]);
     const payoutByPerson = name => prizes.reduce((sum,pr)=>
-      sum + (pr.persons.includes(name) ? pr.amount/pr.persons.length : 0), 0);
+      sum + (pr.entry && pr.entry.name===name ? pr.amount : 0), 0);
     const PersonDetail=({name,onBack})=>{
       const entries=scoredEntries.filter(e=>e.name===name);
       const cols=bp.isDesktop?"1fr 1fr 1fr":bp.isTablet?"1fr 1fr":"1fr";
@@ -990,17 +1004,17 @@ function App() {
           <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700,borderBottom:`1px dashed ${T.yellow}33`}}>🏆 報酬一覧（決勝・3位決定戦の結果から自動計算）</div>
           {!resultDecided ? (
             <div style={{padding:"14px",fontFamily:T.font,fontSize:"11px",color:T.muted,lineHeight:1.7}}>
-              決勝・3位決定戦の結果が確定するまでは配当を計算できません（現在：優勝{finalResult[1]?nm(finalResult[1]):"未確定"} / 準優勝{finalResult[2]?nm(finalResult[2]):"未確定"} / 3位{finalResult[3]?nm(finalResult[3]):"未確定"}）。
+              優勝・準優勝・3位・4位の全てが確定するまでは配当を計算できません（現在：優勝{finalResult[1]?nm(finalResult[1]):"未確定"} / 準優勝{finalResult[2]?nm(finalResult[2]):"未確定"} / 3位{finalResult[3]?nm(finalResult[3]):"未確定"} / 4位{finalResult[4]?nm(finalResult[4]):"未確定"}）。
             </div>
           ):(
             <>
               <div style={{padding:"10px 14px",display:"grid",gridTemplateColumns:bp.isDesktop?"1fr 1fr 1fr":"1fr",gap:"8px"}}>
                 {prizes.map(pr=>(
                   <div key={pr.label} style={{background:"#0d160d",border:`1px solid ${T.border}`,borderRadius:"5px",padding:"8px 10px"}}>
-                    <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"1px",color:T.muted}}>{pr.label}（{f(pr.team)} {nm(pr.team)}）</div>
+                    <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"1px",color:T.muted}}>{pr.label}</div>
                     <div style={{fontFamily:T.font,fontSize:"16px",fontWeight:900,color:T.yellow,marginTop:"2px"}}>{pr.amount.toLocaleString()}コジー</div>
                     <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim,marginTop:"2px"}}>
-                      {pr.persons.length ? `${pr.persons[0]}（最速投票者）` : "正解者なし"}
+                      {pr.entry ? `${pr.entry.name}（${pr.entry.date}）` : "該当者なし"}
                     </div>
                   </div>
                 ))}
