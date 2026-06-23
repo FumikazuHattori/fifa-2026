@@ -842,9 +842,7 @@ function App() {
               ブラウザのCORS制限を受けません。
             </div>
             <div style={{display:"flex",alignItems:"center",gap:"10px",flexWrap:"wrap"}}>
-              <button onClick={live.load} disabled={live.status==="loading"} style={{padding:"8px 16px",background:T.green,border:"none",borderRadius:"4px",color:"#080e08",fontFamily:T.font,fontSize:"12px",fontWeight:700,cursor:"pointer",opacity:live.status==="loading"?0.6:1}}>
-                {live.status==="loading"?"取得中...":"⟳ scores.jsonを再読込"}
-              </button>
+              <span style={{fontFamily:T.font,fontSize:"10px",color:T.muted}}>⏱ {Math.round(REFRESH_INTERVAL_SEC/60)}分おきに自動更新されます</span>
               {live.status==="success" && <span style={{fontFamily:T.font,fontSize:11,color:T.green}}>✓ {live.games.length}試合（更新: {live.lastUpdated?.toLocaleString("ja-JP")}）</span>}
               {live.status==="error" && <span style={{fontFamily:T.font,fontSize:11,color:T.red}}>⚠ {live.error}</span>}
             </div>
