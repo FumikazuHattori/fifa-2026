@@ -1,653 +1,797 @@
 {
-  "updatedAt": "2026-06-23T00:57:18.571Z",
+  "updatedAt": "2026-06-23T03:12:51.761Z",
   "games": [
     {
+      "id": 537327,
       "home": "MEX",
       "away": "RSA",
       "score": {
         "MEX": 2,
         "RSA": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537328,
       "home": "KOR",
       "away": "CZE",
       "score": {
         "KOR": 2,
         "CZE": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537333,
       "home": "CAN",
       "away": "BIH",
       "score": {
         "CAN": 1,
         "BIH": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537345,
       "home": "USA",
       "away": "PAR",
       "score": {
         "USA": 4,
         "PAR": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537334,
       "home": "QAT",
       "away": "SUI",
       "score": {
         "QAT": 1,
         "SUI": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537339,
       "home": "BRA",
       "away": "MAR",
       "score": {
         "BRA": 1,
         "MAR": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537340,
       "home": "HTI",
       "away": "SCO",
       "score": {
-        "SCO": 1,
-        "HTI": 0
+        "HTI": 0,
+        "SCO": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537346,
       "home": "AUS",
       "away": "TUR",
       "score": {
         "AUS": 2,
         "TUR": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537351,
       "home": "GER",
       "away": "CUW",
       "score": {
         "GER": 7,
         "CUW": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537357,
       "home": "NED",
       "away": "JPN",
       "score": {
         "NED": 2,
         "JPN": 2
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537352,
       "home": "CIV",
       "away": "ECU",
       "score": {
         "CIV": 1,
         "ECU": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537358,
       "home": "SWE",
       "away": "TUN",
       "score": {
         "SWE": 5,
         "TUN": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537369,
       "home": "ESP",
       "away": "CPV",
       "score": {
         "ESP": 0,
         "CPV": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537363,
       "home": "BEL",
       "away": "EGY",
       "score": {
         "BEL": 1,
         "EGY": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537370,
       "home": "KSA",
       "away": "URU",
       "score": {
         "KSA": 1,
         "URU": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537364,
       "home": "IRN",
       "away": "NZL",
       "score": {
         "IRN": 2,
         "NZL": 2
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537391,
       "home": "FRA",
       "away": "SEN",
       "score": {
         "FRA": 3,
         "SEN": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537392,
       "home": "IRQ",
       "away": "NOR",
       "score": {
         "IRQ": 1,
         "NOR": 4
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537397,
       "home": "ARG",
       "away": "DZA",
       "score": {
         "ARG": 3,
         "DZA": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537398,
       "home": "AUT",
       "away": "JOR",
       "score": {
         "AUT": 3,
         "JOR": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537403,
       "home": "POR",
       "away": "COD",
       "score": {
         "POR": 1,
         "COD": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537409,
       "home": "ENG",
       "away": "CRO",
       "score": {
         "ENG": 4,
         "CRO": 2
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537410,
       "home": "GHA",
       "away": "PAN",
       "score": {
         "GHA": 1,
         "PAN": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537404,
       "home": "UZB",
       "away": "COL",
       "score": {
         "UZB": 1,
         "COL": 3
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537329,
       "home": "CZE",
       "away": "RSA",
       "score": {
         "CZE": 1,
         "RSA": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537335,
       "home": "SUI",
       "away": "BIH",
       "score": {
         "SUI": 4,
         "BIH": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537336,
       "home": "CAN",
       "away": "QAT",
       "score": {
         "CAN": 6,
         "QAT": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537330,
       "home": "MEX",
       "away": "KOR",
       "score": {
         "MEX": 1,
         "KOR": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537348,
       "home": "USA",
       "away": "AUS",
       "score": {
         "USA": 2,
         "AUS": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537342,
       "home": "SCO",
       "away": "MAR",
       "score": {
         "SCO": 0,
         "MAR": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537341,
       "home": "BRA",
       "away": "HTI",
       "score": {
         "BRA": 3,
         "HTI": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537347,
       "home": "TUR",
       "away": "PAR",
       "score": {
         "TUR": 0,
         "PAR": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537359,
       "home": "NED",
       "away": "SWE",
       "score": {
         "NED": 5,
         "SWE": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537353,
       "home": "GER",
       "away": "CIV",
       "score": {
         "GER": 2,
         "CIV": 1
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537354,
       "home": "ECU",
       "away": "CUW",
       "score": {
         "ECU": 0,
         "CUW": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537360,
       "home": "TUN",
       "away": "JPN",
       "score": {
         "TUN": 0,
         "JPN": 4
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537371,
       "home": "ESP",
       "away": "KSA",
       "score": {
         "ESP": 4,
         "KSA": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537365,
       "home": "BEL",
       "away": "IRN",
       "score": {
         "BEL": 0,
         "IRN": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537372,
       "home": "URU",
       "away": "CPV",
       "score": {
         "URU": 2,
         "CPV": 2
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537366,
       "home": "NZL",
       "away": "EGY",
       "score": {
         "NZL": 1,
         "EGY": 3
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537399,
       "home": "ARG",
       "away": "AUT",
       "score": {
         "ARG": 2,
         "AUT": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537393,
       "home": "FRA",
       "away": "IRQ",
       "score": {
         "FRA": 3,
         "IRQ": 0
       },
-      "status": "final"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537394,
       "home": "NOR",
       "away": "SEN",
       "score": {
-        "NOR": 1,
-        "SEN": 0
+        "NOR": 3,
+        "SEN": 2
       },
-      "status": "live"
+      "status": "final",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537400,
       "home": "JOR",
       "away": "DZA",
       "score": {
         "JOR": 0,
         "DZA": 0
       },
-      "status": "scheduled"
+      "status": "live",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537405,
       "home": "POR",
       "away": "UZB",
       "score": {
         "POR": 0,
         "UZB": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537411,
       "home": "ENG",
       "away": "GHA",
       "score": {
         "ENG": 0,
         "GHA": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537412,
       "home": "PAN",
       "away": "CRO",
       "score": {
         "PAN": 0,
         "CRO": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537406,
       "home": "COL",
       "away": "COD",
       "score": {
         "COL": 0,
         "COD": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537337,
       "home": "SUI",
       "away": "CAN",
       "score": {
         "SUI": 0,
         "CAN": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537338,
       "home": "BIH",
       "away": "QAT",
       "score": {
         "BIH": 0,
         "QAT": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537344,
       "home": "MAR",
       "away": "HTI",
       "score": {
         "MAR": 0,
         "HTI": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537343,
       "home": "SCO",
       "away": "BRA",
       "score": {
         "SCO": 0,
         "BRA": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537331,
       "home": "CZE",
       "away": "MEX",
       "score": {
         "CZE": 0,
         "MEX": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537332,
       "home": "RSA",
       "away": "KOR",
       "score": {
         "RSA": 0,
         "KOR": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537355,
       "home": "ECU",
       "away": "GER",
       "score": {
         "ECU": 0,
         "GER": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537356,
       "home": "CUW",
       "away": "CIV",
       "score": {
         "CUW": 0,
         "CIV": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537361,
       "home": "TUN",
       "away": "NED",
       "score": {
         "TUN": 0,
         "NED": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537362,
       "home": "JPN",
       "away": "SWE",
       "score": {
         "JPN": 0,
         "SWE": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537349,
       "home": "TUR",
       "away": "USA",
       "score": {
         "TUR": 0,
         "USA": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537350,
       "home": "PAR",
       "away": "AUS",
       "score": {
         "PAR": 0,
         "AUS": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537395,
       "home": "NOR",
       "away": "FRA",
       "score": {
         "NOR": 0,
         "FRA": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537396,
       "home": "SEN",
       "away": "IRQ",
       "score": {
         "SEN": 0,
         "IRQ": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537373,
       "home": "URU",
       "away": "ESP",
       "score": {
         "URU": 0,
         "ESP": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537374,
       "home": "CPV",
       "away": "KSA",
       "score": {
         "CPV": 0,
         "KSA": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537367,
       "home": "NZL",
       "away": "BEL",
       "score": {
         "NZL": 0,
         "BEL": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537368,
       "home": "EGY",
       "away": "IRN",
       "score": {
         "EGY": 0,
         "IRN": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537413,
       "home": "PAN",
       "away": "ENG",
       "score": {
         "PAN": 0,
         "ENG": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537414,
       "home": "CRO",
       "away": "GHA",
       "score": {
         "CRO": 0,
         "GHA": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537407,
       "home": "COL",
       "away": "POR",
       "score": {
         "COL": 0,
         "POR": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537408,
       "home": "COD",
       "away": "UZB",
       "score": {
         "COD": 0,
         "UZB": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537401,
       "home": "JOR",
       "away": "ARG",
       "score": {
         "JOR": 0,
         "ARG": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     },
     {
+      "id": 537402,
       "home": "DZA",
       "away": "AUT",
       "score": {
-        "AUT": 0,
-        "DZA": 0
+        "DZA": 0,
+        "AUT": 0
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "stage": "GROUP_STAGE"
     }
   ]
 }
