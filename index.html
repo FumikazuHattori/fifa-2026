@@ -25,13 +25,12 @@
     background-repeat:no-repeat,repeat,no-repeat;
     background-attachment:scroll,scroll,fixed;
     color:#e0ffe0;font-family:system-ui,sans-serif;
-    /* マウスカーソルをサッカーボール風のSVGに差し替える。先端（クリック判定点）が
-       ボールの中心に来るよう、hotspotをアイコンサイズの半分(16 16)に指定。
-       中央のペンタゴン＋外周5枚の黒パッチ＋球面の陰影グラデーションで、
-       実際のサッカーボールの配色パターンに近づけている。 */
-    cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><radialGradient id="s" cx="38%" cy="32%" r="75%"><stop offset="0%" stop-color="%23ffffff"/><stop offset="75%" stop-color="%23e6e6e6"/><stop offset="100%" stop-color="%23bdbdbd"/></radialGradient></defs><ellipse cx="16" cy="29" rx="9" ry="2" fill="black" opacity="0.18"/><circle cx="16" cy="15" r="13.2" fill="url(%23s)" stroke="black" stroke-width="1.3"/><polygon points="16,9.7 20.1,12.7 18.5,17.5 13.5,17.5 11.9,12.7" fill="black"/><path d="M16 9.7 L16 3 M20.1 12.7 L26.5 9.1 M18.5 17.5 L24.5 23.5 M13.5 17.5 L7.5 23.5 M11.9 12.7 L5.5 9.1" stroke="black" stroke-width="1.3" fill="none" stroke-linecap="round"/><polygon points="16,1.6 19,4.8 13,4.8" fill="black" opacity="0.88"/><polygon points="27.5,7.6 30,11.8 24.6,11.2" fill="black" opacity="0.88"/><polygon points="25.6,25.8 28,29.8 21.6,28.7" fill="black" opacity="0.88"/><polygon points="6.4,25.8 4,29.8 10.4,28.7" fill="black" opacity="0.88"/><polygon points="4.5,7.6 2,11.8 7.4,11.2" fill="black" opacity="0.88"/></svg>') 16 16, auto;
+    /* マウスカーソルを、ページ内の他の場所（「試合結果の自動取得状況」など）でも
+       使っている⚽絵文字そのものに差し替える。SVGのtext要素に絵文字を置くことで、
+       システムの絵文字フォントがそのまま描画される。 */
+    cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="16" y="25" font-size="26" text-anchor="middle">%E2%9A%BD</text></svg>') 16 16, auto;
   }
-  button,[onclick],a{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><radialGradient id="s2" cx="38%" cy="32%" r="75%"><stop offset="0%" stop-color="%23ffffff"/><stop offset="75%" stop-color="%23e6e6e6"/><stop offset="100%" stop-color="%23bdbdbd"/></radialGradient></defs><ellipse cx="16" cy="29" rx="9" ry="2" fill="black" opacity="0.18"/><circle cx="16" cy="15" r="13.2" fill="url(%23s2)" stroke="black" stroke-width="1.3"/><polygon points="16,9.7 20.1,12.7 18.5,17.5 13.5,17.5 11.9,12.7" fill="black"/><path d="M16 9.7 L16 3 M20.1 12.7 L26.5 9.1 M18.5 17.5 L24.5 23.5 M13.5 17.5 L7.5 23.5 M11.9 12.7 L5.5 9.1" stroke="black" stroke-width="1.3" fill="none" stroke-linecap="round"/><polygon points="16,1.6 19,4.8 13,4.8" fill="black" opacity="0.88"/><polygon points="27.5,7.6 30,11.8 24.6,11.2" fill="black" opacity="0.88"/><polygon points="25.6,25.8 28,29.8 21.6,28.7" fill="black" opacity="0.88"/><polygon points="6.4,25.8 4,29.8 10.4,28.7" fill="black" opacity="0.88"/><polygon points="4.5,7.6 2,11.8 7.4,11.2" fill="black" opacity="0.88"/></svg>') 16 16, pointer}
+  button,[onclick],a{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="16" y="25" font-size="26" text-anchor="middle">%E2%9A%BD</text></svg>') 16 16, pointer}
   ::-webkit-scrollbar{width:6px;height:6px}
   ::-webkit-scrollbar-track{background:#080e08}
   ::-webkit-scrollbar-thumb{background:#1e3a1e;border-radius:3px}
