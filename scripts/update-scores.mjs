@@ -40,7 +40,13 @@ const games = (data.matches || [])
     if (!home || !away) return null;
     const hs = m.score?.fullTime?.home;
     const as = m.score?.fullTime?.away;
-    return { home, away, score: { [home]: hs ?? 0, [away]: as ?? 0 }, status: fdStatusToOurs(m.status) };
+    return {
+      id: m.id,
+      home, away,
+      score: { [home]: hs ?? 0, [away]: as ?? 0 },
+      status: fdStatusToOurs(m.status),
+      stage: m.stage || "GROUP_STAGE",
+    };
   })
   .filter(Boolean);
 
