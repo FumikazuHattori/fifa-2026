@@ -531,13 +531,14 @@ function App() {
 
   const personMap = {};
   scoredEntries.forEach(e=>{
-    if(!personMap[e.name]) personMap[e.name]={name:e.name,entries:[],bestScore:0,totalEntries:0};
+    if(!personMap[e.name]) personMap[e.name]={name:e.name,entries:[],bestScore:0,totalEntries:0,earliestDate:e.date};
     personMap[e.name].entries.push(e);
     personMap[e.name].totalEntries++;
     if(e.score>personMap[e.name].bestScore) personMap[e.name].bestScore=e.score;
+    if(e.date<personMap[e.name].earliestDate) personMap[e.name].earliestDate=e.date;
   });
   const personRanked = Object.values(personMap)
-    .sort((a,b)=>b.totalEntries-a.totalEntries||a.name.localeCompare(b.name));
+    .sort((a,b)=>(a.earliestDate<b.earliestDate?-1:a.earliestDate>b.earliestDate?1:0)||a.name.localeCompare(b.name));
   const uniqueNames = [...new Set(activePredictions.map(p=>p.name))];
 
   // 1〜4位の予想（4つ全て）が完全に一致するエントリーをグルーピングしておき、
@@ -1081,9 +1082,9 @@ function App() {
           <div style={{display:"grid",gridTemplateColumns:personGridCols,gap:"10px"}}>
             {personRanked.map((person,i)=>(
               <div key={person.name} onClick={()=>setSP(person.name)} style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"8px",padding:"12px 14px",cursor:"pointer",display:"flex",alignItems:"center",gap:"9px"}}>
-                <div style={{flex:1}}>
-                  <div style={{fontFamily:T.font,fontWeight:700,fontSize:"17px",color:"#d0eed0"}}>{person.name}</div>
-                  <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>{person.totalEntries}件投票</div>
+                <div style={{flex:1,fontFamily:T.font,fontWeight:700,fontSize:"17px",color:"#d0eed0"}}>{person.name}</div>
+                <div style={{textAlign:"right"}}>
+                  <div style={{fontFamily:T.font,fontWeight:900,fontSize:"24px",color:T.green,lineHeight:1}}>{person.totalEntries}<span style={{fontSize:"11px",color:T.muted,fontWeight:700}}>件</span></div>
                 </div>
                 <span style={{color:T.dim,fontSize:"14px"}}>›</span>
               </div>
