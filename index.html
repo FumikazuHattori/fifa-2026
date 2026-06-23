@@ -615,7 +615,7 @@ function App() {
         <div style={{display:"grid",gridTemplateColumns:"190px 1fr",gap:"16px",alignItems:"start"}}>
           <div style={{position:"sticky",top:`${headerH+12}px`,maxHeight:`calc(100vh - ${headerH+24}px)`,display:"flex",flexDirection:"column"}}>
             <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"2px",color:T.muted,padding:"4px 8px",marginBottom:"2px"}}>SELECT GROUP</div>
-            <div style={{display:"flex",flexDirection:"column",gap:"5px",overflowY:"auto",paddingRight:"2px"}}>
+            <div style={{display:"flex",flexDirection:"column",gap:"5px",overflowY:"auto",paddingRight:"2px",overscrollBehavior:"contain"}}>
               {Object.keys(GROUP_TEAMS).map(g=><GroupBtn key={g} g={g}/>)}
             </div>
           </div>
