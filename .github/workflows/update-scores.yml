@@ -32,5 +32,10 @@ jobs:
           git add scores.json
           if ! git diff --staged --quiet; then
             git commit -m "Update World Cup scores [skip ci]"
-            git push
+            for i in 1 2 3 4 5; do
+              git push && break
+              git fetch origin main
+              git rebase origin/main
+              sleep $((i * 3))
+            done
           fi
