@@ -27,10 +27,12 @@
     color:#e0ffe0;font-family:system-ui,sans-serif;
     /* マウスカーソルを、ページ内の他の場所（「試合結果の自動取得状況」など）でも
        使っている⚽絵文字そのものに差し替える。SVGのtext要素に絵文字を置くことで、
-       システムの絵文字フォントがそのまま描画される。 */
-    cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="16" y="25" font-size="26" text-anchor="middle">%E2%9A%BD</text></svg>') 16 16, auto;
+       システムの絵文字フォントがそのまま描画される。Windowsでは絵文字フォントが
+       無いと白黒の輪郭のみで描画されるため、fill/strokeを白にして暗い背景でも
+       見えるようにしている。 */
+    cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="16" y="25" font-size="26" text-anchor="middle" fill="%23ffffff" stroke="%23ffffff">%E2%9A%BD</text></svg>') 16 16, auto;
   }
-  button,[onclick],a{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="16" y="25" font-size="26" text-anchor="middle">%E2%9A%BD</text></svg>') 16 16, pointer}
+  button,[onclick],a{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="16" y="25" font-size="26" text-anchor="middle" fill="%23ffffff" stroke="%23ffffff">%E2%9A%BD</text></svg>') 16 16, pointer}
   ::-webkit-scrollbar{width:6px;height:6px}
   ::-webkit-scrollbar-track{background:#080e08}
   ::-webkit-scrollbar-thumb{background:#1e3a1e;border-radius:3px}
