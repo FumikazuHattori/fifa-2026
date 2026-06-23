@@ -120,43 +120,108 @@ const ALL_PREDICTIONS = [
   {name:"ZONE",  date:"2026-06-20",p1:"ARG",p2:"BRA",p3:"GER",p4:"POR"},
 ];
 
+// 2025年12月5日の本大会組み合わせ抽選結果に基づく実際のグループ構成。
 const GROUP_TEAMS = {
-  A:["USA","PAN","BIH","TUR"],  B:["ARG","CHL","CRO","CUW"],
-  C:["MEX","ESP","JPN","NZL"],  D:["FRA","NOR","BEL","IRQ"],
-  E:["BRA","CIV","NED","PAR"],  F:["ENG","GER","SUI","GHA"],
-  G:["POR","COL","ECU","CPV"],  H:["URU","QAT","EGY","JOR"],
-  I:["AUS","KOR","SEN","TUN"],  J:["MAR","COD","CAN","BIH"],
-  K:["DZA","UZB","NGA","CMR"],  L:["KSA","IRN","PAR","CUW"],
+  A:["MEX","RSA","KOR","CZE"],  B:["CAN","BIH","QAT","SUI"],
+  C:["BRA","MAR","HTI","SCO"],  D:["USA","PAR","AUS","TUR"],
+  E:["GER","CUW","CIV","ECU"],  F:["NED","JPN","SWE","TUN"],
+  G:["BEL","EGY","IRN","NZL"],  H:["ESP","CPV","KSA","URU"],
+  I:["FRA","SEN","IRQ","NOR"],  J:["ARG","DZA","AUT","JOR"],
+  K:["POR","COD","UZB","COL"],  L:["ENG","CRO","GHA","PAN"],
 };
 
+// 2026/06/22時点で確認できた実際の試合結果（FIFA公式サイト基準）。未実施の試合はscheduledのまま。
 const SEED_GAMES = [
+  {home:"MEX",away:"RSA",score:{MEX:2,RSA:0},status:"final"},
+  {home:"KOR",away:"CZE",score:{KOR:2,CZE:1},status:"final"},
+  {home:"CZE",away:"RSA",score:{CZE:1,RSA:1},status:"final"},
+  {home:"MEX",away:"KOR",score:{MEX:1,KOR:0},status:"final"},
+  {home:"MEX",away:"CZE",score:{MEX:0,CZE:0},status:"scheduled"},
+  {home:"KOR",away:"RSA",score:{KOR:0,RSA:0},status:"scheduled"},
+
+  {home:"CAN",away:"BIH",score:{CAN:1,BIH:1},status:"final"},
+  {home:"SUI",away:"QAT",score:{SUI:1,QAT:1},status:"final"},
+  {home:"SUI",away:"BIH",score:{SUI:4,BIH:1},status:"final"},
+  {home:"CAN",away:"QAT",score:{CAN:6,QAT:0},status:"final"},
+  {home:"CAN",away:"SUI",score:{CAN:0,SUI:0},status:"scheduled"},
+  {home:"BIH",away:"QAT",score:{BIH:0,QAT:0},status:"scheduled"},
+
+  {home:"BRA",away:"MAR",score:{BRA:1,MAR:1},status:"final"},
+  {home:"SCO",away:"HTI",score:{SCO:1,HTI:0},status:"final"},
+  {home:"SCO",away:"MAR",score:{SCO:0,MAR:1},status:"final"},
   {home:"BRA",away:"HTI",score:{BRA:3,HTI:0},status:"final"},
-  {home:"TUR",away:"PAR",score:{TUR:0,PAR:1},status:"final"},
-  {home:"NED",away:"SWE",score:{NED:5,SWE:1},status:"final"},
+  {home:"BRA",away:"SCO",score:{BRA:0,SCO:0},status:"scheduled"},
+  {home:"MAR",away:"HTI",score:{MAR:0,HTI:0},status:"scheduled"},
+
+  {home:"USA",away:"PAR",score:{USA:4,PAR:1},status:"final"},
+  {home:"AUS",away:"TUR",score:{AUS:2,TUR:0},status:"final"},
+  {home:"USA",away:"AUS",score:{USA:2,AUS:0},status:"final"},
+  {home:"PAR",away:"TUR",score:{PAR:1,TUR:0},status:"final"},
+  {home:"USA",away:"TUR",score:{USA:0,TUR:0},status:"scheduled"},
+  {home:"PAR",away:"AUS",score:{PAR:0,AUS:0},status:"scheduled"},
+
+  {home:"GER",away:"CUW",score:{GER:7,CUW:1},status:"final"},
   {home:"GER",away:"CIV",score:{GER:2,CIV:1},status:"final"},
-  {home:"ECU",away:"CUW",score:{ECU:0,CUW:0},status:"final"},
-  {home:"TUN",away:"JPN",score:{TUN:0,JPN:4},status:"final"},
-  {home:"ESP",away:"KSA",score:{ESP:4,KSA:0},status:"final"},
+  {home:"CIV",away:"ECU",score:{CIV:0,ECU:0},status:"scheduled"},
+  {home:"CUW",away:"ECU",score:{CUW:0,ECU:0},status:"scheduled"},
+  {home:"GER",away:"ECU",score:{GER:0,ECU:0},status:"scheduled"},
+  {home:"CUW",away:"CIV",score:{CUW:0,CIV:0},status:"scheduled"},
+
+  {home:"NED",away:"JPN",score:{NED:2,JPN:2},status:"final"},
+  {home:"SWE",away:"TUN",score:{SWE:5,TUN:1},status:"final"},
+  {home:"NED",away:"SWE",score:{NED:5,SWE:1},status:"final"},
+  {home:"JPN",away:"TUN",score:{JPN:4,TUN:0},status:"final"},
+  {home:"NED",away:"TUN",score:{NED:0,TUN:0},status:"scheduled"},
+  {home:"JPN",away:"SWE",score:{JPN:0,SWE:0},status:"scheduled"},
+
+  {home:"BEL",away:"EGY",score:{BEL:1,EGY:1},status:"final"},
+  {home:"IRN",away:"NZL",score:{IRN:2,NZL:2},status:"final"},
   {home:"BEL",away:"IRN",score:{BEL:0,IRN:0},status:"final"},
+  {home:"EGY",away:"NZL",score:{EGY:3,NZL:1},status:"final"},
+  {home:"EGY",away:"IRN",score:{EGY:0,IRN:0},status:"scheduled"},
+  {home:"NZL",away:"BEL",score:{NZL:0,BEL:0},status:"scheduled"},
+
+  {home:"ESP",away:"CPV",score:{ESP:0,CPV:0},status:"final"},
+  {home:"KSA",away:"URU",score:{KSA:1,URU:1},status:"final"},
+  {home:"ESP",away:"KSA",score:{ESP:4,KSA:0},status:"final"},
   {home:"URU",away:"CPV",score:{URU:2,CPV:2},status:"final"},
-  {home:"NZL",away:"EGY",score:{NZL:1,EGY:3},status:"final"},
-  {home:"ARG",away:"AUT",score:{ARG:0,AUT:0},status:"scheduled"},
+  {home:"ESP",away:"URU",score:{ESP:0,URU:0},status:"scheduled"},
+  {home:"CPV",away:"KSA",score:{CPV:0,KSA:0},status:"scheduled"},
+
+  {home:"FRA",away:"SEN",score:{FRA:3,SEN:1},status:"final"},
+  {home:"NOR",away:"IRQ",score:{NOR:4,IRQ:1},status:"final"},
   {home:"FRA",away:"IRQ",score:{FRA:0,IRQ:0},status:"scheduled"},
   {home:"NOR",away:"SEN",score:{NOR:0,SEN:0},status:"scheduled"},
+  {home:"FRA",away:"NOR",score:{FRA:0,NOR:0},status:"scheduled"},
+  {home:"SEN",away:"IRQ",score:{SEN:0,IRQ:0},status:"scheduled"},
+
+  {home:"ARG",away:"DZA",score:{ARG:3,DZA:0},status:"final"},
+  {home:"AUT",away:"JOR",score:{AUT:3,JOR:1},status:"final"},
+  {home:"ARG",away:"AUT",score:{ARG:1,AUT:0},status:"final"},
   {home:"JOR",away:"DZA",score:{JOR:0,DZA:0},status:"scheduled"},
+  {home:"ARG",away:"JOR",score:{ARG:0,JOR:0},status:"scheduled"},
+  {home:"DZA",away:"AUT",score:{DZA:0,AUT:0},status:"scheduled"},
+
+  {home:"POR",away:"COD",score:{POR:1,COD:1},status:"final"},
+  {home:"COL",away:"UZB",score:{COL:3,UZB:1},status:"final"},
   {home:"POR",away:"UZB",score:{POR:0,UZB:0},status:"scheduled"},
+  {home:"COD",away:"COL",score:{COD:0,COL:0},status:"scheduled"},
+  {home:"POR",away:"COL",score:{POR:0,COL:0},status:"scheduled"},
+  {home:"COD",away:"UZB",score:{COD:0,UZB:0},status:"scheduled"},
+
+  {home:"ENG",away:"CRO",score:{ENG:4,CRO:2},status:"final"},
+  {home:"GHA",away:"PAN",score:{GHA:1,PAN:0},status:"final"},
   {home:"ENG",away:"GHA",score:{ENG:0,GHA:0},status:"scheduled"},
   {home:"PAN",away:"CRO",score:{PAN:0,CRO:0},status:"scheduled"},
-  {home:"COL",away:"COD",score:{COL:0,COD:0},status:"scheduled"},
-  {home:"SUI",away:"CAN",score:{SUI:0,CAN:0},status:"scheduled"},
-  {home:"BIH",away:"QAT",score:{BIH:0,QAT:0},status:"scheduled"},
+  {home:"PAN",away:"ENG",score:{PAN:0,ENG:0},status:"scheduled"},
+  {home:"CRO",away:"GHA",score:{CRO:0,GHA:0},status:"scheduled"},
 ];
 
-const STILL_ALIVE = new Set([
-  "BRA","ARG","FRA","ENG","ESP","GER","POR","NED","JPN","TUR","URU","COL",
-  "MAR","SEN","CRO","NOR","NZL","EGY","BEL","IRN","CPV","ECU","USA",
-]);
-const ELIMINATED = new Set(["HTI","PAR","SWE","CIV","CUW","KSA","TUN"]);
+// 2026/06/22時点でAl Jazeera等が報じた、数学的に決勝T進出が不可能になった3チーム。
+const ELIMINATED = new Set(["HTI","TUR","TUN"]);
+const STILL_ALIVE = new Set(
+  Object.values(GROUP_TEAMS).flat().filter(t => !ELIMINATED.has(t))
+);
 
 function buildStandings(games) {
   const s = {};
