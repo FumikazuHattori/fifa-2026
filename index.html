@@ -393,6 +393,90 @@ function useBreakpoint() {
   return { isMobile:w<640, isTablet:w>=640&&w<1024, isDesktop:w>=1024, w };
 }
 
+// ===================== football-data.org 試合結果連携 =====================
+// 無料登録すれば発行されるAPIトークンで、FIFAワールドカップの試合結果を取得できる
+// （登録: https://www.football-data.org/client/register ）。
+// football-data.org は Access-Control-Allow-Origin: * を返すため、サーバ無しの
+// 静的サイト（GitHub Pages）からブラウザのfetchで直接呼んでも動作する。
+const FD_API_BASE = "https://api.football-data.org/v4";
+const FD_TOKEN_STORAGE_KEY = "fifa2026_fdToken";
+
+// football-data.org のtla（3文字コード）が、このアプリのコードと食い違う場合だけ上書きする。
+const FD_TLA_OVERRIDE = {};
+
+const fdToOurCode = team => {
+  const tla = team?.tla;
+  if (!tla) return null;
+  return FD_TLA_OVERRIDE[tla] || tla;
+};
+
+const fdStatusToOurs = s => {
+  if (s === "FINISHED") return "final";
+  if (s === "IN_PLAY" || s === "PAUSED") return "live";
+  return "scheduled";
+};
+
+async function fetchFDMatches(apiToken) {
+  const res = await fetch(`${FD_API_BASE}/competitions/WC/matches`, {
+    headers: { "X-Auth-Token": apiToken },
+  });
+  if (!res.ok) {
+    if (res.status === 403) throw new Error("APIトークンが無効か、アクセス権限がありません。");
+    if (res.status === 429) throw new Error("APIのリクエスト数上限に達しました。1分ほど待って再試行してください。");
+    throw new Error(`取得に失敗しました（HTTP ${res.status}）`);
+  }
+  const data = await res.json();
+  return (data.matches || [])
+    .map(m => {
+      const home = fdToOurCode(m.homeTeam);
+      const away = fdToOurCode(m.awayTeam);
+      if (!home || !away) return null;
+      const hs = m.score?.fullTime?.home;
+      const as = m.score?.fullTime?.away;
+      return {
+        home, away,
+        score: { [home]: hs ?? 0, [away]: as ?? 0 },
+        status: fdStatusToOurs(m.status),
+      };
+    })
+    .filter(Boolean);
+}
+
+function useLiveScores() {
+  const [apiToken, setApiTokenState] = useState(() => localStorage.getItem(FD_TOKEN_STORAGE_KEY) || "");
+  const [games, setGames] = useState(SEED_GAMES);
+  const [status, setStatus] = useState("idle"); // idle / loading / success / error
+  const [error, setError] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState(null);
+
+  const setApiToken = token => {
+    setApiTokenState(token);
+    localStorage.setItem(FD_TOKEN_STORAGE_KEY, token);
+  };
+
+  const load = async () => {
+    if (!apiToken) { setStatus("error"); setError("APIトークンが未設定です。"); return; }
+    setStatus("loading"); setError(null);
+    try {
+      const matches = await fetchFDMatches(apiToken);
+      if (matches.length) {
+        setGames(matches);
+        setStatus("success");
+        setLastUpdated(new Date());
+      } else {
+        setStatus("error");
+        setError("試合データが0件でした。トークンを確認してください。");
+      }
+    } catch (e) {
+      setStatus("error");
+      setError(e.message || "取得に失敗しました。");
+    }
+  };
+
+  return { apiToken, setApiToken, games, status, error, lastUpdated, load };
+}
+// =================== /football-data.org 試合結果連携 ===================
+
 // 試合結果の再取得サイクル（秒）。更新頻度を上げたい場合はここだけ変更すればよい。
 const REFRESH_INTERVAL_SEC = 30 * 60;
 
@@ -402,12 +486,15 @@ const REFRESH_INTERVAL_SEC = 30 * 60;
 // その中で定義されたコンポーネント（例：データソースパネル）が毎回新しい関数として
 // 生成され直し、Reactがそれを「別コンポーネント」と見なして毎秒マウント解除→再マウントしてしまう。
 // その結果、開いたつもりのトグルや入力中のテキストが1秒後に初期状態へリセットされていた。
-function CountdownTimer({ isDesktop }) {
+function CountdownTimer({ isDesktop, onTick }) {
   const [remaining, setRemaining] = useState(REFRESH_INTERVAL_SEC);
   useEffect(()=>{
-    const iv = setInterval(()=>setRemaining(c => c<=1 ? REFRESH_INTERVAL_SEC : c-1), 1000);
+    const iv = setInterval(()=>setRemaining(c => {
+      if (c<=1) { onTick && onTick(); return REFRESH_INTERVAL_SEC; }
+      return c-1;
+    }), 1000);
     return ()=>clearInterval(iv);
-  },[]);
+  },[onTick]);
   const mm = String(Math.floor(remaining/60)).padStart(2,"0");
   const ss = String(remaining%60).padStart(2,"0");
   return (
@@ -421,12 +508,16 @@ function CountdownTimer({ isDesktop }) {
 function App() {
   const [tab,setTab]          = useState("pred");
   const [activeGroup,setAG]   = useState("E");
-  const [games]               = useState(SEED_GAMES);
   const [finalResult]         = useState({1:null,2:null,3:null,4:null});
   const [viewMode,setVM]      = useState("person");
   const [selectedPerson,setSP]= useState(null);
   const bp                    = useBreakpoint();
   const sheet                 = useSheetSource();
+  const live                  = useLiveScores();
+  const games                 = live.games;
+
+  // APIトークンが設定済みなら起動時に一度だけ自動取得する。
+  useEffect(()=>{ if (live.apiToken) live.load(); },[]); // eslint-disable-line
 
   const allStats = buildStandings(games);
 
@@ -569,19 +660,23 @@ function App() {
       </button>
     );
     if(bp.isDesktop) return (
-      <div style={{display:"grid",gridTemplateColumns:"190px 1fr",gap:"16px",alignItems:"start"}}>
-        <div style={{display:"flex",flexDirection:"column",gap:"5px",position:"sticky",top:"76px"}}>
-          <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"2px",color:T.muted,padding:"4px 8px",marginBottom:"2px"}}>SELECT GROUP</div>
-          {Object.keys(GROUP_TEAMS).map(g=><GroupBtn key={g} g={g}/>)}
-        </div>
-        <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
-          <StandingsTable grp={activeGroup}/>
-          <MatchList grp={activeGroup}/>
+      <div style={{display:"flex",flexDirection:"column",gap:"14px"}}>
+        <LiveScorePanel/>
+        <div style={{display:"grid",gridTemplateColumns:"190px 1fr",gap:"16px",alignItems:"start"}}>
+          <div style={{display:"flex",flexDirection:"column",gap:"5px",position:"sticky",top:"76px"}}>
+            <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"2px",color:T.muted,padding:"4px 8px",marginBottom:"2px"}}>SELECT GROUP</div>
+            {Object.keys(GROUP_TEAMS).map(g=><GroupBtn key={g} g={g}/>)}
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
+            <StandingsTable grp={activeGroup}/>
+            <MatchList grp={activeGroup}/>
+          </div>
         </div>
       </div>
     );
     if(bp.isTablet) return (
       <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
+        <LiveScorePanel/>
         <div style={{display:"flex",flexWrap:"wrap",gap:"5px"}}>{Object.keys(GROUP_TEAMS).map(g=><GroupBtn key={g} g={g}/>)}</div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"12px",alignItems:"start"}}>
           <StandingsTable grp={activeGroup}/><MatchList grp={activeGroup}/>
@@ -590,6 +685,7 @@ function App() {
     );
     return (
       <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
+        <LiveScorePanel/>
         <div style={{display:"flex",flexWrap:"wrap",gap:"5px"}}>{Object.keys(GROUP_TEAMS).map(g=><GroupBtn key={g} g={g}/>)}</div>
         <StandingsTable grp={activeGroup}/><MatchList grp={activeGroup}/>
       </div>
@@ -754,6 +850,52 @@ function App() {
   };
   // =================== /シート連携設定パネル ===================
 
+  // ===================== 試合結果（football-data.org）設定パネル =====================
+  const LiveScorePanel = () => {
+    const [tokenInput, setTokenInput] = useState(live.apiToken);
+    const [open, setOpen] = useState(!!live.apiToken);
+
+    const saveToken = () => { live.setApiToken(tokenInput); };
+
+    return (
+      <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
+        <button onClick={()=>setOpen(o=>!o)} style={{width:"100%",textAlign:"left",background:"#0a120a",border:"none",cursor:"pointer",padding:"8px 14px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          <span style={{fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>⚽ 試合結果の自動取得設定</span>
+          <span style={{fontFamily:T.font,fontSize:"10px",color:T.muted}}>{open?"▲ 閉じる":"▼ 開く"}</span>
+        </button>
+        {open && (
+          <div style={{padding:"12px 14px",display:"flex",flexDirection:"column",gap:"10px"}}>
+            <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim,lineHeight:1.6}}>
+              football-data.org の無料APIトークンを登録すると、ワールドカップの試合結果を自動取得できます。
+              <a href="https://www.football-data.org/client/register" target="_blank" rel="noopener noreferrer" style={{color:T.green}}>こちらから無料登録</a>
+              （登録後にメールで届くトークンを下に入力）。未設定の間はサンプル/手入力データのまま表示されます。
+            </div>
+            <div>
+              <div style={{fontFamily:T.font,fontSize:"10px",color:T.muted,marginBottom:"4px"}}>APIトークン（X-Auth-Token）</div>
+              <div style={{display:"flex",gap:"6px"}}>
+                <input type="password" value={tokenInput} onChange={e=>setTokenInput(e.target.value)} placeholder="football-data.orgのトークンを入力"
+                  style={{flex:1,background:"#080e08",border:`1px solid ${T.border}`,borderRadius:"4px",padding:"7px 10px",color:"#d0eed0",fontSize:"12px"}}/>
+                <button onClick={saveToken} style={{padding:"7px 12px",background:"#111d11",border:`1px solid ${T.border}`,borderRadius:"4px",color:T.muted,fontFamily:T.font,fontSize:"11px",cursor:"pointer"}}>保存</button>
+              </div>
+            </div>
+            <div style={{display:"flex",alignItems:"center",gap:"10px",flexWrap:"wrap"}}>
+              <button onClick={live.load} disabled={live.status==="loading"||!live.apiToken} style={{padding:"8px 16px",background:T.green,border:"none",borderRadius:"4px",color:"#080e08",fontFamily:T.font,fontSize:"12px",fontWeight:700,cursor:"pointer",opacity:(live.status==="loading"||!live.apiToken)?0.6:1}}>
+                {live.status==="loading"?"取得中...":"⟳ 今すぐ取得"}
+              </button>
+              {live.status==="success" && <span style={{fontFamily:T.font,fontSize:11,color:T.green}}>✓ {live.games.length}試合を取得（{live.lastUpdated?.toLocaleTimeString("ja-JP")}時点）</span>}
+              {live.status==="error" && <span style={{fontFamily:T.font,fontSize:11,color:T.red}}>⚠ {live.error}</span>}
+              {live.status==="idle" && <span style={{fontFamily:T.font,fontSize:11,color:T.dim}}>トークン未設定（サンプルデータを表示中）</span>}
+            </div>
+            <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim,lineHeight:1.6}}>
+              ※ トークン設定後は、上部の「次回更新」のカウントダウンが0になるたびに自動で再取得します（{Math.round(REFRESH_INTERVAL_SEC/60)}分間隔）。
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+  // =================== /試合結果設定パネル ===================
+
   const PredTab = () => {
     const allTeams=[...new Set(activePredictions.flatMap(p=>[p.p1,p.p2,p.p3,p.p4]))];
     const popularity=allTeams.map(t=>({t,n:activePredictions.filter(p=>[p.p1,p.p2,p.p3,p.p4].includes(t)).length})).sort((a,b)=>b.n-a.n);
@@ -871,7 +1013,7 @@ function App() {
             </div>
             <div style={{display:"flex",alignItems:"center",gap:bp.isDesktop?"20px":"10px"}}>
               {bp.isDesktop&&<div style={{fontFamily:T.font,fontSize:"12px",color:T.muted,letterSpacing:"1px"}}>{activePredictions.length}エントリー / {uniqueNames.length}人参加</div>}
-              <CountdownTimer isDesktop={bp.isDesktop}/>
+              <CountdownTimer isDesktop={bp.isDesktop} onTick={live.load}/>
             </div>
           </div>
           <div style={{display:"flex",borderBottom:`1px solid ${T.border}`,maxWidth:"500px"}}>
