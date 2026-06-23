@@ -438,23 +438,11 @@ const REFRESH_INTERVAL_SEC = 30 * 60;
 // その中で定義されたコンポーネント（例：データソースパネル）が毎回新しい関数として
 // 生成され直し、Reactがそれを「別コンポーネント」と見なして毎秒マウント解除→再マウントしてしまう。
 // その結果、開いたつもりのトグルや入力中のテキストが1秒後に初期状態へリセットされていた。
-function CountdownTimer({ isDesktop, onTick }) {
-  const [remaining, setRemaining] = useState(REFRESH_INTERVAL_SEC);
+function useAutoRefresh(onTick) {
   useEffect(()=>{
-    const iv = setInterval(()=>setRemaining(c => {
-      if (c<=1) { onTick && onTick(); return REFRESH_INTERVAL_SEC; }
-      return c-1;
-    }), 1000);
+    const iv = setInterval(()=>onTick && onTick(), REFRESH_INTERVAL_SEC*1000);
     return ()=>clearInterval(iv);
   },[onTick]);
-  const mm = String(Math.floor(remaining/60)).padStart(2,"0");
-  const ss = String(remaining%60).padStart(2,"0");
-  return (
-    <div style={{textAlign:"right"}}>
-      <div style={{fontFamily:T.font,fontSize:"9px",color:T.muted,letterSpacing:"1px"}}>次回更新</div>
-      <div style={{fontFamily:T.font,fontSize:isDesktop?"22px":"20px",fontWeight:900,color:remaining<=30?T.red:T.green,lineHeight:1}}>{mm}:{ss}</div>
-    </div>
-  );
 }
 
 function App() {
@@ -471,6 +459,7 @@ function App() {
 
   // 起動時に一度、scores.json（GitHub Actionsが定期更新）を読み込む。
   useEffect(()=>{ live.load(); },[]); // eslint-disable-line
+  useAutoRefresh(live.load);
 
   const allStats = buildStandings(games);
 
@@ -1003,7 +992,6 @@ function App() {
             </div>
             <div style={{display:"flex",alignItems:"center",gap:bp.isDesktop?"20px":"10px"}}>
               {bp.isDesktop&&<div style={{fontFamily:T.font,fontSize:"12px",color:T.muted,letterSpacing:"1px"}}>{activePredictions.length}エントリー / {uniqueNames.length}人参加</div>}
-              <CountdownTimer isDesktop={bp.isDesktop} onTick={live.load}/>
             </div>
           </div>
           <div style={{display:"flex",borderBottom:`1px solid ${T.border}`,maxWidth:"500px"}}>
