@@ -442,7 +442,6 @@ function useAutoRefresh(onTick) {
 function App() {
   const [tab,setTab]          = useState("pred");
   const [activeGroup,setAG]   = useState("E");
-  const [finalResult]         = useState({1:null,2:null,3:null,4:null});
   const [viewMode,setVM]      = useState("person");
   const [selectedPerson,setSP]= useState(null);
   const [selectedTeam,setST]  = useState(null);
@@ -472,6 +471,23 @@ function App() {
   },[]);
 
   const allStats = buildStandings(games);
+
+  // 優勝/準優勝/3位/4位は、football-data.orgが配信する決勝・3位決定戦の結果
+  // （stageがFINAL/THIRD_PLACE）から自動的に確定させる。両試合とも終了するまではnullのまま。
+  const winnerOf = g => {
+    if(!g || g.status!=="final") return null;
+    if(g.winner==="home") return g.home;
+    if(g.winner==="away") return g.away;
+    if(g.score[g.home]===g.score[g.away]) return null; // PK結果が取れずフルタイム同点のままなら判定不能
+    return g.score[g.home] > g.score[g.away] ? g.home : g.away;
+  };
+  const finalGame = games.find(g=>g.stage==="FINAL");
+  const thirdGame = games.find(g=>g.stage==="THIRD_PLACE");
+  const champion = winnerOf(finalGame);
+  const runnerUp = finalGame && champion ? (champion===finalGame.home ? finalGame.away : finalGame.home) : null;
+  const third    = winnerOf(thirdGame);
+  const fourth   = thirdGame && third ? (third===thirdGame.home ? thirdGame.away : thirdGame.home) : null;
+  const finalResult = {1:champion, 2:runnerUp, 3:third, 4:fourth};
 
   // シート連携が有効＆データ取得済みならそちらを使い、それ以外はハードコードのサンプルデータを使う。
   const activePredictions = (sheet.mode === "sheet" && sheet.entries) ? sheet.entries : ALL_PREDICTIONS;
@@ -860,6 +876,24 @@ function App() {
       const ranked=Object.entries(counts).map(([t,n])=>({t,n})).sort((a,b)=>b.n-a.n).slice(0,3);
       return {pos,ranked};
     });
+    // 投票結果確認シートの「報酬一覧」「配当」「収支」に対応する集計。
+    // エクセル側は優勝者の名前を大会終了後に手入力する仕組みだったが、ここでは
+    // football-data.orgが確定させた決勝・3位決定戦の結果（finalResult）から自動判定する。
+    // 同じ予想をした人が複数いる場合は、その賞金を該当者で等分する。
+    const personsPredicting = (pos,team) => team ? uniqueNames.filter(name =>
+      activePredictions.some(p=>p.name===name && p[`p${pos}`]===team)
+    ) : [];
+    const champPersons    = personsPredicting(1, finalResult[1]);
+    const runnerUpPersons = personsPredicting(2, finalResult[2]);
+    const thirdPersons    = personsPredicting(3, finalResult[3]);
+    const prizes = [
+      {label:"優勝予想", team:finalResult[1], amount:totalPool*0.7, persons:champPersons},
+      {label:"準優勝予想", team:finalResult[2], amount:totalPool*0.2, persons:runnerUpPersons},
+      {label:"3位予想", team:finalResult[3], amount:totalPool*0.1, persons:thirdPersons},
+    ];
+    const resultDecided = !!(finalResult[1] && finalResult[2] && finalResult[3]);
+    const payoutByPerson = name => prizes.reduce((sum,pr)=>
+      sum + (pr.persons.includes(name) ? pr.amount/pr.persons.length : 0), 0);
     const PersonDetail=({name,onBack})=>{
       const entries=scoredEntries.filter(e=>e.name===name);
       const cols=bp.isDesktop?"1fr 1fr 1fr":bp.isTablet?"1fr 1fr":"1fr";
@@ -930,6 +964,42 @@ function App() {
               </div>
             ))}
           </div>
+        </div>
+        <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
+          <div style={{background:"#0a120a",padding:"8px 14px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.yellow,fontWeight:700}}>🏆 報酬一覧（決勝・3位決定戦の結果から自動計算）</div>
+          {!resultDecided ? (
+            <div style={{padding:"14px",fontFamily:T.font,fontSize:"11px",color:T.muted,lineHeight:1.7}}>
+              決勝・3位決定戦の結果が確定するまでは配当を計算できません（現在：優勝{finalResult[1]?nm(finalResult[1]):"未確定"} / 準優勝{finalResult[2]?nm(finalResult[2]):"未確定"} / 3位{finalResult[3]?nm(finalResult[3]):"未確定"}）。
+            </div>
+          ):(
+            <>
+              <div style={{padding:"10px 14px",display:"grid",gridTemplateColumns:bp.isDesktop?"1fr 1fr 1fr":"1fr",gap:"8px"}}>
+                {prizes.map(pr=>(
+                  <div key={pr.label} style={{background:"#0d160d",border:`1px solid ${T.border}`,borderRadius:"5px",padding:"8px 10px"}}>
+                    <div style={{fontFamily:T.font,fontSize:"10px",letterSpacing:"1px",color:T.muted}}>{pr.label}（{f(pr.team)} {nm(pr.team)}）</div>
+                    <div style={{fontFamily:T.font,fontSize:"16px",fontWeight:900,color:T.yellow,marginTop:"2px"}}>{pr.amount.toLocaleString()}コジー</div>
+                    <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim,marginTop:"2px"}}>
+                      {pr.persons.length ? `${pr.persons.join("・")}（${pr.persons.length}人で等分）` : "正解者なし"}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{padding:"4px 10px 12px",display:"flex",flexWrap:"wrap",gap:"6px"}}>
+                {uniqueNames.map(name=>{
+                  const stake=stakeByPerson.find(s=>s.name===name)?.stake||0;
+                  const payout=payoutByPerson(name);
+                  const profit=payout-stake;
+                  return (
+                    <div key={name} onClick={()=>setSP(name)} style={{display:"flex",alignItems:"center",gap:"6px",padding:"5px 10px",borderRadius:"4px",background:"#111d11",border:`1px solid ${T.border}`,cursor:"pointer"}}>
+                      <span style={{fontFamily:T.font,fontSize:"12px",fontWeight:700,color:"#d0eed0"}}>{name}</span>
+                      <span style={{fontFamily:T.font,fontSize:"12px",fontWeight:900,color:profit>0?T.green:profit<0?T.red:T.dim}}>{profit>0?"+":""}{profit.toLocaleString()}</span>
+                      <span style={{fontFamily:T.font,fontSize:"8px",color:T.muted}}>コジー</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
         </div>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:"8px"}}>
           <div style={{fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>🏅 RANKING</div>

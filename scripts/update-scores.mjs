@@ -43,12 +43,18 @@ const games = (data.matches || [])
     if (!home || !away) return null;
     const hs = m.score?.fullTime?.home;
     const as = m.score?.fullTime?.away;
+    // 決勝・3位決定戦はPK戦で決着することがあり、フルタイムの得点だけでは
+    // 勝敗が分からない（同点のまま）ことがあるので、APIのwinner判定も保持しておく。
+    const winner = m.score?.winner === "HOME_TEAM" ? "home"
+      : m.score?.winner === "AWAY_TEAM" ? "away"
+      : null;
     return {
       id: m.id,
       home, away,
       score: { [home]: hs ?? 0, [away]: as ?? 0 },
       status: fdStatusToOurs(m.status),
       stage: m.stage || "GROUP_STAGE",
+      winner,
     };
   })
   .filter(Boolean);
