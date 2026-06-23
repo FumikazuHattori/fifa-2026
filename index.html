@@ -1150,6 +1150,12 @@ function App() {
     <div style={{minHeight:"100vh",background:T.bg}}>
       {selectedTeam&&<TeamDetailPanel team={selectedTeam} onClose={()=>setST(null)}/>}
       <div ref={headerRef} style={{background:"#0a120a",borderBottom:`2px solid ${T.green}`,padding:bp.isDesktop?"14px 24px":"12px 14px",position:"sticky",top:0,zIndex:100,overflow:"hidden"}}>
+        {/* サッカー日本代表の集合写真を背景に薄く敷く。文字とのコントラストを保つため、
+            画像の上から濃いグリーン〜透明のグラデーションを重ねて馴染ませている。 */}
+        <div aria-hidden="true" style={{position:"absolute",inset:0,pointerEvents:"none",
+          backgroundImage:"url('assets/image.png')",backgroundSize:"cover",backgroundPosition:"center 20%",opacity:0.35}}/>
+        <div aria-hidden="true" style={{position:"absolute",inset:0,pointerEvents:"none",
+          background:"linear-gradient(100deg,#080e08 35%,rgba(8,14,8,0.55) 70%,rgba(8,14,8,0.25))"}}/>
         {/* ピッチのセンターサークル＋ハーフウェイラインを模した、ごく薄い装飾。
             ヘッダーの背景に「サッカーらしさ」を足すだけで、レイアウトには影響しない。 */}
         <div aria-hidden="true" style={{position:"absolute",inset:0,pointerEvents:"none",opacity:0.5}}>
