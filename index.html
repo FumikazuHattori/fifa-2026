@@ -537,7 +537,7 @@ function App() {
     if(e.score>personMap[e.name].bestScore) personMap[e.name].bestScore=e.score;
   });
   const personRanked = Object.values(personMap)
-    .sort((a,b)=>b.bestScore-a.bestScore||b.entries[0].maxPoss-a.entries[0].maxPoss);
+    .sort((a,b)=>b.totalEntries-a.totalEntries||a.name.localeCompare(b.name));
   const uniqueNames = [...new Set(activePredictions.map(p=>p.name))];
 
   // 1〜4位の予想（4つ全て）が完全に一致するエントリーをグルーピングしておき、
@@ -1062,7 +1062,7 @@ function App() {
           )}
         </div>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:"8px"}}>
-          <div style={{fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>🏅 RANKING</div>
+          <div style={{fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700}}>🏅 PLAYERS</div>
           <div style={{display:"flex",border:`1px solid ${T.border}`,borderRadius:"4px",overflow:"hidden"}}>
             {[["person","👤 人別"],["entry","📋 全エントリー"]].map(([key,label])=>(
               <button key={key} onClick={()=>setVM(key)} style={{padding:"6px 14px",border:"none",cursor:"pointer",fontFamily:T.font,fontSize:"11px",fontWeight:700,background:viewMode===key?T.green:"transparent",color:viewMode===key?"#080e08":T.muted}}>{label}</button>
@@ -1079,37 +1079,15 @@ function App() {
         </div>
         {viewMode==="person" && (
           <div style={{display:"grid",gridTemplateColumns:personGridCols,gap:"10px"}}>
-            {personRanked.map((person,i)=>{
-              const best=person.entries[0];
-              const isTop=i===0&&person.bestScore>0;
-              return (
-                <div key={person.name} onClick={()=>setSP(person.name)} style={{background:T.surface,border:`1px solid ${isTop?T.green:T.border}`,borderRadius:"8px",padding:"12px 14px",cursor:"pointer"}}>
-                  <div style={{display:"flex",alignItems:"center",gap:"9px",marginBottom:"9px"}}>
-                    <div style={{width:"26px",height:"26px",borderRadius:"50%",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",background:i===0?T.green:i===1?"#b8b8b8":i===2?"#cd7f32":"#1e2e1e",color:i<3?"#080e08":T.muted,fontFamily:T.font,fontWeight:900,fontSize:"12px"}}>{i+1}</div>
-                    <div style={{flex:1}}>
-                      <div style={{fontFamily:T.font,fontWeight:700,fontSize:"17px",color:isTop?T.green:"#d0eed0"}}>{person.name}</div>
-                      <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>{person.totalEntries}件投票</div>
-                    </div>
-                    <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
-                      <div style={{textAlign:"right"}}>
-                        <div style={{fontFamily:T.font,fontWeight:900,fontSize:"22px",color:person.bestScore>0?T.green:T.dim,lineHeight:1}}>{person.bestScore}<span style={{fontSize:"11px",color:T.muted}}>/4</span></div>
-                        <div style={{fontSize:"9px",color:T.muted,fontFamily:T.font}}>ベスト</div>
-                      </div>
-                      <span style={{color:T.dim,fontSize:"14px"}}>›</span>
-                    </div>
-                  </div>
-                  <div style={{display:"flex",gap:"5px"}}>
-                    {[best.p1,best.p2,best.p3,best.p4].map((t,j)=>(
-                      <div key={j} title={nm(t)} onClick={e=>{e.stopPropagation();setST(t);}} style={{flex:1,background:ELIMINATED.has(t)?"rgba(255,68,85,0.07)":STILL_ALIVE.has(t)?"rgba(240,192,64,0.08)":"transparent",border:`1px solid ${ELIMINATED.has(t)?T.red+"22":STILL_ALIVE.has(t)?T.yellow+"22":T.border}`,borderRadius:"4px",padding:"4px 2px",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",overflow:"hidden",cursor:"pointer"}}>
-                        <div style={{fontSize:"13px"}}>{f(t)}</div>
-                        <div style={{fontFamily:T.font,fontSize:"7px",fontWeight:700,color:ELIMINATED.has(t)?T.red:STILL_ALIVE.has(t)?T.yellow:T.muted,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:"100%"}}>{nm(t)}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div style={{marginTop:"6px",fontFamily:T.font,fontSize:"9px",color:T.dim,textAlign:"right"}}>タップで全{person.totalEntries}件を確認 →</div>
+            {personRanked.map((person,i)=>(
+              <div key={person.name} onClick={()=>setSP(person.name)} style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"8px",padding:"12px 14px",cursor:"pointer",display:"flex",alignItems:"center",gap:"9px"}}>
+                <div style={{flex:1}}>
+                  <div style={{fontFamily:T.font,fontWeight:700,fontSize:"17px",color:"#d0eed0"}}>{person.name}</div>
+                  <div style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>{person.totalEntries}件投票</div>
                 </div>
-              );
-            })}
+                <span style={{color:T.dim,fontSize:"14px"}}>›</span>
+              </div>
+            ))}
           </div>
         )}
         {viewMode==="entry" && (
