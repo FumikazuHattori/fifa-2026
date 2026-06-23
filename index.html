@@ -566,7 +566,7 @@ function App() {
           <div style={{flex:1}}>
             <span style={{fontFamily:T.font,fontWeight:700,fontSize:"16px",color:isTop?T.green:"#d0eed0"}}>{e.name}</span>
             <span style={{fontFamily:T.font,fontSize:"10px",color:T.dim,marginLeft:"6px"}}>{e.date}</span>
-            {fullyOverlapped&&<span title={`完全に同じ予想: ${exactOthers.join("、")}`} style={{marginLeft:"6px",background:T.yellow,color:"#080e08",fontSize:"9px",fontWeight:900,fontFamily:T.font,borderRadius:"8px",padding:"2px 6px"}}>🔗 被り×{exactOthers.length}</span>}
+            {fullyOverlapped&&<span style={{marginLeft:"6px",background:T.yellow,color:"#080e08",fontSize:"9px",fontWeight:900,fontFamily:T.font,borderRadius:"8px",padding:"2px 6px"}}>🔗 被り: {exactOthers.join("、")}</span>}
           </div>
           <div style={{textAlign:"right"}}>
             <div style={{fontFamily:T.font,fontWeight:900,fontSize:"22px",color:e.score>0?T.green:T.dim,lineHeight:1}}>{e.score}<span style={{fontSize:"11px",color:T.muted}}>/4</span></div>
