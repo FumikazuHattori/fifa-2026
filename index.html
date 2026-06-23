@@ -19,7 +19,11 @@
       rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 60px,
       transparent 60px, transparent 120px);
     color:#e0ffe0;font-family:system-ui,sans-serif;
+    /* マウスカーソルをサッカーボール風のSVGに差し替える。先端（クリック判定点）が
+       ボールの中心に来るよう、hotspotをアイコンサイズの半分(16 16)に指定。 */
+    cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="white" stroke="black" stroke-width="1.5"/><polygon points="16,9 21,13 19,19 13,19 11,13" fill="black"/><line x1="16" y1="9" x2="16" y2="3" stroke="black" stroke-width="1.5"/><line x1="21" y1="13" x2="27" y2="11" stroke="black" stroke-width="1.5"/><line x1="19" y1="19" x2="22" y2="25" stroke="black" stroke-width="1.5"/><line x1="13" y1="19" x2="10" y2="25" stroke="black" stroke-width="1.5"/><line x1="11" y1="13" x2="5" y2="11" stroke="black" stroke-width="1.5"/></svg>') 16 16, auto;
   }
+  button,[onclick],a{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="white" stroke="black" stroke-width="1.5"/><polygon points="16,9 21,13 19,19 13,19 11,13" fill="black"/><line x1="16" y1="9" x2="16" y2="3" stroke="black" stroke-width="1.5"/><line x1="21" y1="13" x2="27" y2="11" stroke="black" stroke-width="1.5"/><line x1="19" y1="19" x2="22" y2="25" stroke="black" stroke-width="1.5"/><line x1="13" y1="19" x2="10" y2="25" stroke="black" stroke-width="1.5"/><line x1="11" y1="13" x2="5" y2="11" stroke="black" stroke-width="1.5"/></svg>') 16 16, pointer}
   ::-webkit-scrollbar{width:6px;height:6px}
   ::-webkit-scrollbar-track{background:#080e08}
   ::-webkit-scrollbar-thumb{background:#1e3a1e;border-radius:3px}
