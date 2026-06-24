@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T23:50:45.969Z",
+  "updatedAt": "2026-06-24T00:00:41.969Z",
   "games": [
     {
       "id": 537327,
@@ -561,7 +561,7 @@
         "PAN": 0,
         "CRO": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": null
     },
