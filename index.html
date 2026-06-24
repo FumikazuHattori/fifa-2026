@@ -494,7 +494,7 @@ function useAutoRefresh(onTick) {
 }
 
 function App() {
-  const [tab,setTab]          = useState("pred");
+  const [tab,setTab]          = useState("group"); // ベッティングタブを一時非表示中のため、デフォルトをgroupに変更
   const [activeGroup,setAG]   = useState("E");
   const [viewMode,setVM]      = useState("person");
   const [selectedPerson,setSP]= useState(null);
@@ -1247,7 +1247,8 @@ function App() {
             </div>
           </div>
           <div style={{display:"flex",borderBottom:`1px dashed ${T.border}`,maxWidth:"800px",overflowX:"auto"}}>
-            {tabBtn("pred","🎯 ベッティング")}
+            {/* 一時的に非表示。再表示する場合はこのコメントを外す。 */}
+            {/* {tabBtn("pred","🎯 ベッティング")} */}
             {tabBtn("group","📊 グループ")}
             {tabBtn("bracket","🏆 トーナメント")}
             {tabBtn("schedule","📅 試合予定")}
