@@ -449,6 +449,34 @@ function useLiveScores() {
 }
 // =================== /試合結果連携 ===================
 
+// =================== 得点ランキング連携 ===================
+// football-data.orgの/scorersはコンペティションやプランによって対応していない場合があるため、
+// scorers.jsonが存在しない・空でも、エラー表示はせず「未対応」として静かに扱う。
+function useScorers() {
+  const [scorers, setScorers] = useState([]);
+  const [status, setStatus] = useState("idle"); // idle / loading / success / unavailable
+
+  const load = async () => {
+    setStatus("loading");
+    try {
+      const res = await fetch(`scorers.json?t=${Date.now()}`, { cache: "no-store" });
+      if (!res.ok) { setStatus("unavailable"); return; }
+      const data = await res.json();
+      if (data.scorers && data.scorers.length) {
+        setScorers(data.scorers);
+        setStatus("success");
+      } else {
+        setStatus("unavailable");
+      }
+    } catch (e) {
+      setStatus("unavailable");
+    }
+  };
+
+  return { scorers, status, load };
+}
+// =================== /得点ランキング連携 ===================
+
 // 試合結果の再取得サイクル（秒）。更新頻度を上げたい場合はここだけ変更すればよい。
 const REFRESH_INTERVAL_SEC = 30 * 60;
 
@@ -476,11 +504,13 @@ function App() {
   const bp                    = useBreakpoint();
   const sheet                 = useSheetSource();
   const live                  = useLiveScores();
+  const scorers                = useScorers();
   const games                 = live.games;
 
   // 起動時に一度、scores.json（GitHub Actionsが定期更新）を読み込む。
-  useEffect(()=>{ live.load(); },[]); // eslint-disable-line
+  useEffect(()=>{ live.load(); scorers.load(); },[]); // eslint-disable-line
   useAutoRefresh(live.load);
+  useAutoRefresh(scorers.load);
   // スプレッドシート連携が有効な間は、投票データも自動的に再取得する。
   useAutoRefresh(()=>{ if(sheet.mode==="sheet") sheet.load(); });
 
@@ -594,9 +624,17 @@ function App() {
     );
   };
 
+  const fmtDate = iso => {
+    if (!iso) return null;
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return null;
+    return d.toLocaleString("ja-JP",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
+  };
+
   const MatchRow = ({game}) => {
     const fin=game.status==="final",live=game.status==="live";
     const hs=game.score[game.home],as=game.score[game.away];
+    const dateLabel=fmtDate(game.date);
     return (
       <div style={{display:"flex",alignItems:"center",padding:"9px 12px",borderBottom:`1px solid ${T.border}`,background:live?"rgba(0,255,136,0.04)":"transparent"}}>
         {live&&<div style={{width:"6px",height:"6px",borderRadius:"50%",background:T.red,marginRight:"8px",animation:"pulse 1s infinite"}}/>}
@@ -615,8 +653,8 @@ function App() {
             <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&as>hs)?T.green:fin?"#aacaaa":T.muted}}>{nm(game.away)}</span>
           </div>
         </div>
-        <div style={{marginLeft:"8px",padding:"2px 7px",borderRadius:"3px",fontFamily:T.font,fontSize:"10px",fontWeight:700,letterSpacing:"1px",background:live?T.red:fin?"#1e3a1e":"#111d11",color:live?"#fff":fin?T.green:T.muted}}>
-          {live?"LIVE":fin?"FT":"SCHED"}
+        <div style={{marginLeft:"8px",padding:"2px 7px",borderRadius:"3px",fontFamily:T.font,fontSize:"10px",fontWeight:700,letterSpacing:"1px",background:live?T.red:fin?"#1e3a1e":"#111d11",color:live?"#fff":fin?T.green:T.muted,whiteSpace:"nowrap"}}>
+          {live?"LIVE":fin?"FT":(dateLabel||"SCHED")}
         </div>
       </div>
     );
@@ -799,6 +837,58 @@ function App() {
       </div>
     );
   };
+
+  // ===================== SCHEDULE TAB（全試合を日時順に一覧） =====================
+  const ScheduleTab = () => {
+    const sorted = [...games].sort((a,b)=>{
+      if(a.date && b.date) return new Date(a.date)-new Date(b.date);
+      if(a.date) return -1;
+      if(b.date) return 1;
+      return (a.id||0)-(b.id||0);
+    });
+    return (
+      <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
+        <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
+          <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>📅 ALL MATCHES</div>
+          {sorted.length===0
+            ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>試合データなし</div>
+            :sorted.map((g,i)=><MatchRow key={i} game={g}/>)}
+        </div>
+      </div>
+    );
+  };
+
+  // ===================== SCORERS TAB（得点ランキング） =====================
+  const ScorersTab = () => (
+    <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
+      <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
+        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>⚽ TOP SCORERS</div>
+        {scorers.status==="unavailable" &&
+          <div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>得点ランキングは現在取得できません（APIが未対応、または未更新の可能性があります）。</div>}
+        {scorers.status!=="unavailable" && scorers.scorers.length===0 &&
+          <div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>読み込み中、またはデータなし</div>}
+        {scorers.scorers.length>0 &&
+          <table style={{width:"100%",borderCollapse:"collapse",fontSize:"12px"}}>
+            <thead><tr style={{background:"#111d11"}}>
+              {["#","PLAYER","TEAM","GOALS","ASSISTS"].map(h=>(
+                <th key={h} style={{padding:"5px 6px",color:T.muted,fontFamily:T.font,fontWeight:700,letterSpacing:"1px",fontSize:"10px",textAlign:h==="PLAYER"?"left":"center",borderBottom:`1px solid ${T.border}`}}>{h}</th>
+              ))}
+            </tr></thead>
+            <tbody>
+              {scorers.scorers.map((s,i)=>(
+                <tr key={i}>
+                  <td style={{padding:"7px 6px",textAlign:"center",color:T.dim,fontSize:"11px"}}>{i+1}</td>
+                  <td style={{padding:"7px 6px",color:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px"}}>{s.player}</td>
+                  <td onClick={()=>setST(s.team)} style={{padding:"7px 6px",textAlign:"center",color:T.dim,fontSize:"11px",cursor:"pointer"}}>{s.team}</td>
+                  <td style={{padding:"7px 6px",textAlign:"center",color:T.green,fontWeight:900,fontFamily:T.font,fontSize:"15px"}}>{s.goals}</td>
+                  <td style={{padding:"7px 6px",textAlign:"center",color:"#7a9a7a",fontSize:"11px"}}>{s.assists}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>}
+      </div>
+    </div>
+  );
   // =================== /BRACKET TAB ===================
 
   // ===================== シート連携設定パネル =====================
@@ -1156,10 +1246,12 @@ function App() {
               {bp.isDesktop&&<div style={{fontFamily:T.font,fontSize:"12px",color:T.muted,letterSpacing:"1px"}}>{activePredictions.length}エントリー / {uniqueNames.length}人参加</div>}
             </div>
           </div>
-          <div style={{display:"flex",borderBottom:`1px dashed ${T.border}`,maxWidth:"500px"}}>
+          <div style={{display:"flex",borderBottom:`1px dashed ${T.border}`,maxWidth:"800px",overflowX:"auto"}}>
             {tabBtn("pred","🎯 ベッティング")}
             {tabBtn("group","📊 グループ")}
             {tabBtn("bracket","🏆 トーナメント")}
+            {tabBtn("schedule","📅 試合予定")}
+            {tabBtn("scorers","⚽ 得点ランキング")}
           </div>
         </div>
       </div>
@@ -1167,6 +1259,8 @@ function App() {
         {tab==="pred"&&<PredTab/>}
         {tab==="group"&&<GroupTab/>}
         {tab==="bracket"&&<BracketTab/>}
+        {tab==="schedule"&&<ScheduleTab/>}
+        {tab==="scorers"&&<ScorersTab/>}
       </div>
     </div>
   );

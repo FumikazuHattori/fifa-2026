@@ -55,6 +55,7 @@ const games = (data.matches || [])
       status: fdStatusToOurs(m.status),
       stage: m.stage || "GROUP_STAGE",
       winner,
+      date: m.utcDate || null,
     };
   })
   .filter(Boolean);
@@ -69,3 +70,30 @@ await writeFile(
   JSON.stringify({ updatedAt: new Date().toISOString(), games }, null, 2) + "\n"
 );
 console.log(`scores.json を更新しました（${games.length}試合）`);
+
+// 得点ランキング（/scorers）はAPIの契約プランによっては取得できないコンペティションもあるため、
+// 失敗してもscores.json本体の更新は止めない（非致命的に扱う）。
+try {
+  const scorersRes = await fetch("https://api.football-data.org/v4/competitions/WC/scorers?limit=50", {
+    headers: { "X-Auth-Token": TOKEN },
+  });
+  if (!scorersRes.ok) {
+    console.warn(`得点ランキングの取得に失敗しました（HTTP ${scorersRes.status}）。scorers.jsonの更新をスキップします。`);
+  } else {
+    const scorersData = await scorersRes.json();
+    const scorers = (scorersData.scorers || []).map(s => ({
+      player: s.player?.name || "",
+      team: fdToOurCode(s.team) || s.team?.tla || "",
+      goals: s.goals ?? 0,
+      assists: s.assists ?? 0,
+      penalties: s.penalties ?? 0,
+    }));
+    await writeFile(
+      "scorers.json",
+      JSON.stringify({ updatedAt: new Date().toISOString(), scorers }, null, 2) + "\n"
+    );
+    console.log(`scorers.json を更新しました（${scorers.length}人）`);
+  }
+} catch (e) {
+  console.warn(`得点ランキングの取得中にエラーが発生しました: ${e.message}`);
+}
