@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T03:30:33.817Z",
+  "updatedAt": "2026-06-24T04:00:45.667Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -112,6 +112,13 @@
       "goals": 2,
       "assists": 0,
       "penalties": 1
+    },
+    {
+      "player": "Daniel Muñoz",
+      "team": "COL",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
     },
     {
       "player": "Johan Manzambi",
@@ -340,13 +347,6 @@
     {
       "player": "Mattias Svanberg",
       "team": "SWE",
-      "goals": 1,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Emam Ashour",
-      "team": "EGY",
       "goals": 1,
       "assists": 0,
       "penalties": 0
