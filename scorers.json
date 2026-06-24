@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T22:00:42.348Z",
+  "updatedAt": "2026-06-24T22:30:36.915Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -20,6 +20,13 @@
       "team": "NOR",
       "goals": 4,
       "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Vinicius Junior",
+      "team": "BRA",
+      "goals": 3,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -62,13 +69,6 @@
       "team": "MAR",
       "goals": 2,
       "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Vinicius Junior",
-      "team": "BRA",
-      "goals": 2,
-      "assists": 1,
       "penalties": 0
     },
     {
