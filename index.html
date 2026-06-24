@@ -661,6 +661,12 @@ function App() {
     return d.toLocaleString("ja-JP",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
   };
 
+  const TeamCrest = ({team, size=16}) => {
+    const crest = teams.teams[team]?.crest;
+    if (!crest) return null;
+    return <img src={crest} alt={team} style={{width:size+"px",height:size+"px",objectFit:"contain",flexShrink:0}}/>;
+  };
+
   const MatchRow = ({game}) => {
     const fin=game.status==="final",live=game.status==="live";
     const hs=game.score[game.home],as=game.score[game.away];
@@ -671,6 +677,7 @@ function App() {
         <div style={{flex:1,display:"flex",alignItems:"center",gap:"8px"}}>
           <div onClick={()=>setST(game.home)} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",justifyContent:"flex-end",cursor:"pointer"}}>
             <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&hs>as)?T.green:fin?"#aacaaa":T.muted,textAlign:"right"}}>{nm(game.home)}</span>
+            <TeamCrest team={game.home}/>
             <span style={{fontFamily:T.font,fontSize:"10px",fontWeight:900,color:T.dim,letterSpacing:"1px"}}>{f(game.home)}</span>
           </div>
           <div style={{minWidth:"60px",textAlign:"center",fontFamily:T.font,fontWeight:900,fontSize:"17px"}}>
@@ -680,6 +687,7 @@ function App() {
           </div>
           <div onClick={()=>setST(game.away)} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",cursor:"pointer"}}>
             <span style={{fontFamily:T.font,fontSize:"10px",fontWeight:900,color:T.dim,letterSpacing:"1px"}}>{f(game.away)}</span>
+            <TeamCrest team={game.away}/>
             <span style={{fontFamily:T.font,fontSize:"14px",fontWeight:700,color:(fin&&as>hs)?T.green:fin?"#aacaaa":T.muted}}>{nm(game.away)}</span>
           </div>
         </div>
@@ -710,7 +718,10 @@ function App() {
                     <span style={{display:"inline-flex",alignItems:"center",justifyContent:"center",width:"19px",height:"19px",borderRadius:"50%",border:`1px dashed ${q?T.green:T.dim}`,color:q?T.green:T.dim,fontFamily:T.font,fontWeight:700,fontSize:"11px"}}>{i+1}</span>
                   </td>
                   <td onClick={()=>setST(s.team)} style={{padding:"7px 6px",color:elim?T.red:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"13px",cursor:"pointer"}}>
-                    {nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span>
+                    <span style={{display:"inline-flex",alignItems:"center",gap:"6px"}}>
+                      <TeamCrest team={s.team}/>
+                      {nm(s.team)}<span style={{marginLeft:"5px",fontSize:"10px",color:T.dim}}>{s.team}</span>
+                    </span>
                     {elim&&<span style={{marginLeft:"6px",fontSize:"9px",fontWeight:700,letterSpacing:"1px",color:T.red,padding:"1px 4px",border:`1px solid ${T.red}`,borderRadius:"3px"}}>敗退</span>}
                   </td>
                   {[s.mp,s.w,s.d,s.l,s.gf,s.ga].map((v,j)=>(
