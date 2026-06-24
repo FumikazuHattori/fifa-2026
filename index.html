@@ -840,19 +840,27 @@ function App() {
 
   // ===================== SCHEDULE TAB（全試合を日時順に一覧） =====================
   const ScheduleTab = () => {
+    const [upcomingOnly, setUpcomingOnly] = useState(false);
     const sorted = [...games].sort((a,b)=>{
       if(a.date && b.date) return new Date(a.date)-new Date(b.date);
       if(a.date) return -1;
       if(b.date) return 1;
       return (a.id||0)-(b.id||0);
     });
+    // 「今後の予定」は、まだ終わっていない（final以外の）試合に限定する。
+    const filtered = upcomingOnly ? sorted.filter(g=>g.status!=="final") : sorted;
     return (
       <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
         <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
-          <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>📅 ALL MATCHES</div>
-          {sorted.length===0
+          <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+            <span>📅 {upcomingOnly?"UPCOMING MATCHES":"ALL MATCHES"}</span>
+            <button onClick={()=>setUpcomingOnly(u=>!u)} style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,letterSpacing:"1px",color:upcomingOnly?"#080e08":T.green,background:upcomingOnly?T.green:"transparent",border:`1px solid ${T.green}`,borderRadius:"4px",padding:"3px 8px",cursor:"pointer"}}>
+              {upcomingOnly?"✓ 今後の予定のみ":"今後の予定のみ"}
+            </button>
+          </div>
+          {filtered.length===0
             ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>試合データなし</div>
-            :sorted.map((g,i)=><MatchRow key={i} game={g}/>)}
+            :filtered.map((g,i)=><MatchRow key={i} game={g}/>)}
         </div>
       </div>
     );
