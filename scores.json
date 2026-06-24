@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T23:00:39.749Z",
+  "updatedAt": "2026-06-24T23:30:34.193Z",
   "games": [
     {
       "id": 537327,
@@ -670,7 +670,7 @@
       "away": "BRA",
       "score": {
         "SCO": 0,
-        "BRA": 2
+        "BRA": 3
       },
       "status": "live",
       "stage": "GROUP_STAGE",

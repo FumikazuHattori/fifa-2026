@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T23:00:40.202Z",
+  "updatedAt": "2026-06-24T23:30:34.430Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -53,6 +53,13 @@
     {
       "player": "Jonathan David",
       "team": "CAN",
+      "goals": 3,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Matheus Cunha",
+      "team": "BRA",
       "goals": 3,
       "assists": 0,
       "penalties": 0
@@ -137,13 +144,6 @@
     {
       "player": "Ermin Mahmic",
       "team": "BIH",
-      "goals": 2,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Matheus Cunha",
-      "team": "BRA",
       "goals": 2,
       "assists": 0,
       "penalties": 0
