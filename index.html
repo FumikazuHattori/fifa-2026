@@ -475,6 +475,34 @@ function useScorers() {
 
   return { scorers, status, load };
 }
+
+// =================== チーム情報（エンブレム・所属メンバー）連携 ===================
+// /scorersと同様、APIの契約プランによってはteams.jsonが取得できない・空の場合があるため、
+// その場合はエンブレムや選手一覧を出さずに静かにフォールバックする。
+function useTeams() {
+  const [teams, setTeams] = useState({});
+  const [status, setStatus] = useState("idle"); // idle / loading / success / unavailable
+
+  const load = async () => {
+    setStatus("loading");
+    try {
+      const res = await fetch(`teams.json?t=${Date.now()}`, { cache: "no-store" });
+      if (!res.ok) { setStatus("unavailable"); return; }
+      const data = await res.json();
+      if (data.teams && Object.keys(data.teams).length) {
+        setTeams(data.teams);
+        setStatus("success");
+      } else {
+        setStatus("unavailable");
+      }
+    } catch (e) {
+      setStatus("unavailable");
+    }
+  };
+
+  return { teams, status, load };
+}
+// =================== /チーム情報連携 ===================
 // =================== /得点ランキング連携 ===================
 
 // 試合結果の再取得サイクル（秒）。更新頻度を上げたい場合はここだけ変更すればよい。
@@ -505,12 +533,14 @@ function App() {
   const sheet                 = useSheetSource();
   const live                  = useLiveScores();
   const scorers                = useScorers();
+  const teams                 = useTeams();
   const games                 = live.games;
 
   // 起動時に一度、scores.json（GitHub Actionsが定期更新）を読み込む。
-  useEffect(()=>{ live.load(); scorers.load(); },[]); // eslint-disable-line
+  useEffect(()=>{ live.load(); scorers.load(); teams.load(); },[]); // eslint-disable-line
   useAutoRefresh(live.load);
   useAutoRefresh(scorers.load);
+  useAutoRefresh(teams.load);
   // スプレッドシート連携が有効な間は、投票データも自動的に再取得する。
   useAutoRefresh(()=>{ if(sheet.mode==="sheet") sheet.load(); });
 
@@ -1195,12 +1225,18 @@ function App() {
     const rank = standing.findIndex(s=>s.team===team);
     const s = standing[rank];
     const teamGames = games.filter(g=>g.home===team||g.away===team);
+    const teamInfo = teams.teams[team];
+    const crest = teamInfo?.crest;
+    const squad = teamInfo?.squad || [];
+    const goalsOf = playerName => scorers.scorers.find(sc=>sc.team===team&&sc.player===playerName)?.goals ?? 0;
     return (
       <div style={{position:"fixed",inset:0,background:"rgba(2,8,2,0.92)",zIndex:200,overflowY:"auto",padding:bp.isDesktop?"40px 24px":"16px"}}>
         <div style={{maxWidth:"640px",margin:"0 auto",display:"flex",flexDirection:"column",gap:"12px"}}>
           <button onClick={onClose} style={{alignSelf:"flex-start",padding:"6px 14px",background:"#111d11",border:`1px solid ${T.border}`,borderRadius:"4px",fontFamily:T.font,fontSize:"11px",color:T.muted,cursor:"pointer"}}>← 閉じる</button>
           <div style={{display:"flex",alignItems:"center",gap:"12px",background:T.surface,border:`1px solid ${T.border}`,borderRadius:"8px",padding:"16px"}}>
-            <div style={{fontFamily:T.font,fontSize:"22px",fontWeight:900,color:T.dim,letterSpacing:"1px",padding:"8px 10px",border:`1px solid ${T.border}`,borderRadius:"6px"}}>{f(team)}</div>
+            {crest
+              ? <img src={crest} alt={team} style={{width:"48px",height:"48px",objectFit:"contain",flexShrink:0}}/>
+              : <div style={{fontFamily:T.font,fontSize:"22px",fontWeight:900,color:T.dim,letterSpacing:"1px",padding:"8px 10px",border:`1px solid ${T.border}`,borderRadius:"6px"}}>{f(team)}</div>}
             <div>
               <div style={{fontFamily:T.font,fontWeight:900,fontSize:"20px",color:"#e0ffe0"}}>{nm(team)}</div>
               <div style={{fontFamily:T.font,fontSize:"11px",color:T.dim,marginTop:"2px"}}>
@@ -1224,6 +1260,27 @@ function App() {
             {teamGames.length===0
               ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>試合データなし</div>
               :teamGames.map((g,i)=><MatchRow key={i} game={g}/>)}
+          </div>
+          <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
+            <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>👥 SQUAD</div>
+            {squad.length===0
+              ?<div style={{padding:"16px",color:T.dim,textAlign:"center",fontSize:"12px"}}>選手一覧は現在取得できません</div>
+              :<table style={{width:"100%",borderCollapse:"collapse",fontSize:"12px"}}>
+                <thead><tr style={{background:"#111d11"}}>
+                  {["PLAYER","POSITION","GOALS"].map(h=>(
+                    <th key={h} style={{padding:"5px 6px",color:T.muted,fontFamily:T.font,fontWeight:700,letterSpacing:"1px",fontSize:"10px",textAlign:h==="PLAYER"?"left":"center",borderBottom:`1px solid ${T.border}`}}>{h}</th>
+                  ))}
+                </tr></thead>
+                <tbody>
+                  {squad.map((p,i)=>(
+                    <tr key={i}>
+                      <td style={{padding:"6px 6px",color:"#d0eed0",fontFamily:T.font,fontWeight:600,fontSize:"12px"}}>{p.name}</td>
+                      <td style={{padding:"6px 6px",textAlign:"center",color:T.dim,fontSize:"11px"}}>{p.position||"-"}</td>
+                      <td style={{padding:"6px 6px",textAlign:"center",color:T.green,fontWeight:900,fontFamily:T.font,fontSize:"13px"}}>{goalsOf(p.name)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>}
           </div>
         </div>
       </div>

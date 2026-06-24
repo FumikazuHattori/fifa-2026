@@ -97,3 +97,37 @@ try {
 } catch (e) {
   console.warn(`得点ランキングの取得中にエラーが発生しました: ${e.message}`);
 }
+
+// チーム情報（エンブレム・所属メンバー）も同様に非致命的に扱う。
+// /teams は1チームずつ詳細を返すエンドポイントもあるが、コンペティション単位で
+// 一括取得できる /competitions/WC/teams を使い、リクエスト数を抑える。
+try {
+  const teamsRes = await fetch("https://api.football-data.org/v4/competitions/WC/teams", {
+    headers: { "X-Auth-Token": TOKEN },
+  });
+  if (!teamsRes.ok) {
+    console.warn(`チーム情報の取得に失敗しました（HTTP ${teamsRes.status}）。teams.jsonの更新をスキップします。`);
+  } else {
+    const teamsData = await teamsRes.json();
+    const teams = {};
+    for (const t of teamsData.teams || []) {
+      const code = fdToOurCode(t);
+      if (!code) continue;
+      teams[code] = {
+        crest: t.crest || null,
+        squad: (t.squad || []).map(p => ({
+          name: p.name || "",
+          position: p.position || "",
+          nationality: p.nationality || "",
+        })),
+      };
+    }
+    await writeFile(
+      "teams.json",
+      JSON.stringify({ updatedAt: new Date().toISOString(), teams }, null, 2) + "\n"
+    );
+    console.log(`teams.json を更新しました（${Object.keys(teams).length}チーム）`);
+  }
+} catch (e) {
+  console.warn(`チーム情報の取得中にエラーが発生しました: ${e.message}`);
+}
