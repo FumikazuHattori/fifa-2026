@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T19:30:36.301Z",
+  "updatedAt": "2026-06-24T20:00:47.141Z",
   "games": [
     {
       "id": 537327,
@@ -643,12 +643,12 @@
       "home": "BIH",
       "away": "QAT",
       "score": {
-        "BIH": 0,
-        "QAT": 0
+        "BIH": 2,
+        "QAT": 1
       },
       "status": "live",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-24T19:00:00Z"
     },
     {
