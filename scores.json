@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T22:44:32.431Z",
+  "updatedAt": "2026-06-24T23:00:39.749Z",
   "games": [
     {
       "id": 537327,
@@ -656,10 +656,10 @@
       "home": "MAR",
       "away": "HTI",
       "score": {
-        "MAR": 1,
-        "HTI": 1
+        "MAR": 2,
+        "HTI": 2
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-24T22:00:00Z"
@@ -672,7 +672,7 @@
         "SCO": 0,
         "BRA": 2
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": "away",
       "date": "2026-06-24T22:00:00Z"

@@ -1,11 +1,18 @@
 {
-  "updatedAt": "2026-06-24T22:44:32.754Z",
+  "updatedAt": "2026-06-24T23:00:40.202Z",
   "scorers": [
     {
       "player": "Lionel Messi",
       "team": "ARG",
       "goals": 5,
       "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Vinicius Junior",
+      "team": "BRA",
+      "goals": 4,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -23,10 +30,10 @@
       "penalties": 0
     },
     {
-      "player": "Vinicius Junior",
-      "team": "BRA",
+      "player": "Ismael Saibari",
+      "team": "MAR",
       "goals": 3,
-      "assists": 1,
+      "assists": 0,
       "penalties": 0
     },
     {
@@ -60,13 +67,6 @@
     {
       "player": "Folarin Balogun",
       "team": "USA",
-      "goals": 2,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Ismael Saibari",
-      "team": "MAR",
       "goals": 2,
       "assists": 0,
       "penalties": 0
