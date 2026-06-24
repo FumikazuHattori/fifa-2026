@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T20:00:47.418Z",
+  "updatedAt": "2026-06-24T20:30:38.588Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -27,6 +27,13 @@
       "team": "GER",
       "goals": 3,
       "assists": 2,
+      "penalties": 0
+    },
+    {
+      "player": "Johan Manzambi",
+      "team": "SUI",
+      "goals": 3,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -121,10 +128,10 @@
       "penalties": 0
     },
     {
-      "player": "Johan Manzambi",
+      "player": "Ruben Vargas",
       "team": "SUI",
       "goals": 2,
-      "assists": 0,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -236,7 +243,7 @@
       "player": "Breel Embolo",
       "team": "SUI",
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "penalties": 1
     },
     {
@@ -342,13 +349,6 @@
       "team": "SWE",
       "goals": 1,
       "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Mattias Svanberg",
-      "team": "SWE",
-      "goals": 1,
-      "assists": 0,
       "penalties": 0
     }
   ]

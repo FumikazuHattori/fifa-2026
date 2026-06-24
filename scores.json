@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T20:00:47.141Z",
+  "updatedAt": "2026-06-24T20:30:38.253Z",
   "games": [
     {
       "id": 537327,
@@ -630,12 +630,12 @@
       "home": "SUI",
       "away": "CAN",
       "score": {
-        "SUI": 0,
+        "SUI": 2,
         "CAN": 0
       },
       "status": "live",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-24T19:00:00Z"
     },
     {
