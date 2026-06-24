@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T00:00:41.969Z",
+  "updatedAt": "2026-06-24T00:30:37.709Z",
   "games": [
     {
       "id": 537327,
@@ -11,7 +11,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-11T19:00:00Z"
     },
     {
       "id": 537328,
@@ -23,7 +24,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-12T02:00:00Z"
     },
     {
       "id": 537333,
@@ -35,7 +37,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-12T19:00:00Z"
     },
     {
       "id": 537345,
@@ -47,7 +50,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-13T01:00:00Z"
     },
     {
       "id": 537334,
@@ -59,7 +63,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-13T19:00:00Z"
     },
     {
       "id": 537339,
@@ -71,7 +76,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-13T22:00:00Z"
     },
     {
       "id": 537340,
@@ -83,7 +89,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away"
+      "winner": "away",
+      "date": "2026-06-14T01:00:00Z"
     },
     {
       "id": 537346,
@@ -95,7 +102,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-14T04:00:00Z"
     },
     {
       "id": 537351,
@@ -107,7 +115,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-14T17:00:00Z"
     },
     {
       "id": 537357,
@@ -119,7 +128,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-14T20:00:00Z"
     },
     {
       "id": 537352,
@@ -131,7 +141,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-14T23:00:00Z"
     },
     {
       "id": 537358,
@@ -143,7 +154,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-15T02:00:00Z"
     },
     {
       "id": 537369,
@@ -155,7 +167,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-15T16:00:00Z"
     },
     {
       "id": 537363,
@@ -167,7 +180,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-15T19:00:00Z"
     },
     {
       "id": 537370,
@@ -179,7 +193,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-15T22:00:00Z"
     },
     {
       "id": 537364,
@@ -191,7 +206,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-16T01:00:00Z"
     },
     {
       "id": 537391,
@@ -203,7 +219,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-16T19:00:00Z"
     },
     {
       "id": 537392,
@@ -215,7 +232,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away"
+      "winner": "away",
+      "date": "2026-06-16T22:00:00Z"
     },
     {
       "id": 537397,
@@ -227,7 +245,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-17T01:00:00Z"
     },
     {
       "id": 537398,
@@ -239,7 +258,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-17T04:00:00Z"
     },
     {
       "id": 537403,
@@ -251,7 +271,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-17T17:00:00Z"
     },
     {
       "id": 537409,
@@ -263,7 +284,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-17T20:00:00Z"
     },
     {
       "id": 537410,
@@ -275,7 +297,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-17T23:00:00Z"
     },
     {
       "id": 537404,
@@ -287,7 +310,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away"
+      "winner": "away",
+      "date": "2026-06-18T02:00:00Z"
     },
     {
       "id": 537329,
@@ -299,7 +323,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-18T16:00:00Z"
     },
     {
       "id": 537335,
@@ -311,7 +336,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-18T19:00:00Z"
     },
     {
       "id": 537336,
@@ -323,7 +349,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-18T22:00:00Z"
     },
     {
       "id": 537330,
@@ -335,7 +362,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-19T01:00:00Z"
     },
     {
       "id": 537348,
@@ -347,7 +375,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-19T19:00:00Z"
     },
     {
       "id": 537342,
@@ -359,7 +388,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away"
+      "winner": "away",
+      "date": "2026-06-19T22:00:00Z"
     },
     {
       "id": 537341,
@@ -371,7 +401,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-20T00:30:00Z"
     },
     {
       "id": 537347,
@@ -383,7 +414,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away"
+      "winner": "away",
+      "date": "2026-06-20T03:00:00Z"
     },
     {
       "id": 537359,
@@ -395,7 +427,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-20T17:00:00Z"
     },
     {
       "id": 537353,
@@ -407,7 +440,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-20T20:00:00Z"
     },
     {
       "id": 537354,
@@ -419,7 +453,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-21T00:00:00Z"
     },
     {
       "id": 537360,
@@ -431,7 +466,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away"
+      "winner": "away",
+      "date": "2026-06-21T04:00:00Z"
     },
     {
       "id": 537371,
@@ -443,7 +479,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-21T16:00:00Z"
     },
     {
       "id": 537365,
@@ -455,7 +492,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-21T19:00:00Z"
     },
     {
       "id": 537372,
@@ -467,7 +505,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-21T22:00:00Z"
     },
     {
       "id": 537366,
@@ -479,7 +518,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away"
+      "winner": "away",
+      "date": "2026-06-22T01:00:00Z"
     },
     {
       "id": 537399,
@@ -491,7 +531,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-22T17:00:00Z"
     },
     {
       "id": 537393,
@@ -503,7 +544,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-22T21:00:00Z"
     },
     {
       "id": 537394,
@@ -515,7 +557,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-23T00:00:00Z"
     },
     {
       "id": 537400,
@@ -527,7 +570,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away"
+      "winner": "away",
+      "date": "2026-06-23T03:00:00Z"
     },
     {
       "id": 537405,
@@ -539,7 +583,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "home"
+      "winner": "home",
+      "date": "2026-06-23T17:00:00Z"
     },
     {
       "id": 537411,
@@ -551,7 +596,8 @@
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-23T20:00:00Z"
     },
     {
       "id": 537412,
@@ -559,11 +605,12 @@
       "away": "CRO",
       "score": {
         "PAN": 0,
-        "CRO": 0
+        "CRO": 1
       },
-      "status": "live",
+      "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": "away",
+      "date": "2026-06-23T23:00:00Z"
     },
     {
       "id": 537406,
@@ -575,7 +622,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-24T02:00:00Z"
     },
     {
       "id": 537337,
@@ -587,7 +635,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-24T19:00:00Z"
     },
     {
       "id": 537338,
@@ -599,7 +648,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-24T19:00:00Z"
     },
     {
       "id": 537344,
@@ -611,7 +661,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-24T22:00:00Z"
     },
     {
       "id": 537343,
@@ -623,7 +674,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-24T22:00:00Z"
     },
     {
       "id": 537331,
@@ -635,7 +687,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-25T01:00:00Z"
     },
     {
       "id": 537332,
@@ -647,7 +700,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-25T01:00:00Z"
     },
     {
       "id": 537355,
@@ -659,7 +713,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-25T20:00:00Z"
     },
     {
       "id": 537356,
@@ -671,7 +726,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-25T20:00:00Z"
     },
     {
       "id": 537361,
@@ -683,7 +739,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-25T23:00:00Z"
     },
     {
       "id": 537362,
@@ -695,7 +752,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-25T23:00:00Z"
     },
     {
       "id": 537349,
@@ -707,7 +765,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-26T02:00:00Z"
     },
     {
       "id": 537350,
@@ -719,7 +778,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-26T02:00:00Z"
     },
     {
       "id": 537395,
@@ -731,7 +791,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-26T19:00:00Z"
     },
     {
       "id": 537396,
@@ -743,7 +804,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-26T19:00:00Z"
     },
     {
       "id": 537373,
@@ -755,7 +817,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-27T00:00:00Z"
     },
     {
       "id": 537374,
@@ -767,7 +830,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-27T00:00:00Z"
     },
     {
       "id": 537367,
@@ -779,7 +843,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-27T03:00:00Z"
     },
     {
       "id": 537368,
@@ -791,7 +856,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-27T03:00:00Z"
     },
     {
       "id": 537413,
@@ -803,7 +869,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-27T21:00:00Z"
     },
     {
       "id": 537414,
@@ -815,7 +882,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-27T21:00:00Z"
     },
     {
       "id": 537407,
@@ -827,7 +895,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-27T23:30:00Z"
     },
     {
       "id": 537408,
@@ -839,7 +908,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-27T23:30:00Z"
     },
     {
       "id": 537401,
@@ -851,7 +921,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-28T02:00:00Z"
     },
     {
       "id": 537402,
@@ -863,7 +934,8 @@
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null
+      "winner": null,
+      "date": "2026-06-28T02:00:00Z"
     }
   ]
 }

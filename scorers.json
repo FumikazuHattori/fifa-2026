@@ -1,0 +1,355 @@
+{
+  "updatedAt": "2026-06-24T00:30:37.971Z",
+  "scorers": [
+    {
+      "player": "Lionel Messi",
+      "team": "ARG",
+      "goals": 5,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Kylian Mbappé",
+      "team": "FRA",
+      "goals": 4,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Erling Haaland",
+      "team": "NOR",
+      "goals": 4,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Deniz Undav",
+      "team": "GER",
+      "goals": 3,
+      "assists": 2,
+      "penalties": 0
+    },
+    {
+      "player": "Jonathan David",
+      "team": "CAN",
+      "goals": 3,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Cyle Larin",
+      "team": "CAN",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Folarin Balogun",
+      "team": "USA",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Ismael Saibari",
+      "team": "MAR",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Vinicius Junior",
+      "team": "BRA",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Kai Havertz",
+      "team": "GER",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 1
+    },
+    {
+      "player": "Crysencio Summerville",
+      "team": "NED",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Daichi Kamada",
+      "team": "JPN",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Yasin Ayari",
+      "team": "SWE",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Maximiliano Araújo",
+      "team": "URU",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Elijah Just",
+      "team": "NZL",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Harry Kane",
+      "team": "ENG",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 1
+    },
+    {
+      "player": "Johan Manzambi",
+      "team": "SUI",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Matheus Cunha",
+      "team": "BRA",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Brian Brobbey",
+      "team": "NED",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Cody Gakpo",
+      "team": "NED",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Ayase Ueda",
+      "team": "JPN",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Mikel Oyarzabal",
+      "team": "ESP",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Ismaïla Sarr",
+      "team": "SEN",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Cristiano Ronaldo",
+      "team": "POR",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Julián Quiñones",
+      "team": "MEX",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Raúl Jiménez",
+      "team": "MEX",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Ladislav Krejčí",
+      "team": "CZE",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "In-beom Hwang",
+      "team": "KOR",
+      "goals": 1,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Hyun-Gyu Oh",
+      "team": "KOR",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Jovo Lukić",
+      "team": "BIH",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Mauricio",
+      "team": "PAR",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Gio Reyna",
+      "team": "USA",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Breel Embolo",
+      "team": "SUI",
+      "goals": 1,
+      "assists": 1,
+      "penalties": 1
+    },
+    {
+      "player": "Boualem Khoukhi",
+      "team": "QAT",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "John McGinn",
+      "team": "SCO",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Nestor Irankunda",
+      "team": "AUS",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Connor Metcalfe",
+      "team": "AUS",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Felix Kalu Nmecha",
+      "team": "GER",
+      "goals": 1,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Livano Comenencia",
+      "team": "CUW",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Nico Schlotterbeck",
+      "team": "GER",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Jamal Musiala",
+      "team": "GER",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Nathaniel Brown",
+      "team": "GER",
+      "goals": 1,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Virgil van Dijk",
+      "team": "NED",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Keito Nakamura",
+      "team": "JPN",
+      "goals": 1,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Amad Diallo",
+      "team": "CIV",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Alexander Isak",
+      "team": "SWE",
+      "goals": 1,
+      "assists": 3,
+      "penalties": 0
+    },
+    {
+      "player": "Omar Rekik",
+      "team": "TUN",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Viktor Gyökeres",
+      "team": "SWE",
+      "goals": 1,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Mattias Svanberg",
+      "team": "SWE",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Emam Ashour",
+      "team": "EGY",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    }
+  ]
+}
