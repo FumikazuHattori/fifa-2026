@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T03:00:45.024Z",
+  "updatedAt": "2026-06-25T03:30:38.580Z",
   "games": [
     {
       "id": 537327,
@@ -685,7 +685,7 @@
         "CZE": 0,
         "MEX": 3
       },
-      "status": "live",
+      "status": "final",
       "stage": "GROUP_STAGE",
       "winner": "away",
       "date": "2026-06-25T01:00:00Z"
@@ -698,7 +698,7 @@
         "RSA": 1,
         "KOR": 0
       },
-      "status": "live",
+      "status": "final",
       "stage": "GROUP_STAGE",
       "winner": "home",
       "date": "2026-06-25T01:00:00Z"
