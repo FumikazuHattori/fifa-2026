@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T02:00:42.288Z",
+  "updatedAt": "2026-06-25T02:30:34.010Z",
   "games": [
     {
       "id": 537327,
@@ -683,11 +683,11 @@
       "away": "MEX",
       "score": {
         "CZE": 0,
-        "MEX": 0
+        "MEX": 2
       },
       "status": "live",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-25T01:00:00Z"
     },
     {
@@ -695,12 +695,12 @@
       "home": "RSA",
       "away": "KOR",
       "score": {
-        "RSA": 0,
+        "RSA": 1,
         "KOR": 0
       },
       "status": "live",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-25T01:00:00Z"
     },
     {

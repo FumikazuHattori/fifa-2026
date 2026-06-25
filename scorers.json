@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T02:00:42.564Z",
+  "updatedAt": "2026-06-25T02:30:34.302Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -61,6 +61,13 @@
       "player": "Matheus Cunha",
       "team": "BRA",
       "goals": 3,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Julián Quiñones",
+      "team": "MEX",
+      "goals": 2,
       "assists": 0,
       "penalties": 0
     },
@@ -187,13 +194,6 @@
       "player": "Cristiano Ronaldo",
       "team": "POR",
       "goals": 2,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Julián Quiñones",
-      "team": "MEX",
-      "goals": 1,
       "assists": 0,
       "penalties": 0
     },
