@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T20:00:38.136Z",
+  "updatedAt": "2026-06-25T20:30:33.278Z",
   "games": [
     {
       "id": 537327,
@@ -708,8 +708,8 @@
       "home": "ECU",
       "away": "GER",
       "score": {
-        "ECU": 0,
-        "GER": 0
+        "ECU": 1,
+        "GER": 1
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
@@ -722,11 +722,11 @@
       "away": "CIV",
       "score": {
         "CUW": 0,
-        "CIV": 0
+        "CIV": 1
       },
       "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-25T20:00:00Z"
     },
     {
