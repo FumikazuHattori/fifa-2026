@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T15:00:40.784Z",
+  "updatedAt": "2026-06-25T15:30:42.286Z",
   "games": [
     {
       "id": 537327,
@@ -32,8 +32,8 @@
       "home": "CAN",
       "away": "BIH",
       "score": {
-        "CAN": 1,
-        "BIH": 1
+        "CAN": 0,
+        "BIH": 0
       },
       "status": "final",
       "stage": "GROUP_STAGE",
