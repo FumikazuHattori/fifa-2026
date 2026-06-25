@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T21:00:39.816Z",
+  "updatedAt": "2026-06-25T21:30:35.049Z",
   "games": [
     {
       "id": 537327,
@@ -722,7 +722,7 @@
       "away": "CIV",
       "score": {
         "CUW": 0,
-        "CIV": 1
+        "CIV": 2
       },
       "status": "live",
       "stage": "GROUP_STAGE",

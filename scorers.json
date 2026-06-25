@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T21:00:40.089Z",
+  "updatedAt": "2026-06-25T21:30:35.437Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -198,6 +198,13 @@
       "penalties": 0
     },
     {
+      "player": "Nicolas Pépé",
+      "team": "CIV",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
       "player": "Raúl Jiménez",
       "team": "MEX",
       "goals": 1,
@@ -342,13 +349,6 @@
       "team": "SWE",
       "goals": 1,
       "assists": 3,
-      "penalties": 0
-    },
-    {
-      "player": "Omar Rekik",
-      "team": "TUN",
-      "goals": 1,
-      "assists": 0,
       "penalties": 0
     }
   ]
