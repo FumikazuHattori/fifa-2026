@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T21:30:35.049Z",
+  "updatedAt": "2026-06-25T22:00:42.835Z",
   "games": [
     {
       "id": 537327,
@@ -708,12 +708,12 @@
       "home": "ECU",
       "away": "GER",
       "score": {
-        "ECU": 1,
+        "ECU": 2,
         "GER": 1
       },
       "status": "live",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-25T20:00:00Z"
     },
     {
