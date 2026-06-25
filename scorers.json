@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T23:00:41.444Z",
+  "updatedAt": "2026-06-25T23:30:32.837Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -60,6 +60,13 @@
     {
       "player": "Matheus Cunha",
       "team": "BRA",
+      "goals": 3,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Brian Brobbey",
+      "team": "NED",
       "goals": 3,
       "assists": 0,
       "penalties": 0
@@ -151,13 +158,6 @@
     {
       "player": "Ermin Mahmic",
       "team": "BIH",
-      "goals": 2,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Brian Brobbey",
-      "team": "NED",
       "goals": 2,
       "assists": 0,
       "penalties": 0
@@ -327,7 +327,7 @@
       "player": "Virgil van Dijk",
       "team": "NED",
       "goals": 1,
-      "assists": 0,
+      "assists": 1,
       "penalties": 0
     },
     {

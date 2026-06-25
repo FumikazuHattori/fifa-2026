@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T23:00:40.965Z",
+  "updatedAt": "2026-06-25T23:30:32.602Z",
   "games": [
     {
       "id": 537327,
@@ -735,11 +735,11 @@
       "away": "NED",
       "score": {
         "TUN": 0,
-        "NED": 0
+        "NED": 2
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-25T23:00:00Z"
     },
     {
@@ -750,7 +750,7 @@
         "JPN": 0,
         "SWE": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-25T23:00:00Z"
