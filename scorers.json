@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T20:30:33.887Z",
+  "updatedAt": "2026-06-26T21:00:40.002Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -82,7 +82,7 @@
       "player": "Ismaïla Sarr",
       "team": "SEN",
       "goals": 3,
-      "assists": 0,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -219,6 +219,13 @@
       "penalties": 0
     },
     {
+      "player": "Pape Gueye",
+      "team": "SEN",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
       "player": "Raúl Jiménez",
       "team": "MEX",
       "goals": 1,
@@ -340,13 +347,6 @@
     {
       "player": "Virgil van Dijk",
       "team": "NED",
-      "goals": 1,
-      "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Keito Nakamura",
-      "team": "JPN",
       "goals": 1,
       "assists": 1,
       "penalties": 0

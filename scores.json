@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T20:30:33.555Z",
+  "updatedAt": "2026-06-26T21:00:39.065Z",
   "games": [
     {
       "id": 537327,
@@ -799,7 +799,7 @@
       "home": "SEN",
       "away": "IRQ",
       "score": {
-        "SEN": 2,
+        "SEN": 5,
         "IRQ": 0
       },
       "status": "live",
