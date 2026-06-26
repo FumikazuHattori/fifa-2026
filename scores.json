@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T02:00:39.369Z",
+  "updatedAt": "2026-06-26T02:30:32.793Z",
   "games": [
     {
       "id": 537327,
@@ -108,10 +108,10 @@
     {
       "id": 537351,
       "home": "GER",
-      "away": "CUW",
+      "away": "CUR",
       "score": {
         "GER": 7,
-        "CUW": 1
+        "CUR": 1
       },
       "status": "final",
       "stage": "GROUP_STAGE",
@@ -446,10 +446,10 @@
     {
       "id": 537354,
       "home": "ECU",
-      "away": "CUW",
+      "away": "CUR",
       "score": {
         "ECU": 0,
-        "CUW": 0
+        "CUR": 0
       },
       "status": "final",
       "stage": "GROUP_STAGE",
@@ -708,25 +708,25 @@
       "home": "ECU",
       "away": "GER",
       "score": {
-        "ECU": 0,
-        "GER": 0
+        "ECU": 2,
+        "GER": 1
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-25T20:00:00Z"
     },
     {
       "id": 537356,
-      "home": "CUW",
+      "home": "CUR",
       "away": "CIV",
       "score": {
-        "CUW": 0,
-        "CIV": 0
+        "CUR": 0,
+        "CIV": 2
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-25T20:00:00Z"
     },
     {
@@ -734,12 +734,12 @@
       "home": "TUN",
       "away": "NED",
       "score": {
-        "TUN": 0,
-        "NED": 0
+        "TUN": 1,
+        "NED": 3
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-25T23:00:00Z"
     },
     {
@@ -747,10 +747,10 @@
       "home": "JPN",
       "away": "SWE",
       "score": {
-        "JPN": 0,
-        "SWE": 0
+        "JPN": 1,
+        "SWE": 1
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-25T23:00:00Z"
@@ -760,10 +760,10 @@
       "home": "TUR",
       "away": "USA",
       "score": {
-        "TUR": 0,
-        "USA": 0
+        "TUR": 1,
+        "USA": 1
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-26T02:00:00Z"
@@ -776,7 +776,7 @@
         "PAR": 0,
         "AUS": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-26T02:00:00Z"
