@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T09:00:40.967Z",
+  "updatedAt": "2026-06-26T09:30:34.928Z",
   "games": [
     {
       "id": 537327,
@@ -936,58 +936,6 @@
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-28T02:00:00Z"
-    },
-    {
-      "id": 537417,
-      "home": "RSA",
-      "away": "CAN",
-      "score": {
-        "RSA": 0,
-        "CAN": 0
-      },
-      "status": "scheduled",
-      "stage": "LAST_32",
-      "winner": null,
-      "date": "2026-06-28T19:00:00Z"
-    },
-    {
-      "id": 537423,
-      "home": "BRA",
-      "away": "JPN",
-      "score": {
-        "BRA": 0,
-        "JPN": 0
-      },
-      "status": "scheduled",
-      "stage": "LAST_32",
-      "winner": null,
-      "date": "2026-06-29T17:00:00Z"
-    },
-    {
-      "id": 537418,
-      "home": "NED",
-      "away": "MAR",
-      "score": {
-        "NED": 0,
-        "MAR": 0
-      },
-      "status": "scheduled",
-      "stage": "LAST_32",
-      "winner": null,
-      "date": "2026-06-30T01:00:00Z"
-    },
-    {
-      "id": 537421,
-      "home": "USA",
-      "away": "BIH",
-      "score": {
-        "USA": 0,
-        "BIH": 0
-      },
-      "status": "scheduled",
-      "stage": "LAST_32",
-      "winner": null,
-      "date": "2026-07-02T00:00:00Z"
     }
   ]
 }
