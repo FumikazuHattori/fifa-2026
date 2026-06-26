@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T01:30:32.092Z",
+  "updatedAt": "2026-06-26T02:00:39.369Z",
   "games": [
     {
       "id": 537327,
@@ -186,10 +186,10 @@
     {
       "id": 537370,
       "home": "KSA",
-      "away": "URU",
+      "away": "URY",
       "score": {
         "KSA": 1,
-        "URU": 1
+        "URY": 1
       },
       "status": "final",
       "stage": "GROUP_STAGE",
@@ -497,10 +497,10 @@
     },
     {
       "id": 537372,
-      "home": "URU",
+      "home": "URY",
       "away": "CPV",
       "score": {
-        "URU": 2,
+        "URY": 2,
         "CPV": 2
       },
       "status": "final",
@@ -708,12 +708,12 @@
       "home": "ECU",
       "away": "GER",
       "score": {
-        "ECU": 2,
-        "GER": 1
+        "ECU": 0,
+        "GER": 0
       },
-      "status": "final",
+      "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": "home",
+      "winner": null,
       "date": "2026-06-25T20:00:00Z"
     },
     {
@@ -722,11 +722,11 @@
       "away": "CIV",
       "score": {
         "CUW": 0,
-        "CIV": 2
+        "CIV": 0
       },
-      "status": "final",
+      "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": "away",
+      "winner": null,
       "date": "2026-06-25T20:00:00Z"
     },
     {
@@ -734,12 +734,12 @@
       "home": "TUN",
       "away": "NED",
       "score": {
-        "TUN": 1,
-        "NED": 3
+        "TUN": 0,
+        "NED": 0
       },
-      "status": "final",
+      "status": "scheduled",
       "stage": "GROUP_STAGE",
-      "winner": "away",
+      "winner": null,
       "date": "2026-06-25T23:00:00Z"
     },
     {
@@ -747,10 +747,10 @@
       "home": "JPN",
       "away": "SWE",
       "score": {
-        "JPN": 1,
-        "SWE": 1
+        "JPN": 0,
+        "SWE": 0
       },
-      "status": "final",
+      "status": "scheduled",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-25T23:00:00Z"
@@ -809,10 +809,10 @@
     },
     {
       "id": 537373,
-      "home": "URU",
+      "home": "URY",
       "away": "ESP",
       "score": {
-        "URU": 0,
+        "URY": 0,
         "ESP": 0
       },
       "status": "scheduled",
