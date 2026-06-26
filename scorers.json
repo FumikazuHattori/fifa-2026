@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T19:15:16.132Z",
+  "updatedAt": "2026-06-26T19:30:36.014Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -19,7 +19,7 @@
       "player": "Kylian Mbappé",
       "team": "FRA",
       "goals": 4,
-      "assists": 1,
+      "assists": 2,
       "penalties": 0
     },
     {
@@ -69,6 +69,13 @@
       "team": "NED",
       "goals": 3,
       "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Ousmane Dembélé",
+      "team": "FRA",
+      "goals": 3,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -186,13 +193,6 @@
     {
       "player": "Mikel Oyarzabal",
       "team": "ESP",
-      "goals": 2,
-      "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Ousmane Dembélé",
-      "team": "FRA",
       "goals": 2,
       "assists": 1,
       "penalties": 0
