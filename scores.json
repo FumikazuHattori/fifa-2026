@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T22:00:38.818Z",
+  "updatedAt": "2026-06-26T22:30:36.682Z",
   "games": [
     {
       "id": 537327,
@@ -683,11 +683,11 @@
       "away": "MEX",
       "score": {
         "CZE": 0,
-        "MEX": 0
+        "MEX": 3
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-25T01:00:00Z"
     },
     {
@@ -695,12 +695,12 @@
       "home": "RSA",
       "away": "KOR",
       "score": {
-        "RSA": 0,
+        "RSA": 1,
         "KOR": 0
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-25T01:00:00Z"
     },
     {
@@ -708,12 +708,12 @@
       "home": "ECU",
       "away": "GER",
       "score": {
-        "ECU": 0,
-        "GER": 0
+        "ECU": 2,
+        "GER": 1
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-25T20:00:00Z"
     },
     {
@@ -722,11 +722,11 @@
       "away": "CIV",
       "score": {
         "CUW": 0,
-        "CIV": 0
+        "CIV": 2
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-25T20:00:00Z"
     },
     {
@@ -734,12 +734,12 @@
       "home": "TUN",
       "away": "NED",
       "score": {
-        "TUN": 0,
-        "NED": 0
+        "TUN": 1,
+        "NED": 3
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-25T23:00:00Z"
     },
     {
@@ -747,10 +747,10 @@
       "home": "JPN",
       "away": "SWE",
       "score": {
-        "JPN": 0,
-        "SWE": 0
+        "JPN": 1,
+        "SWE": 1
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-25T23:00:00Z"
@@ -936,6 +936,58 @@
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-28T02:00:00Z"
+    },
+    {
+      "id": 537417,
+      "home": "RSA",
+      "away": "CAN",
+      "score": {
+        "RSA": 0,
+        "CAN": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_32",
+      "winner": null,
+      "date": "2026-06-28T19:00:00Z"
+    },
+    {
+      "id": 537423,
+      "home": "BRA",
+      "away": "JPN",
+      "score": {
+        "BRA": 0,
+        "JPN": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_32",
+      "winner": null,
+      "date": "2026-06-29T17:00:00Z"
+    },
+    {
+      "id": 537418,
+      "home": "NED",
+      "away": "MAR",
+      "score": {
+        "NED": 0,
+        "MAR": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_32",
+      "winner": null,
+      "date": "2026-06-30T01:00:00Z"
+    },
+    {
+      "id": 537421,
+      "home": "USA",
+      "away": "BIH",
+      "score": {
+        "USA": 0,
+        "BIH": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_32",
+      "winner": null,
+      "date": "2026-07-02T00:00:00Z"
     }
   ]
 }
