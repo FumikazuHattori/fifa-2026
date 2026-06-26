@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T19:30:36.014Z",
+  "updatedAt": "2026-06-26T20:00:38.874Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -27,6 +27,13 @@
       "team": "NOR",
       "goals": 4,
       "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Ousmane Dembélé",
+      "team": "FRA",
+      "goals": 4,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -69,13 +76,6 @@
       "team": "NED",
       "goals": 3,
       "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Ousmane Dembélé",
-      "team": "FRA",
-      "goals": 3,
-      "assists": 1,
       "penalties": 0
     },
     {
