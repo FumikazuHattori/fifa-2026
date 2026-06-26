@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T03:00:38.450Z",
+  "updatedAt": "2026-06-26T03:30:37.107Z",
   "games": [
     {
       "id": 537327,
@@ -186,10 +186,10 @@
     {
       "id": 537370,
       "home": "KSA",
-      "away": "URY",
+      "away": "URU",
       "score": {
         "KSA": 1,
-        "URY": 1
+        "URU": 1
       },
       "status": "final",
       "stage": "GROUP_STAGE",
@@ -497,10 +497,10 @@
     },
     {
       "id": 537372,
-      "home": "URY",
+      "home": "URU",
       "away": "CPV",
       "score": {
-        "URY": 2,
+        "URU": 2,
         "CPV": 2
       },
       "status": "final",
@@ -761,11 +761,11 @@
       "away": "USA",
       "score": {
         "TUR": 2,
-        "USA": 1
+        "USA": 2
       },
       "status": "live",
       "stage": "GROUP_STAGE",
-      "winner": "home",
+      "winner": null,
       "date": "2026-06-26T02:00:00Z"
     },
     {
@@ -809,10 +809,10 @@
     },
     {
       "id": 537373,
-      "home": "URY",
+      "home": "URU",
       "away": "ESP",
       "score": {
-        "URY": 0,
+        "URU": 0,
         "ESP": 0
       },
       "status": "scheduled",
