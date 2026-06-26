@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T00:00:40.172Z",
+  "updatedAt": "2026-06-26T00:30:36.726Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -167,6 +167,13 @@
       "team": "NED",
       "goals": 2,
       "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Anthony Elanga",
+      "team": "SWE",
+      "goals": 2,
+      "assists": 0,
       "penalties": 0
     },
     {
@@ -342,13 +349,6 @@
       "team": "CIV",
       "goals": 1,
       "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Alexander Isak",
-      "team": "SWE",
-      "goals": 1,
-      "assists": 3,
       "penalties": 0
     }
   ]

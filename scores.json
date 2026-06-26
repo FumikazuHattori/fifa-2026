@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T00:00:39.772Z",
+  "updatedAt": "2026-06-26T00:30:36.502Z",
   "games": [
     {
       "id": 537327,
@@ -734,8 +734,8 @@
       "home": "TUN",
       "away": "NED",
       "score": {
-        "TUN": 0,
-        "NED": 2
+        "TUN": 1,
+        "NED": 3
       },
       "status": "live",
       "stage": "GROUP_STAGE",
@@ -747,8 +747,8 @@
       "home": "JPN",
       "away": "SWE",
       "score": {
-        "JPN": 0,
-        "SWE": 0
+        "JPN": 1,
+        "SWE": 1
       },
       "status": "live",
       "stage": "GROUP_STAGE",
