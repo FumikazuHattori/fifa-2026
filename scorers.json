@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T04:30:33.513Z",
+  "updatedAt": "2026-06-27T05:00:43.764Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -48,6 +48,13 @@
       "team": "GER",
       "goals": 3,
       "assists": 2,
+      "penalties": 0
+    },
+    {
+      "player": "Elijah Just",
+      "team": "NZL",
+      "goals": 3,
+      "assists": 0,
       "penalties": 0
     },
     {
@@ -139,13 +146,6 @@
       "team": "URU",
       "goals": 2,
       "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Elijah Just",
-      "team": "NZL",
-      "goals": 2,
-      "assists": 0,
       "penalties": 0
     },
     {
