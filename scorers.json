@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T22:00:39.322Z",
+  "updatedAt": "2026-06-27T22:30:36.180Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -56,6 +56,13 @@
       "goals": 3,
       "assists": 0,
       "penalties": 0
+    },
+    {
+      "player": "Harry Kane",
+      "team": "ENG",
+      "goals": 3,
+      "assists": 0,
+      "penalties": 1
     },
     {
       "player": "Johan Manzambi",
@@ -156,11 +163,11 @@
       "penalties": 0
     },
     {
-      "player": "Harry Kane",
+      "player": "Jude Bellingham",
       "team": "ENG",
       "goals": 2,
-      "assists": 0,
-      "penalties": 1
+      "assists": 1,
+      "penalties": 0
     },
     {
       "player": "Daniel Muñoz",
@@ -339,13 +346,6 @@
     },
     {
       "player": "Nico Schlotterbeck",
-      "team": "GER",
-      "goals": 1,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Jamal Musiala",
       "team": "GER",
       "goals": 1,
       "assists": 0,
