@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T23:00:39.880Z",
+  "updatedAt": "2026-06-27T23:30:34.747Z",
   "games": [
     {
       "id": 537327,
@@ -880,7 +880,7 @@
         "CRO": 2,
         "GHA": 1
       },
-      "status": "live",
+      "status": "final",
       "stage": "GROUP_STAGE",
       "winner": "home",
       "date": "2026-06-27T21:00:00Z"
