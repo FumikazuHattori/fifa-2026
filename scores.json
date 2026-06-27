@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T04:00:44.331Z",
+  "updatedAt": "2026-06-27T04:30:32.687Z",
   "games": [
     {
       "id": 537327,
@@ -839,7 +839,7 @@
       "away": "BEL",
       "score": {
         "NZL": 0,
-        "BEL": 1
+        "BEL": 2
       },
       "status": "live",
       "stage": "GROUP_STAGE",

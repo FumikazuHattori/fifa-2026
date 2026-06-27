@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T04:00:45.343Z",
+  "updatedAt": "2026-06-27T04:30:33.513Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -233,6 +233,13 @@
       "penalties": 0
     },
     {
+      "player": "Leandro Trossard",
+      "team": "BEL",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
       "player": "Raúl Jiménez",
       "team": "MEX",
       "goals": 1,
@@ -342,13 +349,6 @@
       "team": "GER",
       "goals": 1,
       "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Nathaniel Brown",
-      "team": "GER",
-      "goals": 1,
-      "assists": 1,
       "penalties": 0
     }
   ]
