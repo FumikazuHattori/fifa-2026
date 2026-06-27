@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T03:00:41.033Z",
+  "updatedAt": "2026-06-27T03:24:11.530Z",
   "games": [
     {
       "id": 537327,
@@ -851,10 +851,10 @@
       "home": "EGY",
       "away": "IRN",
       "score": {
-        "EGY": 0,
-        "IRN": 0
+        "EGY": 1,
+        "IRN": 1
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-27T03:00:00Z"

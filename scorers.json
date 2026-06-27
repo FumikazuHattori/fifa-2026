@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T03:00:42.610Z",
+  "updatedAt": "2026-06-27T03:24:11.894Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -146,6 +146,13 @@
       "team": "NZL",
       "goals": 2,
       "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Ramin Rezaeian",
+      "team": "IRN",
+      "goals": 2,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -340,13 +347,6 @@
     {
       "player": "Nathaniel Brown",
       "team": "GER",
-      "goals": 1,
-      "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Virgil van Dijk",
-      "team": "NED",
       "goals": 1,
       "assists": 1,
       "penalties": 0
