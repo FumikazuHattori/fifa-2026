@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T02:30:32.841Z",
+  "updatedAt": "2026-06-28T03:00:38.575Z",
   "games": [
     {
       "id": 537327,
@@ -917,7 +917,7 @@
       "away": "ARG",
       "score": {
         "JOR": 0,
-        "ARG": 1
+        "ARG": 2
       },
       "status": "live",
       "stage": "GROUP_STAGE",
@@ -929,10 +929,10 @@
       "home": "DZA",
       "away": "AUT",
       "score": {
-        "DZA": 0,
-        "AUT": 0
+        "DZA": 1,
+        "AUT": 1
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-28T02:00:00Z"
