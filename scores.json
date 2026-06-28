@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T00:00:41.121Z",
+  "updatedAt": "2026-06-28T00:30:33.399Z",
   "games": [
     {
       "id": 537327,
@@ -893,7 +893,7 @@
         "COL": 0,
         "POR": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
       "winner": null,
       "date": "2026-06-27T23:30:00Z"
@@ -903,12 +903,12 @@
       "home": "COD",
       "away": "UZB",
       "score": {
-        "COD": 1,
+        "COD": 0,
         "UZB": 1
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-27T23:30:00Z"
     },
     {
