@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T23:58:56.676Z",
+  "updatedAt": "2026-06-28T00:00:41.121Z",
   "games": [
     {
       "id": 537327,
@@ -786,12 +786,12 @@
       "home": "NOR",
       "away": "FRA",
       "score": {
-        "NOR": 0,
-        "FRA": 0
+        "NOR": 1,
+        "FRA": 4
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-26T19:00:00Z"
     },
     {
@@ -799,12 +799,12 @@
       "home": "SEN",
       "away": "IRQ",
       "score": {
-        "SEN": 0,
+        "SEN": 5,
         "IRQ": 0
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-26T19:00:00Z"
     },
     {
@@ -852,11 +852,11 @@
       "away": "IRN",
       "score": {
         "EGY": 1,
-        "IRN": 2
+        "IRN": 1
       },
       "status": "final",
       "stage": "GROUP_STAGE",
-      "winner": "away",
+      "winner": null,
       "date": "2026-06-27T03:00:00Z"
     },
     {
