@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-06-28T03:30:35.797Z",
+  "updatedAt": "2026-06-28T04:00:42.459Z",
   "scorers": [
     {
       "player": "Lionel Messi",
       "team": "ARG",
-      "goals": 5,
+      "goals": 6,
       "assists": 0,
       "penalties": 0
     },
@@ -261,6 +261,13 @@
       "penalties": 0
     },
     {
+      "player": "Riyad Mahrez",
+      "team": "DZA",
+      "goals": 2,
+      "assists": 2,
+      "penalties": 0
+    },
+    {
       "player": "Raúl Jiménez",
       "team": "MEX",
       "goals": 1,
@@ -342,13 +349,6 @@
       "team": "AUS",
       "goals": 1,
       "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Felix Kalu Nmecha",
-      "team": "GER",
-      "goals": 1,
-      "assists": 1,
       "penalties": 0
     }
   ]
