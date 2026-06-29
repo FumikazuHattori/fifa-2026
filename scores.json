@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T19:00:34.560Z",
+  "updatedAt": "2026-06-29T19:22:08.864Z",
   "games": [
     {
       "id": 537327,
@@ -955,12 +955,12 @@
       "home": "BRA",
       "away": "JPN",
       "score": {
-        "BRA": 1,
+        "BRA": 2,
         "JPN": 1
       },
-      "status": "live",
+      "status": "final",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-29T17:00:00Z"
     },
     {
