@@ -797,16 +797,18 @@ function App() {
       .map(g => ({a:g.home, b:g.away}));
     const padTo = (arr, n) => Array.from({length:n}, (_,i) => arr[i] || {a:null,b:null});
 
+    const r32 = padTo(byStage("LAST_32"), 16);
     const r16 = padTo(byStage("LAST_16"), 8);
     const qf  = padTo(byStage("QUARTER_FINALS"), 4);
     const sf  = padTo(byStage("SEMI_FINALS"), 2);
     const final = padTo(byStage("FINAL"), 1);
 
+    const r32L=r32.slice(0,8), r32R=r32.slice(8,16);
     const r16L=r16.slice(0,4), r16R=r16.slice(4,8);
     const qfL=qf.slice(0,2), qfR=qf.slice(2,4);
     const sfL=sf.slice(0,1), sfR=sf.slice(1,2);
 
-    const BOX_H = 52, COL_W = 132, CONN_W = 26, H = 420;
+    const BOX_H = 52, COL_W = 132, CONN_W = 26, H = 480;
 
     const MatchBox = ({m}) => (
       <div style={{height:BOX_H+"px",width:COL_W+"px",flexShrink:0,background:T.surface,border:`1px solid ${T.border}`,borderRadius:"4px",overflow:"hidden",display:"flex",flexDirection:"column"}}>
@@ -837,16 +839,18 @@ function App() {
       </div>
     );
 
-    const desktopMin = COL_W*7 + CONN_W*6 + 40;
+    const desktopMin = COL_W*9 + CONN_W*8 + 40;
 
     return (
       <div style={{display:"flex",flexDirection:"column",gap:"14px"}}>
         <div style={{padding:"10px 14px",background:"rgba(240,192,64,0.05)",border:"1px solid rgba(240,192,64,0.15)",borderRadius:"6px",fontFamily:T.font,fontSize:"11px",color:"#887744",lineHeight:1.7}}>
-          🏆 グループ順位から自動でベスト16を生成。各カードの勝者が決まると、線をたどって次のラウンドのカードへ自動的に反映されます。決勝の勝者がそのまま優勝チームです。
+          🏆 グループ順位から自動でベスト32を生成（48チーム制のため決勝トーナメントはベスト32から開始）。各カードの勝者が決まると、線をたどって次のラウンドのカードへ自動的に反映されます。決勝の勝者がそのまま優勝チームです。
         </div>
         <div style={{overflowX:"auto",paddingBottom:"8px"}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",minWidth:desktopMin+"px",padding:"24px 0"}}>
             {/* LEFT HALF */}
+            <RoundCol matches={r32L}/>
+            <ConnCol count={4} side="left"/>
             <RoundCol matches={r16L}/>
             <ConnCol count={2} side="left"/>
             <RoundCol matches={qfL}/>
@@ -873,6 +877,8 @@ function App() {
             <RoundCol matches={qfR}/>
             <ConnCol count={2} side="right"/>
             <RoundCol matches={r16R}/>
+            <ConnCol count={4} side="right"/>
+            <RoundCol matches={r32R}/>
           </div>
         </div>
       </div>
