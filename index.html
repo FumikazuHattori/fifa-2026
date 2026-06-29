@@ -815,7 +815,7 @@ function App() {
         {[m?.a,m?.b].map((t,i)=>(
           <div key={i} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",padding:"0 8px",borderBottom:i===0?`1px solid ${T.border}`:"none"}}>
             {t
-              ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden",cursor:"pointer"}}><span style={{fontFamily:T.font,fontSize:"9px",fontWeight:900,color:T.dim,flexShrink:0,letterSpacing:"0.5px"}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span></span>
+              ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden",cursor:"pointer"}}><TeamCrest team={t}/><span style={{fontFamily:T.font,fontSize:"9px",fontWeight:900,color:T.dim,flexShrink:0,letterSpacing:"0.5px"}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span></span>
               : <span style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>TBD</span>}
           </div>
         ))}
