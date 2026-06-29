@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T21:30:32.335Z",
+  "updatedAt": "2026-06-29T22:00:44.285Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -42,6 +42,13 @@
       "goals": 3,
       "assists": 0,
       "penalties": 0
+    },
+    {
+      "player": "Kai Havertz",
+      "team": "GER",
+      "goals": 3,
+      "assists": 0,
+      "penalties": 1
     },
     {
       "player": "Deniz Undav",
@@ -126,13 +133,6 @@
       "goals": 2,
       "assists": 0,
       "penalties": 0
-    },
-    {
-      "player": "Kai Havertz",
-      "team": "GER",
-      "goals": 2,
-      "assists": 0,
-      "penalties": 1
     },
     {
       "player": "Crysencio Summerville",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T21:30:31.684Z",
+  "updatedAt": "2026-06-29T22:00:40.584Z",
   "games": [
     {
       "id": 537327,
@@ -968,12 +968,12 @@
       "home": "GER",
       "away": "PAR",
       "score": {
-        "GER": 0,
+        "GER": 1,
         "PAR": 1
       },
       "status": "live",
       "stage": "LAST_32",
-      "winner": "away",
+      "winner": null,
       "date": "2026-06-29T20:30:00Z"
     },
     {
