@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T17:00:52.048Z",
+  "updatedAt": "2026-06-29T17:30:28.527Z",
   "games": [
     {
       "id": 537327,
@@ -958,7 +958,7 @@
         "BRA": 0,
         "JPN": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "LAST_32",
       "winner": null,
       "date": "2026-06-29T17:00:00Z"

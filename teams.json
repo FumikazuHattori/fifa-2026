@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T17:00:53.307Z",
+  "updatedAt": "2026-06-29T17:30:30.000Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -1145,11 +1145,6 @@
           "nationality": "Japan"
         },
         {
-          "name": "Wataru Endō",
-          "position": "Midfield",
-          "nationality": "Japan"
-        },
-        {
           "name": "Daichi Kamada",
           "position": "Midfield",
           "nationality": "Japan"
@@ -1191,6 +1186,11 @@
         },
         {
           "name": "Koki Ogawa",
+          "position": "Offence",
+          "nationality": "Japan"
+        },
+        {
+          "name": "Shuto Machino",
           "position": "Offence",
           "nationality": "Japan"
         },
