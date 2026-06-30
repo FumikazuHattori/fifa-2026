@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T18:30:32.510Z",
+  "updatedAt": "2026-06-30T19:00:39.683Z",
   "games": [
     {
       "id": 537327,
@@ -994,8 +994,8 @@
       "home": "CIV",
       "away": "NOR",
       "score": {
-        "CIV": 0,
-        "NOR": 1
+        "CIV": 1,
+        "NOR": 2
       },
       "status": "live",
       "stage": "LAST_32",
