@@ -1,11 +1,18 @@
 {
-  "updatedAt": "2026-06-30T21:30:31.276Z",
+  "updatedAt": "2026-06-30T22:00:36.807Z",
   "scorers": [
     {
       "player": "Lionel Messi",
       "team": "ARG",
       "goals": 6,
       "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Kylian Mbappé",
+      "team": "FRA",
+      "goals": 5,
+      "assists": 2,
       "penalties": 0
     },
     {
@@ -23,17 +30,10 @@
       "penalties": 0
     },
     {
-      "player": "Kylian Mbappé",
-      "team": "FRA",
-      "goals": 4,
-      "assists": 2,
-      "penalties": 0
-    },
-    {
       "player": "Ousmane Dembélé",
       "team": "FRA",
       "goals": 4,
-      "assists": 1,
+      "assists": 2,
       "penalties": 0
     },
     {
