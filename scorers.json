@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T02:30:32.804Z",
+  "updatedAt": "2026-06-30T02:52:28.655Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -107,6 +107,13 @@
       "penalties": 0
     },
     {
+      "player": "Cody Gakpo",
+      "team": "NED",
+      "goals": 3,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
       "player": "Ismaïla Sarr",
       "team": "SEN",
       "goals": 3,
@@ -138,7 +145,7 @@
       "player": "Crysencio Summerville",
       "team": "NED",
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": 0
     },
     {
@@ -202,13 +209,6 @@
       "team": "BIH",
       "goals": 2,
       "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Cody Gakpo",
-      "team": "NED",
-      "goals": 2,
-      "assists": 1,
       "penalties": 0
     },
     {
