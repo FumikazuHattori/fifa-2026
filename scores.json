@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T17:30:32.424Z",
+  "updatedAt": "2026-06-30T18:00:36.510Z",
   "games": [
     {
       "id": 537327,
@@ -995,11 +995,11 @@
       "away": "NOR",
       "score": {
         "CIV": 0,
-        "NOR": 0
+        "NOR": 1
       },
       "status": "live",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-30T17:00:00Z"
     },
     {
