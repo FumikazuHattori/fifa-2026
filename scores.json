@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T03:30:31.012Z",
+  "updatedAt": "2026-06-30T04:00:40.675Z",
   "games": [
     {
       "id": 537327,
@@ -981,10 +981,10 @@
       "home": "NED",
       "away": "MAR",
       "score": {
-        "NED": 1,
-        "MAR": 1
+        "NED": 3,
+        "MAR": 4
       },
-      "status": "live",
+      "status": "final",
       "stage": "LAST_32",
       "winner": null,
       "date": "2026-06-30T01:00:00Z"
