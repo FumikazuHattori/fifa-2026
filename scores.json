@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T22:30:30.521Z",
+  "updatedAt": "2026-06-30T22:48:35.375Z",
   "games": [
     {
       "id": 537327,
@@ -1007,7 +1007,7 @@
       "home": "FRA",
       "away": "SWE",
       "score": {
-        "FRA": 2,
+        "FRA": 3,
         "SWE": 0
       },
       "status": "live",
