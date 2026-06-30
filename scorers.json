@@ -1,17 +1,10 @@
 {
-  "updatedAt": "2026-06-30T19:00:41.007Z",
+  "updatedAt": "2026-06-30T19:15:41.556Z",
   "scorers": [
     {
       "player": "Lionel Messi",
       "team": "ARG",
       "goals": 6,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Erling Haaland",
-      "team": "NOR",
-      "goals": 5,
       "assists": 0,
       "penalties": 0
     },
@@ -27,6 +20,13 @@
       "team": "FRA",
       "goals": 4,
       "assists": 2,
+      "penalties": 0
+    },
+    {
+      "player": "Erling Haaland",
+      "team": "NOR",
+      "goals": 4,
+      "assists": 0,
       "penalties": 0
     },
     {
@@ -156,13 +156,6 @@
       "penalties": 0
     },
     {
-      "player": "Amad Diallo",
-      "team": "CIV",
-      "goals": 2,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
       "player": "Yasin Ayari",
       "team": "SWE",
       "goals": 2,
@@ -250,7 +243,7 @@
       "player": "Nicolas Pépé",
       "team": "CIV",
       "goals": 2,
-      "assists": 1,
+      "assists": 0,
       "penalties": 0
     },
     {
@@ -346,6 +339,13 @@
     },
     {
       "player": "Nestor Irankunda",
+      "team": "AUS",
+      "goals": 1,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Connor Metcalfe",
       "team": "AUS",
       "goals": 1,
       "assists": 0,
