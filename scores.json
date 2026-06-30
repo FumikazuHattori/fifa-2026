@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T06:00:38.542Z",
+  "updatedAt": "2026-06-30T06:30:37.375Z",
   "games": [
     {
       "id": 537327,
@@ -973,7 +973,7 @@
       },
       "status": "final",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-29T20:30:00Z"
     },
     {
@@ -986,7 +986,7 @@
       },
       "status": "final",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "away",
       "date": "2026-06-30T01:00:00Z"
     },
     {
@@ -1144,6 +1144,19 @@
       "stage": "LAST_32",
       "winner": null,
       "date": "2026-07-04T01:30:00Z"
+    },
+    {
+      "id": 537376,
+      "home": "CAN",
+      "away": "MAR",
+      "score": {
+        "CAN": 0,
+        "MAR": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_16",
+      "winner": null,
+      "date": "2026-07-04T17:00:00Z"
     }
   ]
 }
