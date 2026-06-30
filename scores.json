@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T22:00:35.942Z",
+  "updatedAt": "2026-06-30T22:30:30.521Z",
   "games": [
     {
       "id": 537327,
@@ -1007,12 +1007,12 @@
       "home": "FRA",
       "away": "SWE",
       "score": {
-        "FRA": 0,
+        "FRA": 2,
         "SWE": 0
       },
       "status": "live",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "home",
       "date": "2026-06-30T21:00:00Z"
     },
     {
