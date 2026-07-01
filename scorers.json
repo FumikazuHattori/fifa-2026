@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T17:30:38.003Z",
+  "updatedAt": "2026-07-01T18:00:52.724Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -21,6 +21,13 @@
       "goals": 5,
       "assists": 0,
       "penalties": 0
+    },
+    {
+      "player": "Harry Kane",
+      "team": "ENG",
+      "goals": 5,
+      "assists": 0,
+      "penalties": 1
     },
     {
       "player": "Vinicius Junior",
@@ -74,13 +81,6 @@
     {
       "player": "Yoane Wissa",
       "team": "COD",
-      "goals": 3,
-      "assists": 0,
-      "penalties": 1
-    },
-    {
-      "player": "Harry Kane",
-      "team": "ENG",
       "goals": 3,
       "assists": 0,
       "penalties": 1
