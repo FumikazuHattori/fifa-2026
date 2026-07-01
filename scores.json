@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T21:30:35.238Z",
+  "updatedAt": "2026-07-01T22:00:41.853Z",
   "games": [
     {
       "id": 537327,
@@ -1046,12 +1046,12 @@
       "home": "BEL",
       "away": "SEN",
       "score": {
-        "BEL": 0,
+        "BEL": 2,
         "SEN": 2
       },
       "status": "live",
       "stage": "LAST_32",
-      "winner": "away",
+      "winner": null,
       "date": "2026-07-01T20:00:00Z"
     },
     {
