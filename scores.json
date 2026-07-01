@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T16:30:37.443Z",
+  "updatedAt": "2026-07-01T17:00:44.486Z",
   "games": [
     {
       "id": 537327,
@@ -1036,7 +1036,7 @@
         "ENG": 0,
         "COD": 1
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "LAST_32",
       "winner": "away",
       "date": "2026-07-01T16:00:00Z"
