@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T21:00:44.172Z",
+  "updatedAt": "2026-07-01T21:30:38.008Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -41,6 +41,13 @@
       "team": "FRA",
       "goals": 4,
       "assists": 2,
+      "penalties": 0
+    },
+    {
+      "player": "Ismaïla Sarr",
+      "team": "SEN",
+      "goals": 4,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -116,13 +123,6 @@
     {
       "player": "Cody Gakpo",
       "team": "NED",
-      "goals": 3,
-      "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Ismaïla Sarr",
-      "team": "SEN",
       "goals": 3,
       "assists": 1,
       "penalties": 0
