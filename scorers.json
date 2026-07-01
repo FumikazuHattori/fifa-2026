@@ -1,10 +1,24 @@
 {
-  "updatedAt": "2026-07-01T02:30:31.382Z",
+  "updatedAt": "2026-07-01T03:00:35.997Z",
   "scorers": [
+    {
+      "player": "Kylian Mbappé",
+      "team": "FRA",
+      "goals": 6,
+      "assists": 2,
+      "penalties": 0
+    },
     {
       "player": "Lionel Messi",
       "team": "ARG",
       "goals": 6,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Erling Haaland",
+      "team": "NOR",
+      "goals": 5,
       "assists": 0,
       "penalties": 0
     },
@@ -16,23 +30,16 @@
       "penalties": 0
     },
     {
-      "player": "Kylian Mbappé",
+      "player": "Ousmane Dembélé",
       "team": "FRA",
       "goals": 4,
       "assists": 2,
       "penalties": 0
     },
     {
-      "player": "Erling Haaland",
-      "team": "NOR",
-      "goals": 4,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Ousmane Dembélé",
-      "team": "FRA",
-      "goals": 4,
+      "player": "Julián Quiñones",
+      "team": "MEX",
+      "goals": 3,
       "assists": 1,
       "penalties": 0
     },
@@ -121,7 +128,7 @@
       "penalties": 0
     },
     {
-      "player": "Julián Quiñones",
+      "player": "Raúl Jiménez",
       "team": "MEX",
       "goals": 2,
       "assists": 0,
@@ -156,6 +163,13 @@
       "penalties": 0
     },
     {
+      "player": "Amad Diallo",
+      "team": "CIV",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
       "player": "Yasin Ayari",
       "team": "SWE",
       "goals": 2,
@@ -172,6 +186,13 @@
     {
       "player": "Ramin Rezaeian",
       "team": "IRN",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Bradley Barcola",
+      "team": "FRA",
       "goals": 2,
       "assists": 1,
       "penalties": 0
@@ -243,7 +264,7 @@
       "player": "Nicolas Pépé",
       "team": "CIV",
       "goals": 2,
-      "assists": 0,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -265,13 +286,6 @@
       "team": "DZA",
       "goals": 2,
       "assists": 2,
-      "penalties": 0
-    },
-    {
-      "player": "Raúl Jiménez",
-      "team": "MEX",
-      "goals": 1,
-      "assists": 0,
       "penalties": 0
     },
     {
@@ -333,20 +347,6 @@
     {
       "player": "John McGinn",
       "team": "SCO",
-      "goals": 1,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Nestor Irankunda",
-      "team": "AUS",
-      "goals": 1,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Connor Metcalfe",
-      "team": "AUS",
       "goals": 1,
       "assists": 0,
       "penalties": 0

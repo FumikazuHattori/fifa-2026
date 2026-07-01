@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T02:30:30.233Z",
+  "updatedAt": "2026-07-01T03:00:35.679Z",
   "games": [
     {
       "id": 537327,
@@ -1020,10 +1020,10 @@
       "home": "MEX",
       "away": "ECU",
       "score": {
-        "MEX": 1,
+        "MEX": 2,
         "ECU": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "LAST_32",
       "winner": "home",
       "date": "2026-07-01T01:00:00Z"
