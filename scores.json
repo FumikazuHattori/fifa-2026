@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T20:00:42.941Z",
+  "updatedAt": "2026-07-01T20:30:40.074Z",
   "games": [
     {
       "id": 537327,
@@ -1047,11 +1047,11 @@
       "away": "SEN",
       "score": {
         "BEL": 0,
-        "SEN": 0
+        "SEN": 1
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "away",
       "date": "2026-07-01T20:00:00Z"
     },
     {
