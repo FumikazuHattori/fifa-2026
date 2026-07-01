@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T06:00:41.010Z",
+  "updatedAt": "2026-07-01T06:30:32.191Z",
   "games": [
     {
       "id": 537327,
@@ -1157,6 +1157,32 @@
       "stage": "LAST_16",
       "winner": null,
       "date": "2026-07-04T17:00:00Z"
+    },
+    {
+      "id": 537375,
+      "home": "PAR",
+      "away": "FRA",
+      "score": {
+        "PAR": 0,
+        "FRA": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_16",
+      "winner": null,
+      "date": "2026-07-04T21:00:00Z"
+    },
+    {
+      "id": 537377,
+      "home": "BRA",
+      "away": "NOR",
+      "score": {
+        "BRA": 0,
+        "NOR": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_16",
+      "winner": null,
+      "date": "2026-07-05T20:00:00Z"
     }
   ]
 }
