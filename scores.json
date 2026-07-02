@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T20:30:35.130Z",
+  "updatedAt": "2026-07-02T21:00:44.846Z",
   "games": [
     {
       "id": 537327,
@@ -1072,7 +1072,7 @@
       "home": "ESP",
       "away": "AUT",
       "score": {
-        "ESP": 1,
+        "ESP": 3,
         "AUT": 0
       },
       "status": "live",
