@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T06:00:39.210Z",
+  "updatedAt": "2026-07-02T06:30:35.208Z",
   "games": [
     {
       "id": 537327,
@@ -1183,6 +1183,32 @@
       "stage": "LAST_16",
       "winner": null,
       "date": "2026-07-05T20:00:00Z"
+    },
+    {
+      "id": 537378,
+      "home": "MEX",
+      "away": "ENG",
+      "score": {
+        "MEX": 0,
+        "ENG": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_16",
+      "winner": null,
+      "date": "2026-07-06T00:00:00Z"
+    },
+    {
+      "id": 537380,
+      "home": "USA",
+      "away": "BEL",
+      "score": {
+        "USA": 0,
+        "BEL": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_16",
+      "winner": null,
+      "date": "2026-07-07T00:00:00Z"
     }
   ]
 }
