@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T00:30:34.047Z",
+  "updatedAt": "2026-07-02T01:00:41.343Z",
   "games": [
     {
       "id": 537327,
@@ -1059,12 +1059,12 @@
       "home": "USA",
       "away": "BIH",
       "score": {
-        "USA": 0,
+        "USA": 1,
         "BIH": 0
       },
       "status": "live",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "home",
       "date": "2026-07-02T00:00:00Z"
     },
     {
