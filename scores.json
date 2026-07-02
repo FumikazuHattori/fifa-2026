@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T19:30:35.588Z",
+  "updatedAt": "2026-07-02T20:00:40.753Z",
   "games": [
     {
       "id": 537327,
@@ -1072,12 +1072,12 @@
       "home": "ESP",
       "away": "AUT",
       "score": {
-        "ESP": 0,
+        "ESP": 1,
         "AUT": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "home",
       "date": "2026-07-02T19:00:00Z"
     },
     {

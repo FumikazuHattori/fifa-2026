@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T19:30:36.745Z",
+  "updatedAt": "2026-07-02T20:00:41.487Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -135,6 +135,13 @@
       "penalties": 0
     },
     {
+      "player": "Mikel Oyarzabal",
+      "team": "ESP",
+      "goals": 3,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
       "player": "Raúl Jiménez",
       "team": "MEX",
       "goals": 2,
@@ -242,13 +249,6 @@
     {
       "player": "Ayase Ueda",
       "team": "JPN",
-      "goals": 2,
-      "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Mikel Oyarzabal",
-      "team": "ESP",
       "goals": 2,
       "assists": 1,
       "penalties": 0
