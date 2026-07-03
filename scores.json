@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T19:06:06.061Z",
+  "updatedAt": "2026-07-03T19:30:35.446Z",
   "games": [
     {
       "id": 537327,
@@ -1111,12 +1111,12 @@
       "home": "AUS",
       "away": "EGY",
       "score": {
-        "AUS": 0,
+        "AUS": 1,
         "EGY": 1
       },
       "status": "live",
       "stage": "LAST_32",
-      "winner": "away",
+      "winner": null,
       "date": "2026-07-03T18:00:00Z"
     },
     {
