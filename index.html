@@ -789,8 +789,8 @@ function App() {
   // ===================== BRACKET TAB（外側→中央 収束トーナメント表） =====================
   const BracketTab = () => {
     const getStage = stage => games.filter(g => g.stage === stage).sort((a,b) => (a.id||0)-(b.id||0));
-    const toBox = m => m ? {a:m.home, b:m.away, win:m.winner} : {a:null,b:null,win:null};
-    const padBoxes = (arr, n) => Array.from({length:n}, (_,i) => arr[i] ? toBox(arr[i]) : {a:null,b:null,win:null});
+    const toBox = m => m ? {a:m.home, b:m.away, win:m.winner, sa:m.score?.[m.home]??null, sb:m.score?.[m.away]??null, status:m.status} : {a:null,b:null,win:null,sa:null,sb:null,status:null};
+    const padBoxes = (arr, n) => Array.from({length:n}, (_,i) => arr[i] ? toBox(arr[i]) : {a:null,b:null,win:null,sa:null,sb:null,status:null});
 
     const r32raw = getStage("LAST_32");
     const r16raw = getStage("LAST_16");
@@ -823,25 +823,33 @@ function App() {
 
     const BOX_H = 52, COL_W = 132, CONN_W = 26, H = 480;
 
-    // 次ラウンドのマッチにチームが確定していれば勝ち進んだ線としてglow
-    const activeArr = arr => arr.map(m => m.a !== null);
+    // pairsFor: 前ラウンドの各ペア（2試合→1試合）ごとに { topWon, bottomWon } を返す。
+    // ConnColは上半分・下半分の縦線を独立してglow制御し、勝ったチーム側からのみ光る。
+    const pairsFor = prev => Array.from({length:Math.ceil(prev.length/2)}, (_,i) => ({
+      topWon:    !!prev[i*2]?.win,
+      bottomWon: !!prev[i*2+1]?.win,
+    }));
 
-    const MatchBox = ({m}) => (
-      <div style={{height:BOX_H+"px",width:COL_W+"px",flexShrink:0,background:T.surface,border:`1px solid ${T.border}`,borderRadius:"4px",overflow:"hidden",display:"flex",flexDirection:"column"}}>
-        {[{t:m?.a,won:m?.win==="home"},{t:m?.b,won:m?.win==="away"}].map(({t,won},i)=>(
-          <div key={i} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",padding:"0 8px",borderBottom:i===0?`1px solid ${T.border}`:"none",background:won?"rgba(0,210,0,0.08)":"transparent"}}>
-            {t
-              ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden",cursor:"pointer",flex:1}}>
-                  <TeamCrest team={t}/>
-                  <span style={{fontFamily:T.font,fontSize:"9px",fontWeight:900,color:won?T.green:T.dim,flexShrink:0,letterSpacing:"0.5px"}}>{f(t)}</span>
-                  <span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:won?"#aaffaa":"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span>
-                  {won&&<span style={{marginLeft:"auto",color:T.green,fontSize:"11px",flexShrink:0}}>✓</span>}
-                </span>
-              : <span style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>TBD</span>}
-          </div>
-        ))}
-      </div>
-    );
+    const MatchBox = ({m}) => {
+      const showScore = m?.status === "final" || m?.status === "live";
+      return (
+        <div style={{height:BOX_H+"px",width:COL_W+"px",flexShrink:0,background:T.surface,border:`1px solid ${T.border}`,borderRadius:"4px",overflow:"hidden",display:"flex",flexDirection:"column"}}>
+          {[{t:m?.a,won:m?.win==="home",sc:m?.sa},{t:m?.b,won:m?.win==="away",sc:m?.sb}].map(({t,won,sc},i)=>(
+            <div key={i} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",padding:"0 6px",borderBottom:i===0?`1px solid ${T.border}`:"none",background:won?"rgba(0,210,0,0.08)":"transparent"}}>
+              {t
+                ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"4px",overflow:"hidden",cursor:"pointer",flex:1,minWidth:0}}>
+                    <TeamCrest team={t}/>
+                    <span style={{fontFamily:T.font,fontSize:"9px",fontWeight:900,color:won?T.green:T.dim,flexShrink:0,letterSpacing:"0.5px"}}>{f(t)}</span>
+                    <span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:won?"#aaffaa":"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span>
+                    {showScore&&sc!=null&&<span style={{marginLeft:"auto",fontFamily:T.font,fontSize:"13px",fontWeight:900,color:won?T.green:"#8aaa8a",flexShrink:0}}>{sc}</span>}
+                    {won&&!showScore&&<span style={{marginLeft:"auto",color:T.green,fontSize:"11px",flexShrink:0}}>✓</span>}
+                  </span>
+                : <span style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>TBD</span>}
+            </div>
+          ))}
+        </div>
+      );
+    };
 
     const RoundCol = ({matches}) => (
       <div style={{display:"flex",flexDirection:"column",justifyContent:matches.length===1?"center":"space-around",height:H+"px",width:COL_W+"px",flexShrink:0}}>
@@ -849,17 +857,24 @@ function App() {
       </div>
     );
 
-    const ConnCol = ({count, side, active=[]}) => (
+    // ConnCol: pairsプロップ [{topWon, bottomWon}] を受け取り、
+    // 縦線を上半分・下半分に分けて勝ったチーム側だけglow。
+    // 横線（次ラウンドへ）は両方揃って初めてglow。
+    const glowAnim = {animationName:"bracketGlow",animationDuration:"2.4s",animationTimingFunction:"ease-in-out",animationIterationCount:"infinite"};
+    const lineStyle = (on) => on ? {background:"#44ee44",boxShadow:"0 0 5px #44ff44, 0 0 10px #22cc22",...glowAnim} : {background:T.border};
+    const ConnCol = ({count, side, pairs=[]}) => (
       <div style={{display:"flex",flexDirection:"column",height:H+"px",width:CONN_W+"px",flexShrink:0}}>
         {Array.from({length:count}).map((_,i)=>{
-          const on = active[i] ?? false;
-          const c = on ? "#44ee44" : T.border;
-          const glow = on ? "0 0 5px #44ff44, 0 0 10px #22cc22" : "none";
-          const anim = on ? {animationName:"bracketGlow",animationDuration:"2.4s",animationTimingFunction:"ease-in-out",animationIterationCount:"infinite"} : {};
+          const {topWon=false, bottomWon=false} = pairs[i] || {};
+          const edge = side==="left"?"left":"right";
           return (
             <div key={i} style={{flex:1,position:"relative"}}>
-              <div style={{position:"absolute",[side==="left"?"left":"right"]:0,top:"25%",bottom:"25%",width:"2px",background:c,boxShadow:glow,...anim}}/>
-              <div style={{position:"absolute",top:"50%",left:0,right:0,height:"2px",background:c,boxShadow:glow,...anim}}/>
+              {/* 上半分の縦線（topWonのチーム行から中点まで） */}
+              <div style={{position:"absolute",[edge]:0,top:"25%",height:"25%",width:"2px",...lineStyle(topWon)}}/>
+              {/* 下半分の縦線（中点からbottomWonのチーム行まで） */}
+              <div style={{position:"absolute",[edge]:0,top:"50%",height:"25%",width:"2px",...lineStyle(bottomWon)}}/>
+              {/* 横線（両方揃ったらglow） */}
+              <div style={{position:"absolute",top:"50%",left:0,right:0,height:"2px",...lineStyle(topWon&&bottomWon)}}/>
             </div>
           );
         })}
@@ -878,13 +893,13 @@ function App() {
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",minWidth:desktopMin+"px",padding:"24px 0"}}>
             {/* LEFT HALF */}
             <RoundCol matches={r32L}/>
-            <ConnCol count={4} side="left" active={activeArr(r16L)}/>
+            <ConnCol count={4} side="left" pairs={pairsFor(r32L)}/>
             <RoundCol matches={r16L}/>
-            <ConnCol count={2} side="left" active={activeArr(qfL)}/>
+            <ConnCol count={2} side="left" pairs={pairsFor(r16L)}/>
             <RoundCol matches={qfL}/>
-            <ConnCol count={1} side="left" active={activeArr(sfL)}/>
+            <ConnCol count={1} side="left" pairs={pairsFor(qfL)}/>
             <RoundCol matches={sfL}/>
-            <ConnCol count={1} side="left" active={activeArr(final)}/>
+            <ConnCol count={1} side="left" pairs={[{topWon:!!sfL[0]?.win,bottomWon:false}]}/>
 
             {/* CENTER: FINAL + CHAMPION */}
             <div style={{height:H+"px",width:COL_W+"px",flexShrink:0,position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}}>
@@ -899,13 +914,13 @@ function App() {
             </div>
 
             {/* RIGHT HALF (mirrored) */}
-            <ConnCol count={1} side="right" active={activeArr(final)}/>
+            <ConnCol count={1} side="right" pairs={[{topWon:false,bottomWon:!!sfR[0]?.win}]}/>
             <RoundCol matches={sfR}/>
-            <ConnCol count={1} side="right" active={activeArr(sfR)}/>
+            <ConnCol count={1} side="right" pairs={pairsFor(qfR)}/>
             <RoundCol matches={qfR}/>
-            <ConnCol count={2} side="right" active={activeArr(qfR)}/>
+            <ConnCol count={2} side="right" pairs={pairsFor(r16R)}/>
             <RoundCol matches={r16R}/>
-            <ConnCol count={4} side="right" active={activeArr(r16R)}/>
+            <ConnCol count={4} side="right" pairs={pairsFor(r32R)}/>
             <RoundCol matches={r32R}/>
           </div>
         </div>
