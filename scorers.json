@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T00:05:50.113Z",
+  "updatedAt": "2026-07-03T00:30:34.960Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -142,6 +142,13 @@
       "penalties": 0
     },
     {
+      "player": "Cristiano Ronaldo",
+      "team": "POR",
+      "goals": 3,
+      "assists": 0,
+      "penalties": 1
+    },
+    {
       "player": "Raúl Jiménez",
       "team": "MEX",
       "goals": 2,
@@ -251,13 +258,6 @@
       "team": "JPN",
       "goals": 2,
       "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Cristiano Ronaldo",
-      "team": "POR",
-      "goals": 2,
-      "assists": 0,
       "penalties": 0
     },
     {
