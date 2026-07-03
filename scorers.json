@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T18:00:39.662Z",
+  "updatedAt": "2026-07-03T18:30:38.953Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -198,6 +198,13 @@
       "penalties": 0
     },
     {
+      "player": "Emam Ashour",
+      "team": "EGY",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
       "player": "Maximiliano Araújo",
       "team": "URU",
       "goals": 2,
@@ -340,13 +347,6 @@
     {
       "player": "Jovo Lukić",
       "team": "BIH",
-      "goals": 1,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Mauricio",
-      "team": "PAR",
       "goals": 1,
       "assists": 0,
       "penalties": 0
