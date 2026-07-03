@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T04:00:43.482Z",
+  "updatedAt": "2026-07-03T04:23:54.401Z",
   "games": [
     {
       "id": 537327,
@@ -1098,7 +1098,7 @@
       "home": "SUI",
       "away": "DZA",
       "score": {
-        "SUI": 1,
+        "SUI": 2,
         "DZA": 0
       },
       "status": "live",
