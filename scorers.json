@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T03:00:44.299Z",
+  "updatedAt": "2026-07-03T03:30:34.727Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -110,7 +110,7 @@
       "player": "Johan Manzambi",
       "team": "SUI",
       "goals": 3,
-      "assists": 1,
+      "assists": 2,
       "penalties": 0
     },
     {
@@ -161,6 +161,13 @@
       "goals": 2,
       "assists": 0,
       "penalties": 0
+    },
+    {
+      "player": "Breel Embolo",
+      "team": "SUI",
+      "goals": 2,
+      "assists": 2,
+      "penalties": 1
     },
     {
       "player": "Crysencio Summerville",
@@ -340,13 +347,6 @@
     {
       "player": "Mauricio",
       "team": "PAR",
-      "goals": 1,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Gio Reyna",
-      "team": "USA",
       "goals": 1,
       "assists": 0,
       "penalties": 0

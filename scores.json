@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T03:00:42.696Z",
+  "updatedAt": "2026-07-03T03:30:33.079Z",
   "games": [
     {
       "id": 537327,
@@ -1098,12 +1098,12 @@
       "home": "SUI",
       "away": "DZA",
       "score": {
-        "SUI": 0,
+        "SUI": 1,
         "DZA": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "home",
       "date": "2026-07-03T03:00:00Z"
     },
     {
