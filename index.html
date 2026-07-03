@@ -788,20 +788,33 @@ function App() {
 
   // ===================== BRACKET TAB（外側→中央 収束トーナメント表） =====================
   const BracketTab = () => {
-    // 自分でグループ順位から組み合わせを推測するのはやめて、football-data.orgが
-    // 確定させた決勝トーナメントの対戦（stageがGROUP_STAGE以外の試合）をそのまま使う。
-    // FIFAが組み合わせを確定するまではAPI側にも試合が出てこないので、自然にTBD表示になる。
-    const byStage = stage => games
-      .filter(g => g.stage === stage)
-      .sort((a,b) => (a.id||0) - (b.id||0))
-      .map(g => ({a:g.home, b:g.away}));
-    const padTo = (arr, n) => Array.from({length:n}, (_,i) => arr[i] || {a:null,b:null});
+    const getStage = stage => games.filter(g => g.stage === stage).sort((a,b) => (a.id||0)-(b.id||0));
+    const toBox = m => m ? {a:m.home, b:m.away, win:m.winner} : {a:null,b:null,win:null};
+    const padBoxes = (arr, n) => Array.from({length:n}, (_,i) => arr[i] ? toBox(arr[i]) : {a:null,b:null,win:null});
 
-    const r32 = padTo(byStage("LAST_32"), 16);
-    const r16 = padTo(byStage("LAST_16"), 8);
-    const qf  = padTo(byStage("QUARTER_FINALS"), 4);
-    const sf  = padTo(byStage("SEMI_FINALS"), 2);
-    const final = padTo(byStage("FINAL"), 1);
+    const r32raw = getStage("LAST_32");
+    const r16raw = getStage("LAST_16");
+
+    // R32マッチをR16の組み合わせに合わせて並べ直す。
+    // 単純なID順の左右分割だとブラジル等が正しい位置に来ないため、
+    // R16の各試合のチーム名からR32の対応試合を逆引きして順序を確定する。
+    const r32used = new Set();
+    const r32ord = [];
+    for (const l16 of r16raw) {
+      for (const team of [l16.home, l16.away]) {
+        const m = r32raw.find(x => !r32used.has(x.id) && (x.home===team || x.away===team));
+        if (m) { r32ord.push(m); r32used.add(m.id); }
+        else r32ord.push(null);
+      }
+    }
+    for (const m of r32raw) if (!r32used.has(m.id)) r32ord.push(m);
+    while (r32ord.length < 16) r32ord.push(null);
+
+    const r32 = padBoxes(r32ord, 16);
+    const r16 = padBoxes(r16raw, 8);
+    const qf  = padBoxes(getStage("QUARTER_FINALS"), 4);
+    const sf  = padBoxes(getStage("SEMI_FINALS"), 2);
+    const final = padBoxes(getStage("FINAL"), 1);
 
     const r32L=r32.slice(0,8), r32R=r32.slice(8,16);
     const r16L=r16.slice(0,4), r16R=r16.slice(4,8);
@@ -810,12 +823,20 @@ function App() {
 
     const BOX_H = 52, COL_W = 132, CONN_W = 26, H = 480;
 
+    // 次ラウンドのマッチにチームが確定していれば勝ち進んだ線としてglow
+    const activeArr = arr => arr.map(m => m.a !== null);
+
     const MatchBox = ({m}) => (
       <div style={{height:BOX_H+"px",width:COL_W+"px",flexShrink:0,background:T.surface,border:`1px solid ${T.border}`,borderRadius:"4px",overflow:"hidden",display:"flex",flexDirection:"column"}}>
-        {[m?.a,m?.b].map((t,i)=>(
-          <div key={i} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",padding:"0 8px",borderBottom:i===0?`1px solid ${T.border}`:"none"}}>
+        {[{t:m?.a,won:m?.win==="home"},{t:m?.b,won:m?.win==="away"}].map(({t,won},i)=>(
+          <div key={i} style={{flex:1,display:"flex",alignItems:"center",gap:"5px",padding:"0 8px",borderBottom:i===0?`1px solid ${T.border}`:"none",background:won?"rgba(0,210,0,0.08)":"transparent"}}>
             {t
-              ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden",cursor:"pointer"}}><TeamCrest team={t}/><span style={{fontFamily:T.font,fontSize:"9px",fontWeight:900,color:T.dim,flexShrink:0,letterSpacing:"0.5px"}}>{f(t)}</span><span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span></span>
+              ? <span title={nm(t)} onClick={()=>setST(t)} style={{display:"flex",alignItems:"center",gap:"5px",overflow:"hidden",cursor:"pointer",flex:1}}>
+                  <TeamCrest team={t}/>
+                  <span style={{fontFamily:T.font,fontSize:"9px",fontWeight:900,color:won?T.green:T.dim,flexShrink:0,letterSpacing:"0.5px"}}>{f(t)}</span>
+                  <span style={{fontFamily:T.font,fontSize:"10px",fontWeight:700,color:won?"#aaffaa":"#aacaaa",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{nm(t)}</span>
+                  {won&&<span style={{marginLeft:"auto",color:T.green,fontSize:"11px",flexShrink:0}}>✓</span>}
+                </span>
               : <span style={{fontFamily:T.font,fontSize:"10px",color:T.dim}}>TBD</span>}
           </div>
         ))}
@@ -828,14 +849,20 @@ function App() {
       </div>
     );
 
-    const ConnCol = ({count, side}) => (
+    const ConnCol = ({count, side, active=[]}) => (
       <div style={{display:"flex",flexDirection:"column",height:H+"px",width:CONN_W+"px",flexShrink:0}}>
-        {Array.from({length:count}).map((_,i)=>(
-          <div key={i} style={{flex:1,position:"relative"}}>
-            <div style={{position:"absolute",[side==="left"?"left":"right"]:0,top:"25%",bottom:"25%",width:"2px",background:T.border}}/>
-            <div style={{position:"absolute",top:"50%",left:0,right:0,height:"2px",background:T.border}}/>
-          </div>
-        ))}
+        {Array.from({length:count}).map((_,i)=>{
+          const on = active[i] ?? false;
+          const c = on ? "#44ee44" : T.border;
+          const glow = on ? "0 0 5px #44ff44, 0 0 10px #22cc22" : "none";
+          const anim = on ? {animationName:"bracketGlow",animationDuration:"2.4s",animationTimingFunction:"ease-in-out",animationIterationCount:"infinite"} : {};
+          return (
+            <div key={i} style={{flex:1,position:"relative"}}>
+              <div style={{position:"absolute",[side==="left"?"left":"right"]:0,top:"25%",bottom:"25%",width:"2px",background:c,boxShadow:glow,...anim}}/>
+              <div style={{position:"absolute",top:"50%",left:0,right:0,height:"2px",background:c,boxShadow:glow,...anim}}/>
+            </div>
+          );
+        })}
       </div>
     );
 
@@ -843,6 +870,7 @@ function App() {
 
     return (
       <div style={{display:"flex",flexDirection:"column",gap:"14px"}}>
+        <style dangerouslySetInnerHTML={{__html:`@keyframes bracketGlow{0%,100%{opacity:1;filter:brightness(1)}50%{opacity:0.55;filter:brightness(1.6)}}`}}/>
         <div style={{padding:"10px 14px",background:"rgba(240,192,64,0.05)",border:"1px solid rgba(240,192,64,0.15)",borderRadius:"6px",fontFamily:T.font,fontSize:"11px",color:"#887744",lineHeight:1.7}}>
           🏆 グループ順位から自動でベスト32を生成（48チーム制のため決勝トーナメントはベスト32から開始）。各カードの勝者が決まると、線をたどって次のラウンドのカードへ自動的に反映されます。決勝の勝者がそのまま優勝チームです。
         </div>
@@ -850,13 +878,13 @@ function App() {
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",minWidth:desktopMin+"px",padding:"24px 0"}}>
             {/* LEFT HALF */}
             <RoundCol matches={r32L}/>
-            <ConnCol count={4} side="left"/>
+            <ConnCol count={4} side="left" active={activeArr(r16L)}/>
             <RoundCol matches={r16L}/>
-            <ConnCol count={2} side="left"/>
+            <ConnCol count={2} side="left" active={activeArr(qfL)}/>
             <RoundCol matches={qfL}/>
-            <ConnCol count={1} side="left"/>
+            <ConnCol count={1} side="left" active={activeArr(sfL)}/>
             <RoundCol matches={sfL}/>
-            <ConnCol count={1} side="left"/>
+            <ConnCol count={1} side="left" active={activeArr(final)}/>
 
             {/* CENTER: FINAL + CHAMPION */}
             <div style={{height:H+"px",width:COL_W+"px",flexShrink:0,position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}}>
@@ -871,13 +899,13 @@ function App() {
             </div>
 
             {/* RIGHT HALF (mirrored) */}
-            <ConnCol count={1} side="right"/>
+            <ConnCol count={1} side="right" active={activeArr(final)}/>
             <RoundCol matches={sfR}/>
-            <ConnCol count={1} side="right"/>
+            <ConnCol count={1} side="right" active={activeArr(sfR)}/>
             <RoundCol matches={qfR}/>
-            <ConnCol count={2} side="right"/>
+            <ConnCol count={2} side="right" active={activeArr(qfR)}/>
             <RoundCol matches={r16R}/>
-            <ConnCol count={4} side="right"/>
+            <ConnCol count={4} side="right" active={activeArr(r16R)}/>
             <RoundCol matches={r32R}/>
           </div>
         </div>
