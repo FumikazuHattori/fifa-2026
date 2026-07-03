@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T23:07:52.593Z",
+  "updatedAt": "2026-07-03T23:30:35.828Z",
   "games": [
     {
       "id": 537327,
@@ -1125,11 +1125,11 @@
       "away": "CPV",
       "score": {
         "ARG": 1,
-        "CPV": 0
+        "CPV": 1
       },
       "status": "live",
       "stage": "LAST_32",
-      "winner": "home",
+      "winner": null,
       "date": "2026-07-03T22:00:00Z"
     },
     {
