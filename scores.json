@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T00:30:33.849Z",
+  "updatedAt": "2026-07-03T01:00:44.521Z",
   "games": [
     {
       "id": 537327,
@@ -1085,12 +1085,12 @@
       "home": "POR",
       "away": "CRO",
       "score": {
-        "POR": 0,
+        "POR": 2,
         "CRO": 1
       },
       "status": "live",
       "stage": "LAST_32",
-      "winner": "away",
+      "winner": "home",
       "date": "2026-07-02T23:00:00Z"
     },
     {
