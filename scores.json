@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T00:00:43.781Z",
+  "updatedAt": "2026-07-04T00:30:35.000Z",
   "games": [
     {
       "id": 537327,
@@ -1124,8 +1124,8 @@
       "home": "ARG",
       "away": "CPV",
       "score": {
-        "ARG": 1,
-        "CPV": 1
+        "ARG": 2,
+        "CPV": 2
       },
       "status": "live",
       "stage": "LAST_32",
