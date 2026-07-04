@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T18:30:35.018Z",
+  "updatedAt": "2026-07-04T19:00:42.469Z",
   "games": [
     {
       "id": 537327,
@@ -1151,7 +1151,7 @@
       "away": "MAR",
       "score": {
         "CAN": 0,
-        "MAR": 1
+        "MAR": 2
       },
       "status": "live",
       "stage": "LAST_16",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T18:30:37.125Z",
+  "updatedAt": "2026-07-04T19:00:42.867Z",
   "scorers": [
     {
       "player": "Lionel Messi",
@@ -324,6 +324,13 @@
       "penalties": 1
     },
     {
+      "player": "Azzedine Ounahi",
+      "team": "MAR",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
       "player": "Ladislav Krejčí",
       "team": "CZE",
       "goals": 1,
@@ -340,13 +347,6 @@
     {
       "player": "Hyun-Gyu Oh",
       "team": "KOR",
-      "goals": 1,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Jovo Lukić",
-      "team": "BIH",
       "goals": 1,
       "assists": 0,
       "penalties": 0
