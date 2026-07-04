@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T22:30:34.690Z",
+  "updatedAt": "2026-07-04T23:00:35.372Z",
   "games": [
     {
       "id": 537327,
@@ -1164,11 +1164,11 @@
       "away": "FRA",
       "score": {
         "PAR": 0,
-        "FRA": 0
+        "FRA": 1
       },
       "status": "live",
       "stage": "LAST_16",
-      "winner": null,
+      "winner": "away",
       "date": "2026-07-04T21:00:00Z"
     },
     {
