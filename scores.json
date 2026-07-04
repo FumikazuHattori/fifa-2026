@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T02:30:35.755Z",
+  "updatedAt": "2026-07-04T03:00:37.495Z",
   "games": [
     {
       "id": 537327,
@@ -1137,7 +1137,7 @@
       "home": "COL",
       "away": "GHA",
       "score": {
-        "COL": 1,
+        "COL": 2,
         "GHA": 0
       },
       "status": "live",
