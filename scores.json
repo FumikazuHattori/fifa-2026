@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T06:00:40.589Z",
+  "updatedAt": "2026-07-04T06:30:35.803Z",
   "games": [
     {
       "id": 537327,
@@ -1116,7 +1116,7 @@
       },
       "status": "final",
       "stage": "LAST_32",
-      "winner": null,
+      "winner": "away",
       "date": "2026-07-03T18:00:00Z"
     },
     {
@@ -1198,6 +1198,19 @@
       "date": "2026-07-06T00:00:00Z"
     },
     {
+      "id": 537379,
+      "home": "POR",
+      "away": "ESP",
+      "score": {
+        "POR": 0,
+        "ESP": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_16",
+      "winner": null,
+      "date": "2026-07-06T19:00:00Z"
+    },
+    {
       "id": 537380,
       "home": "USA",
       "away": "BEL",
@@ -1209,6 +1222,32 @@
       "stage": "LAST_16",
       "winner": null,
       "date": "2026-07-07T00:00:00Z"
+    },
+    {
+      "id": 537381,
+      "home": "ARG",
+      "away": "EGY",
+      "score": {
+        "ARG": 0,
+        "EGY": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_16",
+      "winner": null,
+      "date": "2026-07-07T16:00:00Z"
+    },
+    {
+      "id": 537382,
+      "home": "SUI",
+      "away": "COL",
+      "score": {
+        "SUI": 0,
+        "COL": 0
+      },
+      "status": "scheduled",
+      "stage": "LAST_16",
+      "winner": null,
+      "date": "2026-07-07T20:00:00Z"
     }
   ]
 }
