@@ -522,7 +522,7 @@ function useAutoRefresh(onTick) {
 }
 
 function App() {
-  const [tab,setTab]          = useState("group"); // ベッティングタブを一時非表示中のため、デフォルトをgroupに変更
+  const [tab,setTab]          = useState("bracket"); // トーナメントをトップに
   const [activeGroup,setAG]   = useState("A");
   const [viewMode,setVM]      = useState("person");
   const [selectedPerson,setSP]= useState(null);
@@ -1374,10 +1374,11 @@ function App() {
           <div style={{display:"flex",borderBottom:`1px dashed ${T.border}`,maxWidth:"800px",overflowX:"auto"}}>
             {/* 一時的に非表示。再表示する場合はこのコメントを外す。 */}
             {/* {tabBtn("pred","🎯 ベッティング")} */}
-            {tabBtn("group","📊 グループ")}
             {tabBtn("bracket","🏆 トーナメント")}
             {tabBtn("schedule","📅 試合予定")}
             {tabBtn("scorers","⚽ 得点ランキング")}
+            {/* グループタブは参照用リンクとして残す */}
+            <button onClick={()=>setTab("group")} style={{padding:"10px 12px",border:"none",cursor:"pointer",fontFamily:T.font,fontSize:"11px",fontWeight:700,letterSpacing:"1px",background:tab==="group"?"#0e1a0e":"transparent",color:tab==="group"?T.green:T.dim,borderBottom:tab==="group"?`2px solid ${T.green}`:"2px solid transparent",whiteSpace:"nowrap",flexShrink:0}}>グループ詳細 ↗</button>
           </div>
         </div>
       </div>
