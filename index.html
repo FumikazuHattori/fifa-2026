@@ -1022,7 +1022,13 @@ function App() {
           ? {label:STAGE_LABEL.FINAL_RUNNER,rank:5.5}
           : {label:STAGE_LABEL.FINAL_WINNER,rank:6};
       }
-      if(s.topStage) return {label:s.eliminated?(STAGE_LABEL[s.topStage]||s.topStage):(STAGE_LABEL[s.topStage]||s.topStage)+" (進行中)",rank:s.topStageRank+(s.eliminated?0:0.5)};
+      if(s.topStage){
+        // GROUP_STAGEのみのチームはノックアウト不進出＝グループ敗退確定（「進行中」は不要）
+        const isGroup = s.topStage==="GROUP_STAGE";
+        const label = s.eliminated||isGroup ? (STAGE_LABEL[s.topStage]||s.topStage) : (STAGE_LABEL[s.topStage]||s.topStage)+" (進行中)";
+        const rank = s.topStageRank + (s.eliminated||isGroup ? 0 : 0.5);
+        return {label, rank};
+      }
       return {label:"－",rank:-1};
     };
 
