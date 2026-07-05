@@ -924,6 +924,11 @@ function App() {
             <RoundCol matches={r32R}/>
           </div>
         </div>
+        <div style={{textAlign:"center",paddingTop:"4px"}}>
+          <button onClick={()=>setTab("group")} style={{fontFamily:T.font,fontSize:"11px",color:T.dim,background:"transparent",border:"none",cursor:"pointer",textDecoration:"underline",letterSpacing:"0.5px"}}>
+            📊 グループステージの詳細を見る
+          </button>
+        </div>
       </div>
     );
   };
@@ -1007,7 +1012,7 @@ function App() {
       }
     }
 
-    const [sortKey,setSortKey] = React.useState("stage");
+    const [sortKey,setSortKey] = React.useState("gf");
 
     const stageResult = t => {
       const s = statsMap[t];
@@ -1484,7 +1489,7 @@ function App() {
   };
 
   const tabBtn = (key,label) => (
-    <button key={key} onClick={()=>setTab(key)} style={{padding:"10px 0",flex:1,border:"none",cursor:"pointer",fontFamily:T.font,fontSize:bp.isDesktop?"13px":"12px",fontWeight:700,letterSpacing:"1.5px",background:tab===key?"#0e1a0e":"transparent",color:tab===key?T.green:T.muted,borderBottom:tab===key?`2px solid ${T.green}`:"2px solid transparent",transition:"all 0.15s"}}>{label}</button>
+    <button key={key} onClick={()=>setTab(key)} style={{padding:"10px 14px",flexShrink:0,border:"none",cursor:"pointer",fontFamily:T.font,fontSize:"12px",fontWeight:700,letterSpacing:"1px",whiteSpace:"nowrap",background:tab===key?"#0e1a0e":"transparent",color:tab===key?T.green:T.muted,borderBottom:tab===key?`2px solid ${T.green}`:"2px solid transparent",transition:"all 0.15s"}}>{label}</button>
   );
 
   return (
@@ -1510,12 +1515,10 @@ function App() {
           <div style={{display:"flex",borderBottom:`1px dashed ${T.border}`,maxWidth:"800px",overflowX:"auto"}}>
             {/* 一時的に非表示。再表示する場合はこのコメントを外す。 */}
             {/* {tabBtn("pred","🎯 ベッティング")} */}
-            {tabBtn("bracket","🏆 トーナメント")}
-            {tabBtn("nations","🌍 出場国")}
-            {tabBtn("schedule","📅 試合予定")}
-            {tabBtn("scorers","⚽ 得点ランキング")}
-            {/* グループタブは参照用リンクとして残す */}
-            <button onClick={()=>setTab("group")} style={{padding:"10px 12px",border:"none",cursor:"pointer",fontFamily:T.font,fontSize:"11px",fontWeight:700,letterSpacing:"1px",background:tab==="group"?"#0e1a0e":"transparent",color:tab==="group"?T.green:T.dim,borderBottom:tab==="group"?`2px solid ${T.green}`:"2px solid transparent",whiteSpace:"nowrap",flexShrink:0}}>グループ詳細 ↗</button>
+            {tabBtn("bracket","🏆 BRACKET")}
+            {tabBtn("nations","🌍 NATIONS")}
+            {tabBtn("schedule","📅 SCHEDULE")}
+            {tabBtn("scorers","⚽ SCORERS")}
           </div>
         </div>
       </div>
