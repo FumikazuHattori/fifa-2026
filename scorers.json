@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T21:30:34.601Z",
+  "updatedAt": "2026-07-05T21:54:13.351Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -9,16 +9,16 @@
       "penalties": 1
     },
     {
-      "player": "Lionel Messi",
-      "team": "ARG",
+      "player": "Erling Haaland",
+      "team": "NOR",
       "goals": 7,
       "assists": 0,
       "penalties": 0
     },
     {
-      "player": "Erling Haaland",
-      "team": "NOR",
-      "goals": 5,
+      "player": "Lionel Messi",
+      "team": "ARG",
+      "goals": 7,
       "assists": 0,
       "penalties": 0
     },
