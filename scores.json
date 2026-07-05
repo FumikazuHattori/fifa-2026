@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T21:54:12.086Z",
+  "updatedAt": "2026-07-05T22:00:39.094Z",
   "games": [
     {
       "id": 537327,
@@ -1177,7 +1177,7 @@
       "away": "NOR",
       "score": {
         "BRA": 0,
-        "NOR": 1
+        "NOR": 2
       },
       "status": "scheduled",
       "stage": "LAST_16",
