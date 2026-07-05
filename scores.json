@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T06:00:37.294Z",
+  "updatedAt": "2026-07-05T06:22:48.760Z",
   "games": [
     {
       "id": 537327,
@@ -1166,7 +1166,7 @@
         "PAR": 0,
         "FRA": 1
       },
-      "status": "scheduled",
+      "status": "final",
       "stage": "LAST_16",
       "winner": "away",
       "date": "2026-07-04T21:00:00Z"
@@ -1248,6 +1248,19 @@
       "stage": "LAST_16",
       "winner": null,
       "date": "2026-07-07T20:00:00Z"
+    },
+    {
+      "id": 537383,
+      "home": "FRA",
+      "away": "MAR",
+      "score": {
+        "FRA": 0,
+        "MAR": 0
+      },
+      "status": "scheduled",
+      "stage": "QUARTER_FINALS",
+      "winner": null,
+      "date": "2026-07-09T20:00:00Z"
     }
   ]
 }
