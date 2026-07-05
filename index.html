@@ -956,6 +956,142 @@ function App() {
     );
   };
 
+  // ===================== NATIONS TAB（出場国一覧） =====================
+  const NationsTab = () => {
+    const STAGE_RANK = {GROUP_STAGE:0,LAST_32:1,LAST_16:2,QUARTER_FINALS:3,SEMI_FINALS:4,FINAL:5};
+    const STAGE_LABEL = {
+      GROUP_STAGE:"グループ敗退",
+      LAST_32:"ベスト32敗退",
+      LAST_16:"ベスト16敗退",
+      QUARTER_FINALS:"準々決勝敗退",
+      SEMI_FINALS:"4強敗退",
+      FINAL_RUNNER:"準優勝",
+      FINAL_WINNER:"🏆 優勝",
+    };
+
+    // 各チームの統計を games から集計
+    const statsMap = {};
+    const ensure = t => { if(!statsMap[t]) statsMap[t]={gf:0,ga:0,w:0,d:0,l:0,played:0,topStage:null,topStageRank:-1,eliminated:false}; };
+
+    for (const g of games) {
+      const {home,away,score,status,stage,winner} = g;
+      if(!home||!away) continue;
+      ensure(home); ensure(away);
+      const rank = STAGE_RANK[stage]??0;
+      const homeS = score?.[home]??0;
+      const awayS = score?.[away]??0;
+
+      if(status==="final"||status==="live"){
+        statsMap[home].played++; statsMap[away].played++;
+        statsMap[home].gf+=homeS; statsMap[home].ga+=awayS;
+        statsMap[away].gf+=awayS; statsMap[away].ga+=homeS;
+        if(winner==="home"){ statsMap[home].w++; statsMap[away].l++; }
+        else if(winner==="away"){ statsMap[away].w++; statsMap[home].l++; }
+        else if(status==="final"){ statsMap[home].d++; statsMap[away].d++; }
+      }
+
+      // 最終到達ステージを更新（ノックアウトは勝者のみ次ラウンドへ）
+      if(stage==="GROUP_STAGE"){
+        [home,away].forEach(t=>{ if(rank>statsMap[t].topStageRank){statsMap[t].topStage=stage;statsMap[t].topStageRank=rank;} });
+      } else {
+        // ノックアウト: 勝者は「このステージを通過」なので次ラウンドで評価される
+        // 敗者はここで敗退確定
+        if(status==="final"&&winner){
+          const w=winner==="home"?home:away;
+          const l=winner==="home"?away:home;
+          if(rank>statsMap[l].topStageRank){statsMap[l].topStage=stage;statsMap[l].topStageRank=rank;statsMap[l].eliminated=true;}
+          if(rank>statsMap[w].topStageRank){statsMap[w].topStage=stage;statsMap[w].topStageRank=rank;}
+        } else {
+          [home,away].forEach(t=>{ if(rank>statsMap[t].topStageRank){statsMap[t].topStage=stage;statsMap[t].topStageRank=rank;} });
+        }
+      }
+    }
+
+    const [sortKey,setSortKey] = React.useState("stage");
+
+    const stageResult = t => {
+      const s = statsMap[t];
+      if(!s) return {label:"－",rank:-1};
+      if(s.topStage==="FINAL"){
+        return s.eliminated
+          ? {label:STAGE_LABEL.FINAL_RUNNER,rank:5.5}
+          : {label:STAGE_LABEL.FINAL_WINNER,rank:6};
+      }
+      if(s.topStage) return {label:s.eliminated?(STAGE_LABEL[s.topStage]||s.topStage):(STAGE_LABEL[s.topStage]||s.topStage)+" (進行中)",rank:s.topStageRank+(s.eliminated?0:0.5)};
+      return {label:"－",rank:-1};
+    };
+
+    const allTeams = [...new Set(games.flatMap(g=>[g.home,g.away]).filter(Boolean))].sort((a,b)=>nm(a).localeCompare(nm(b),"ja"));
+
+    const sorted = [...allTeams].sort((a,b)=>{
+      if(sortKey==="stage") return stageResult(b).rank - stageResult(a).rank || nm(a).localeCompare(nm(b),"ja");
+      if(sortKey==="gf")    return (statsMap[b]?.gf??0)-(statsMap[a]?.gf??0);
+      if(sortKey==="ga")    return (statsMap[a]?.ga??0)-(statsMap[b]?.ga??0);
+      if(sortKey==="gd")    return ((statsMap[b]?.gf??0)-(statsMap[b]?.ga??0))-((statsMap[a]?.gf??0)-(statsMap[a]?.ga??0));
+      if(sortKey==="w")     return (statsMap[b]?.w??0)-(statsMap[a]?.w??0);
+      return nm(a).localeCompare(nm(b),"ja");
+    });
+
+    const thStyle = k => ({
+      padding:"7px 10px",fontFamily:T.font,fontSize:"11px",letterSpacing:"1px",color:sortKey===k?T.green:T.muted,
+      cursor:"pointer",userSelect:"none",whiteSpace:"nowrap",textAlign:"center",
+      borderBottom:`2px solid ${sortKey===k?T.green:"transparent"}`,background:"#0a120a",
+    });
+    const tdC = {padding:"6px 8px",fontFamily:T.font,fontSize:"12px",textAlign:"center",color:"#aacaaa",borderBottom:`1px solid ${T.border}22`};
+
+    return (
+      <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:"6px",overflow:"hidden"}}>
+        <div style={{background:"#0a120a",padding:"7px 12px",fontFamily:T.font,fontSize:"11px",letterSpacing:"2px",color:T.green,fontWeight:700,borderBottom:`1px dashed ${T.green}33`}}>
+          🌍 出場国一覧（48カ国）
+        </div>
+        <div style={{overflowX:"auto"}}>
+          <table style={{width:"100%",borderCollapse:"collapse",minWidth:"560px"}}>
+            <thead>
+              <tr>
+                <th style={{...thStyle("name"),textAlign:"left",paddingLeft:"12px"}}>国</th>
+                <th style={thStyle("stage")} onClick={()=>setSortKey("stage")}>最終成績</th>
+                <th style={thStyle("w")} onClick={()=>setSortKey("w")}>勝</th>
+                <th style={{...tdC,...thStyle(""),cursor:"default"}}>分</th>
+                <th style={{...tdC,...thStyle(""),cursor:"default"}}>負</th>
+                <th style={thStyle("gf")} onClick={()=>setSortKey("gf")}>得点</th>
+                <th style={thStyle("ga")} onClick={()=>setSortKey("ga")}>失点</th>
+                <th style={thStyle("gd")} onClick={()=>setSortKey("gd")}>得失点差</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sorted.map(t=>{
+                const s = statsMap[t]||{gf:0,ga:0,w:0,d:0,l:0,played:0};
+                const res = stageResult(t);
+                const isChamp = res.rank===6;
+                const isRunner = res.rank===5.5;
+                return (
+                  <tr key={t} style={{background:isChamp?"rgba(240,192,64,0.07)":isRunner?"rgba(0,150,0,0.06)":"transparent",cursor:"pointer"}}
+                      onClick={()=>setST(t)}>
+                    <td style={{padding:"6px 8px 6px 12px",borderBottom:`1px solid ${T.border}22`}}>
+                      <span style={{display:"inline-flex",alignItems:"center",gap:"7px"}}>
+                        <TeamCrest team={t} size={18}/>
+                        <span style={{fontFamily:T.font,fontSize:"12px",fontWeight:700,color:isChamp?T.yellow:isRunner?"#aaffaa":"#d0eed0"}}>{nm(t)}</span>
+                        <span style={{fontSize:"10px",color:T.dim}}>{t}</span>
+                      </span>
+                    </td>
+                    <td style={{...tdC,color:isChamp?T.yellow:isRunner?"#88ff88":s.eliminated?"#8aaa8a":T.green,fontWeight:isChamp||isRunner?900:400}}>{res.label}</td>
+                    <td style={tdC}>{s.w||0}</td>
+                    <td style={tdC}>{s.d||0}</td>
+                    <td style={tdC}>{s.l||0}</td>
+                    <td style={{...tdC,color:T.green,fontWeight:700}}>{s.gf||0}</td>
+                    <td style={tdC}>{s.ga||0}</td>
+                    <td style={{...tdC,color:(s.gf-s.ga)>0?T.green:(s.gf-s.ga)<0?T.red:"#8aaa8a",fontWeight:700}}>{(s.gf||0)-(s.ga||0)>=0?"+"+(s.gf-s.ga):s.gf-s.ga}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div style={{padding:"6px 12px",fontFamily:T.font,fontSize:"10px",color:T.dim}}>クリックでチーム詳細。列ヘッダーをクリックで並び替え。</div>
+      </div>
+    );
+  };
+
   // ===================== SCORERS TAB（得点ランキング） =====================
   const ScorersTab = () => (
     <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
@@ -1375,6 +1511,7 @@ function App() {
             {/* 一時的に非表示。再表示する場合はこのコメントを外す。 */}
             {/* {tabBtn("pred","🎯 ベッティング")} */}
             {tabBtn("bracket","🏆 トーナメント")}
+            {tabBtn("nations","🌍 出場国")}
             {tabBtn("schedule","📅 試合予定")}
             {tabBtn("scorers","⚽ 得点ランキング")}
             {/* グループタブは参照用リンクとして残す */}
@@ -1386,6 +1523,7 @@ function App() {
         {tab==="pred"&&<PredTab/>}
         {tab==="group"&&<GroupTab/>}
         {tab==="bracket"&&<BracketTab/>}
+        {tab==="nations"&&<NationsTab/>}
         {tab==="schedule"&&<ScheduleTab/>}
         {tab==="scorers"&&<ScorersTab/>}
       </div>
