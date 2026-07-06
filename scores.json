@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T20:30:34.748Z",
+  "updatedAt": "2026-07-06T21:00:40.034Z",
   "games": [
     {
       "id": 537327,
@@ -1203,11 +1203,11 @@
       "away": "ESP",
       "score": {
         "POR": 0,
-        "ESP": 0
+        "ESP": 1
       },
       "status": "live",
       "stage": "LAST_16",
-      "winner": null,
+      "winner": "away",
       "date": "2026-07-06T19:00:00Z"
     },
     {
