@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T02:30:32.300Z",
+  "updatedAt": "2026-07-06T03:00:37.946Z",
   "games": [
     {
       "id": 537327,
@@ -1189,7 +1189,7 @@
       "home": "MEX",
       "away": "ENG",
       "score": {
-        "MEX": 1,
+        "MEX": 2,
         "ENG": 3
       },
       "status": "live",
