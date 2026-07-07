@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T17:00:41.075Z",
+  "updatedAt": "2026-07-07T17:30:35.725Z",
   "games": [
     {
       "id": 537327,
@@ -1229,7 +1229,7 @@
       "away": "EGY",
       "score": {
         "ARG": 0,
-        "EGY": 1
+        "EGY": 2
       },
       "status": "live",
       "stage": "LAST_16",
