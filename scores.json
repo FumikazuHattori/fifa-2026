@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T22:30:41.608Z",
+  "updatedAt": "2026-07-07T22:53:24.942Z",
   "games": [
     {
       "id": 537327,
@@ -1241,10 +1241,10 @@
       "home": "SUI",
       "away": "COL",
       "score": {
-        "SUI": 0,
-        "COL": 0
+        "SUI": 2,
+        "COL": 2
       },
-      "status": "live",
+      "status": "final",
       "stage": "LAST_16",
       "winner": null,
       "date": "2026-07-07T20:00:00Z"
