@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T00:30:34.994Z",
+  "updatedAt": "2026-07-07T01:00:46.709Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -306,7 +306,7 @@
       "player": "Leandro Trossard",
       "team": "BEL",
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": 0
     },
     {
@@ -331,6 +331,13 @@
       "penalties": 1
     },
     {
+      "player": "Malik Tillman",
+      "team": "USA",
+      "goals": 2,
+      "assists": 0,
+      "penalties": 0
+    },
+    {
       "player": "Azzedine Ounahi",
       "team": "MAR",
       "goals": 2,
@@ -338,17 +345,10 @@
       "penalties": 0
     },
     {
-      "player": "Ladislav Krejčí",
-      "team": "CZE",
-      "goals": 1,
+      "player": "Charles De Ketelaere",
+      "team": "BEL",
+      "goals": 2,
       "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "In-beom Hwang",
-      "team": "KOR",
-      "goals": 1,
-      "assists": 1,
       "penalties": 0
     }
   ]
