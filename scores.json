@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T22:53:24.942Z",
+  "updatedAt": "2026-07-07T23:00:43.611Z",
   "games": [
     {
       "id": 537327,
@@ -1241,8 +1241,8 @@
       "home": "SUI",
       "away": "COL",
       "score": {
-        "SUI": 2,
-        "COL": 2
+        "SUI": 4,
+        "COL": 3
       },
       "status": "final",
       "stage": "LAST_16",
