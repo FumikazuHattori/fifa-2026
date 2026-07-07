@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T01:00:40.039Z",
+  "updatedAt": "2026-07-07T01:30:35.440Z",
   "games": [
     {
       "id": 537327,
@@ -1216,7 +1216,7 @@
       "away": "BEL",
       "score": {
         "USA": 1,
-        "BEL": 2
+        "BEL": 3
       },
       "status": "live",
       "stage": "LAST_16",
