@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T06:00:39.015Z",
+  "updatedAt": "2026-07-07T06:30:33.511Z",
   "games": [
     {
       "id": 537327,
@@ -1261,6 +1261,19 @@
       "stage": "QUARTER_FINALS",
       "winner": null,
       "date": "2026-07-09T20:00:00Z"
+    },
+    {
+      "id": 537384,
+      "home": "ESP",
+      "away": "BEL",
+      "score": {
+        "ESP": 0,
+        "BEL": 0
+      },
+      "status": "scheduled",
+      "stage": "QUARTER_FINALS",
+      "winner": null,
+      "date": "2026-07-10T19:00:00Z"
     },
     {
       "id": 537385,
