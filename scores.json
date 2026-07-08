@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-08T06:00:42.365Z",
+  "updatedAt": "2026-07-08T06:30:37.166Z",
   "games": [
     {
       "id": 537327,
@@ -1246,7 +1246,7 @@
       },
       "status": "final",
       "stage": "LAST_16",
-      "winner": null,
+      "winner": "home",
       "date": "2026-07-07T20:00:00Z"
     },
     {
@@ -1287,6 +1287,19 @@
       "stage": "QUARTER_FINALS",
       "winner": null,
       "date": "2026-07-11T21:00:00Z"
+    },
+    {
+      "id": 537386,
+      "home": "ARG",
+      "away": "SUI",
+      "score": {
+        "ARG": 0,
+        "SUI": 0
+      },
+      "status": "scheduled",
+      "stage": "QUARTER_FINALS",
+      "winner": null,
+      "date": "2026-07-12T01:00:00Z"
     }
   ]
 }
