@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T21:30:43.161Z",
+  "updatedAt": "2026-07-09T22:00:43.744Z",
   "games": [
     {
       "id": 537327,
@@ -1254,7 +1254,7 @@
       "home": "FRA",
       "away": "MAR",
       "score": {
-        "FRA": 1,
+        "FRA": 2,
         "MAR": 0
       },
       "status": "live",

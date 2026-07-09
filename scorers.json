@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T21:30:45.170Z",
+  "updatedAt": "2026-07-09T22:00:44.030Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -30,6 +30,13 @@
       "penalties": 2
     },
     {
+      "player": "Ousmane Dembélé",
+      "team": "FRA",
+      "goals": 5,
+      "assists": 2,
+      "penalties": 0
+    },
+    {
       "player": "Julián Quiñones",
       "team": "MEX",
       "goals": 4,
@@ -55,13 +62,6 @@
       "team": "ESP",
       "goals": 4,
       "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Ousmane Dembélé",
-      "team": "FRA",
-      "goals": 4,
-      "assists": 2,
       "penalties": 0
     },
     {
