@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T20:00:42.793Z",
+  "updatedAt": "2026-07-09T20:30:36.294Z",
   "games": [
     {
       "id": 537327,
@@ -1257,7 +1257,7 @@
         "FRA": 0,
         "MAR": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "QUARTER_FINALS",
       "winner": null,
       "date": "2026-07-09T20:00:00Z"
