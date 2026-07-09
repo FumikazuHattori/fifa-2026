@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T21:01:24.039Z",
+  "updatedAt": "2026-07-09T21:30:43.161Z",
   "games": [
     {
       "id": 537327,
@@ -1254,12 +1254,12 @@
       "home": "FRA",
       "away": "MAR",
       "score": {
-        "FRA": 0,
+        "FRA": 1,
         "MAR": 0
       },
       "status": "live",
       "stage": "QUARTER_FINALS",
-      "winner": null,
+      "winner": "home",
       "date": "2026-07-09T20:00:00Z"
     },
     {
