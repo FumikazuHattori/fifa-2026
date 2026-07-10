@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T20:47:30.931Z",
+  "updatedAt": "2026-07-10T21:00:50.122Z",
   "games": [
     {
       "id": 537327,
@@ -1267,12 +1267,12 @@
       "home": "ESP",
       "away": "BEL",
       "score": {
-        "ESP": 1,
+        "ESP": 2,
         "BEL": 1
       },
       "status": "live",
       "stage": "QUARTER_FINALS",
-      "winner": null,
+      "winner": "home",
       "date": "2026-07-10T19:00:00Z"
     },
     {
