@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T19:00:45.255Z",
+  "updatedAt": "2026-07-10T19:18:11.636Z",
   "games": [
     {
       "id": 537327,
@@ -1270,7 +1270,7 @@
         "ESP": 0,
         "BEL": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "QUARTER_FINALS",
       "winner": null,
       "date": "2026-07-10T19:00:00Z"
