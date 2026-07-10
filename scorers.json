@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T19:30:37.893Z",
+  "updatedAt": "2026-07-10T20:00:48.600Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -164,6 +164,13 @@
     },
     {
       "player": "Romelu Lukaku",
+      "team": "BEL",
+      "goals": 3,
+      "assists": 1,
+      "penalties": 0
+    },
+    {
+      "player": "Charles De Ketelaere",
       "team": "BEL",
       "goals": 3,
       "assists": 1,
@@ -340,13 +347,6 @@
     {
       "player": "Malik Tillman",
       "team": "USA",
-      "goals": 2,
-      "assists": 0,
-      "penalties": 0
-    },
-    {
-      "player": "Azzedine Ounahi",
-      "team": "MAR",
       "goals": 2,
       "assists": 0,
       "penalties": 0
