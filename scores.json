@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T06:00:46.554Z",
+  "updatedAt": "2026-07-11T06:30:39.575Z",
   "games": [
     {
       "id": 537327,
@@ -1300,6 +1300,19 @@
       "stage": "QUARTER_FINALS",
       "winner": null,
       "date": "2026-07-12T01:00:00Z"
+    },
+    {
+      "id": 537387,
+      "home": "FRA",
+      "away": "ESP",
+      "score": {
+        "FRA": 0,
+        "ESP": 0
+      },
+      "status": "scheduled",
+      "stage": "SEMI_FINALS",
+      "winner": null,
+      "date": "2026-07-14T19:00:00Z"
     }
   ]
 }
