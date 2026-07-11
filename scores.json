@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T21:00:52.787Z",
+  "updatedAt": "2026-07-11T21:12:04.162Z",
   "games": [
     {
       "id": 537327,
@@ -1192,7 +1192,7 @@
         "MEX": 2,
         "ENG": 3
       },
-      "status": "final",
+      "status": "scheduled",
       "stage": "LAST_16",
       "winner": "away",
       "date": "2026-07-06T01:00:00Z"
@@ -1283,7 +1283,7 @@
         "NOR": 0,
         "ENG": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "QUARTER_FINALS",
       "winner": null,
       "date": "2026-07-11T21:00:00Z"
