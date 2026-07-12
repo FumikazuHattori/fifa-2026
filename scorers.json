@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T03:30:40.813Z",
+  "updatedAt": "2026-07-12T04:00:46.797Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -331,6 +331,13 @@
       "penalties": 0
     },
     {
+      "player": "Lautaro Martínez",
+      "team": "ARG",
+      "goals": 2,
+      "assists": 1,
+      "penalties": 1
+    },
+    {
       "player": "Riyad Mahrez",
       "team": "DZA",
       "goals": 2,
@@ -343,13 +350,6 @@
       "goals": 2,
       "assists": 0,
       "penalties": 1
-    },
-    {
-      "player": "Malik Tillman",
-      "team": "USA",
-      "goals": 2,
-      "assists": 0,
-      "penalties": 0
     }
   ]
 }
