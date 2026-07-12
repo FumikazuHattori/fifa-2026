@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T01:00:48.936Z",
+  "updatedAt": "2026-07-12T01:30:38.655Z",
   "games": [
     {
       "id": 537327,
@@ -1293,12 +1293,12 @@
       "home": "ARG",
       "away": "SUI",
       "score": {
-        "ARG": 0,
+        "ARG": 1,
         "SUI": 0
       },
-      "status": "scheduled",
+      "status": "live",
       "stage": "QUARTER_FINALS",
-      "winner": null,
+      "winner": "home",
       "date": "2026-07-12T01:00:00Z"
     },
     {
