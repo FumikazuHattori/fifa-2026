@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T23:30:40.504Z",
+  "updatedAt": "2026-07-12T00:00:53.186Z",
   "games": [
     {
       "id": 537327,
@@ -1283,7 +1283,7 @@
         "NOR": 1,
         "ENG": 2
       },
-      "status": "live",
+      "status": "final",
       "stage": "QUARTER_FINALS",
       "winner": "away",
       "date": "2026-07-11T21:00:00Z"
