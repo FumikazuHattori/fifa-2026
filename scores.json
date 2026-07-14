@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T20:00:49.391Z",
+  "updatedAt": "2026-07-14T20:30:43.916Z",
   "games": [
     {
       "id": 537327,
@@ -1307,7 +1307,7 @@
       "away": "ESP",
       "score": {
         "FRA": 0,
-        "ESP": 1
+        "ESP": 2
       },
       "status": "live",
       "stage": "SEMI_FINALS",
