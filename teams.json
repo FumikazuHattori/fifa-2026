@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T16:09:13.464Z",
+  "updatedAt": "2026-07-14T16:30:46.881Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -3730,11 +3730,6 @@
           "nationality": "Belgium"
         },
         {
-          "name": "Dodi Lukebakio",
-          "position": "Midfield",
-          "nationality": "Belgium"
-        },
-        {
           "name": "Alexis Saelemaekers",
           "position": "Midfield",
           "nationality": "Belgium"
@@ -3766,6 +3761,11 @@
         },
         {
           "name": "Romelu Lukaku",
+          "position": "Offence",
+          "nationality": "Belgium"
+        },
+        {
+          "name": "Dodi Lukebakio",
           "position": "Offence",
           "nationality": "Belgium"
         },
