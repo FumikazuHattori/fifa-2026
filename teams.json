@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T13:30:49.066Z",
+  "updatedAt": "2026-07-14T14:00:50.171Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -3470,17 +3470,7 @@
           "nationality": "Turkey"
         },
         {
-          "name": "Oguz Aydin",
-          "position": "Midfield",
-          "nationality": "Turkey"
-        },
-        {
           "name": "Baris Yilmaz",
-          "position": "Midfield",
-          "nationality": "Turkey"
-        },
-        {
-          "name": "İrfan Kahveci",
           "position": "Midfield",
           "nationality": "Turkey"
         },
@@ -3491,6 +3481,16 @@
         },
         {
           "name": "Muhammed Kerem Aktürkoğlu",
+          "position": "Offence",
+          "nationality": "Turkey"
+        },
+        {
+          "name": "Oguz Aydin",
+          "position": "Offence",
+          "nationality": "Turkey"
+        },
+        {
+          "name": "İrfan Kahveci",
           "position": "Offence",
           "nationality": "Turkey"
         },
