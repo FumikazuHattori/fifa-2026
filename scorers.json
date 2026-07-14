@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T19:06:18.823Z",
+  "updatedAt": "2026-07-14T19:30:42.041Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
@@ -37,6 +37,13 @@
       "penalties": 0
     },
     {
+      "player": "Mikel Oyarzabal",
+      "team": "ESP",
+      "goals": 5,
+      "assists": 1,
+      "penalties": 1
+    },
+    {
       "player": "Ousmane Dembélé",
       "team": "FRA",
       "goals": 5,
@@ -53,13 +60,6 @@
     {
       "player": "Vinicius Junior",
       "team": "BRA",
-      "goals": 4,
-      "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Mikel Oyarzabal",
-      "team": "ESP",
       "goals": 4,
       "assists": 1,
       "penalties": 0
