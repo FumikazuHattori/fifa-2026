@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T08:00:50.700Z",
+  "updatedAt": "2026-07-15T08:30:47.584Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -6420,11 +6420,6 @@
           "nationality": "Curaçao"
         },
         {
-          "name": "Tyrese Noslin",
-          "position": "Defence",
-          "nationality": "Curaçao"
-        },
-        {
           "name": "Leandro Bacuna",
           "position": "Midfield",
           "nationality": "Curaçao"
@@ -6446,6 +6441,11 @@
         },
         {
           "name": "Tahith Chong",
+          "position": "Midfield",
+          "nationality": "Curaçao"
+        },
+        {
+          "name": "Tyrese Noslin",
           "position": "Midfield",
           "nationality": "Curaçao"
         },
