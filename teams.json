@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T07:08:31.943Z",
+  "updatedAt": "2026-07-15T07:30:46.445Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -3575,22 +3575,12 @@
           "nationality": "Senegal"
         },
         {
-          "name": "Ismaïla Sarr",
-          "position": "Midfield",
-          "nationality": "Senegal"
-        },
-        {
           "name": "Krépin Diatta",
           "position": "Midfield",
           "nationality": "Senegal"
         },
         {
           "name": "Pathé Ciss",
-          "position": "Midfield",
-          "nationality": "Senegal"
-        },
-        {
-          "name": "Iliman Ndiaye",
           "position": "Midfield",
           "nationality": "Senegal"
         },
@@ -3620,7 +3610,17 @@
           "nationality": "Senegal"
         },
         {
+          "name": "Ismaïla Sarr",
+          "position": "Offence",
+          "nationality": "Senegal"
+        },
+        {
           "name": "Cherif Ndiaye",
+          "position": "Offence",
+          "nationality": "Senegal"
+        },
+        {
+          "name": "Iliman Ndiaye",
           "position": "Offence",
           "nationality": "Senegal"
         },
@@ -3745,11 +3745,6 @@
           "nationality": "Belgium"
         },
         {
-          "name": "Jeremy Doku",
-          "position": "Midfield",
-          "nationality": "Belgium"
-        },
-        {
           "name": "Amadou Onana",
           "position": "Midfield",
           "nationality": "Belgium"
@@ -3771,6 +3766,11 @@
         },
         {
           "name": "Leandro Trossard",
+          "position": "Offence",
+          "nationality": "Belgium"
+        },
+        {
+          "name": "Jeremy Doku",
           "position": "Offence",
           "nationality": "Belgium"
         },
@@ -3880,11 +3880,6 @@
           "nationality": "Morocco"
         },
         {
-          "name": "Chemsdine Talbi",
-          "position": "Midfield",
-          "nationality": "Morocco"
-        },
-        {
           "name": "Ayyoub Bouaddi",
           "position": "Midfield",
           "nationality": "France"
@@ -3906,6 +3901,11 @@
         },
         {
           "name": "Abdessamad Ezzalzouli",
+          "position": "Offence",
+          "nationality": "Morocco"
+        },
+        {
+          "name": "Chemsdine Talbi",
           "position": "Offence",
           "nationality": "Morocco"
         },
@@ -5350,11 +5350,6 @@
           "nationality": "Ivory Coast"
         },
         {
-          "name": "Amad Diallo",
-          "position": "Midfield",
-          "nationality": "Ivory Coast"
-        },
-        {
           "name": "Parfait Guiagon",
           "position": "Midfield",
           "nationality": "Ivory Coast"
@@ -5371,6 +5366,11 @@
         },
         {
           "name": "Evann Guessand",
+          "position": "Offence",
+          "nationality": "Ivory Coast"
+        },
+        {
+          "name": "Amad Diallo",
           "position": "Offence",
           "nationality": "Ivory Coast"
         },
@@ -5980,6 +5980,11 @@
           "nationality": "Netherlands"
         },
         {
+          "name": "Mats Wieffer",
+          "position": "Defence",
+          "nationality": "Netherlands"
+        },
+        {
           "name": "Jan Paul van Hecke",
           "position": "Defence",
           "nationality": "Netherlands"
@@ -6015,6 +6020,11 @@
           "nationality": "Netherlands"
         },
         {
+          "name": "Justin Kluivert",
+          "position": "Midfield",
+          "nationality": "Netherlands"
+        },
+        {
           "name": "Noa Lang",
           "position": "Midfield",
           "nationality": "Netherlands"
@@ -6040,11 +6050,6 @@
           "nationality": "Netherlands"
         },
         {
-          "name": "Mats Wieffer",
-          "position": "Midfield",
-          "nationality": "Netherlands"
-        },
-        {
           "name": "Quinten Timber",
           "position": "Midfield",
           "nationality": "Netherlands"
@@ -6056,11 +6061,6 @@
         },
         {
           "name": "Cody Gakpo",
-          "position": "Offence",
-          "nationality": "Netherlands"
-        },
-        {
-          "name": "Justin Kluivert",
           "position": "Offence",
           "nationality": "Netherlands"
         },
@@ -6185,11 +6185,6 @@
           "nationality": "Norway"
         },
         {
-          "name": "Oscar Bobb",
-          "position": "Midfield",
-          "nationality": "Norway"
-        },
-        {
           "name": "Alexander Sørloth",
           "position": "Offence",
           "nationality": "Norway"
@@ -6206,6 +6201,11 @@
         },
         {
           "name": "Andreas Schjelderup",
+          "position": "Offence",
+          "nationality": "Norway"
+        },
+        {
+          "name": "Oscar Bobb",
           "position": "Offence",
           "nationality": "Norway"
         },
@@ -6310,11 +6310,6 @@
           "nationality": "Scotland"
         },
         {
-          "name": "Ben Doak",
-          "position": "Midfield",
-          "nationality": "Scotland"
-        },
-        {
           "name": "Findlay Curtis",
           "position": "Midfield",
           "nationality": "Scotland"
@@ -6346,6 +6341,11 @@
         },
         {
           "name": "Lawrence Shankland",
+          "position": "Offence",
+          "nationality": "Scotland"
+        },
+        {
+          "name": "Ben Doak",
           "position": "Offence",
           "nationality": "Scotland"
         }
