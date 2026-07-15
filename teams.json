@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T07:30:46.445Z",
+  "updatedAt": "2026-07-15T08:00:50.700Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -6055,11 +6055,6 @@
           "nationality": "Netherlands"
         },
         {
-          "name": "Crysencio Summerville",
-          "position": "Midfield",
-          "nationality": "Netherlands"
-        },
-        {
           "name": "Cody Gakpo",
           "position": "Offence",
           "nationality": "Netherlands"
@@ -6076,6 +6071,11 @@
         },
         {
           "name": "Brian Brobbey",
+          "position": "Offence",
+          "nationality": "Netherlands"
+        },
+        {
+          "name": "Crysencio Summerville",
           "position": "Offence",
           "nationality": "Netherlands"
         }
@@ -6445,6 +6445,11 @@
           "nationality": "Curaçao"
         },
         {
+          "name": "Tahith Chong",
+          "position": "Midfield",
+          "nationality": "Curaçao"
+        },
+        {
           "name": "Gervane Kastaneer",
           "position": "Offence",
           "nationality": "Curaçao"
@@ -6456,11 +6461,6 @@
         },
         {
           "name": "Jürgen Locadia",
-          "position": "Offence",
-          "nationality": "Curaçao"
-        },
-        {
-          "name": "Tahith Chong",
           "position": "Offence",
           "nationality": "Curaçao"
         },
