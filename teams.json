@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T06:30:44.942Z",
+  "updatedAt": "2026-07-15T07:00:51.256Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -85,11 +85,6 @@
           "nationality": "Uruguay"
         },
         {
-          "name": "Brian Rodríguez",
-          "position": "Midfield",
-          "nationality": "Uruguay"
-        },
-        {
           "name": "Rodrigo Zalazar",
           "position": "Midfield",
           "nationality": "Uruguay"
@@ -126,6 +121,11 @@
         },
         {
           "name": "Agustín Canobbio",
+          "position": "Offence",
+          "nationality": "Uruguay"
+        },
+        {
+          "name": "Brian Rodríguez",
           "position": "Offence",
           "nationality": "Uruguay"
         },
@@ -1255,6 +1255,11 @@
           "nationality": "Mexico"
         },
         {
+          "name": "Luis Romo",
+          "position": "Defence",
+          "nationality": "Mexico"
+        },
+        {
           "name": "Israel Reyes",
           "position": "Defence",
           "nationality": "Mexico"
@@ -1276,11 +1281,6 @@
         },
         {
           "name": "Luis Chávez",
-          "position": "Midfield",
-          "nationality": "Mexico"
-        },
-        {
-          "name": "Luis Romo",
           "position": "Midfield",
           "nationality": "Mexico"
         },
@@ -1555,11 +1555,6 @@
           "nationality": "USA"
         },
         {
-          "name": "Alejandro Zendejas",
-          "position": "Midfield",
-          "nationality": "USA"
-        },
-        {
           "name": "Cristian Roldan",
           "position": "Midfield",
           "nationality": "USA"
@@ -1601,6 +1596,11 @@
         },
         {
           "name": "Haji Wright",
+          "position": "Offence",
+          "nationality": "USA"
+        },
+        {
+          "name": "Alejandro Zendejas",
           "position": "Offence",
           "nationality": "USA"
         },
@@ -4405,11 +4405,6 @@
           "nationality": "Canada"
         },
         {
-          "name": "Marcelo Flores",
-          "position": "Midfield",
-          "nationality": "Canada"
-        },
-        {
           "name": "Nathan-Dylan Saliba",
           "position": "Midfield",
           "nationality": "Canada"
@@ -4446,6 +4441,11 @@
         },
         {
           "name": "Jacob Shaffelburg",
+          "position": "Offence",
+          "nationality": "Canada"
+        },
+        {
+          "name": "Marcelo Flores",
           "position": "Offence",
           "nationality": "Canada"
         },
@@ -4940,11 +4940,6 @@
           "nationality": "Panama"
         },
         {
-          "name": "José Luis Rodríguez",
-          "position": "Midfield",
-          "nationality": "Panama"
-        },
-        {
           "name": "Cecilio Waterman",
           "position": "Midfield",
           "nationality": "Panama"
@@ -4981,6 +4976,11 @@
         },
         {
           "name": "José Fajardo",
+          "position": "Offence",
+          "nationality": "Panama"
+        },
+        {
+          "name": "José Luis Rodríguez",
           "position": "Offence",
           "nationality": "Panama"
         },
