@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-16T06:00:50.886Z",
+  "updatedAt": "2026-07-16T06:30:43.164Z",
   "games": [
     {
       "id": 537327,
@@ -1326,6 +1326,32 @@
       "stage": "SEMI_FINALS",
       "winner": "away",
       "date": "2026-07-15T19:00:00Z"
+    },
+    {
+      "id": 537389,
+      "home": "FRA",
+      "away": "ENG",
+      "score": {
+        "FRA": 0,
+        "ENG": 0
+      },
+      "status": "scheduled",
+      "stage": "THIRD_PLACE",
+      "winner": null,
+      "date": "2026-07-18T21:00:00Z"
+    },
+    {
+      "id": 537390,
+      "home": "ESP",
+      "away": "ARG",
+      "score": {
+        "ESP": 0,
+        "ARG": 0
+      },
+      "status": "scheduled",
+      "stage": "FINAL",
+      "winner": null,
+      "date": "2026-07-19T19:00:00Z"
     }
   ]
 }
