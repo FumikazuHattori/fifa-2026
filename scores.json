@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-18T22:41:26.020Z",
+  "updatedAt": "2026-07-18T23:00:36.851Z",
   "games": [
     {
       "id": 537327,
@@ -1333,7 +1333,7 @@
       "away": "ENG",
       "score": {
         "FRA": 3,
-        "ENG": 4
+        "ENG": 5
       },
       "status": "live",
       "stage": "THIRD_PLACE",
