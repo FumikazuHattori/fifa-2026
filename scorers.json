@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-07-18T22:00:39.683Z",
+  "updatedAt": "2026-07-18T22:30:36.853Z",
   "scorers": [
     {
       "player": "Kylian Mbappé",
       "team": "FRA",
-      "goals": 8,
-      "assists": 3,
+      "goals": 10,
+      "assists": 4,
       "penalties": 1
     },
     {
@@ -111,6 +111,13 @@
       "team": "NZL",
       "goals": 3,
       "assists": 0,
+      "penalties": 0
+    },
+    {
+      "player": "Bradley Barcola",
+      "team": "FRA",
+      "goals": 3,
+      "assists": 1,
       "penalties": 0
     },
     {
@@ -242,13 +249,6 @@
     {
       "player": "Ramin Rezaeian",
       "team": "IRN",
-      "goals": 2,
-      "assists": 1,
-      "penalties": 0
-    },
-    {
-      "player": "Bradley Barcola",
-      "team": "FRA",
       "goals": 2,
       "assists": 1,
       "penalties": 0
