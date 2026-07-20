@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T14:30:39.733Z",
+  "updatedAt": "2026-07-20T15:00:44.890Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -1170,11 +1170,6 @@
           "nationality": "Japan"
         },
         {
-          "name": "Yuito Suzuki",
-          "position": "Midfield",
-          "nationality": "Japan"
-        },
-        {
           "name": "Ritsu Doan",
           "position": "Offence",
           "nationality": "Japan"
@@ -1201,6 +1196,11 @@
         },
         {
           "name": "Ayase Ueda",
+          "position": "Offence",
+          "nationality": "Japan"
+        },
+        {
+          "name": "Yuito Suzuki",
           "position": "Offence",
           "nationality": "Japan"
         },
@@ -3475,6 +3475,11 @@
           "nationality": "Turkey"
         },
         {
+          "name": "Can Uzun",
+          "position": "Midfield",
+          "nationality": "Turkey"
+        },
+        {
           "name": "Yunus Akgün",
           "position": "Offence",
           "nationality": "Turkey"
@@ -3501,11 +3506,6 @@
         },
         {
           "name": "Kenan Yıldız",
-          "position": "Offence",
-          "nationality": "Turkey"
-        },
-        {
-          "name": "Can Uzun",
           "position": "Offence",
           "nationality": "Turkey"
         }
@@ -3970,12 +3970,12 @@
           "nationality": "Austria"
         },
         {
-          "name": "Michael Svoboda",
+          "name": "Konrad Laimer",
           "position": "Defence",
           "nationality": "Austria"
         },
         {
-          "name": "Alexander Prass",
+          "name": "Michael Svoboda",
           "position": "Defence",
           "nationality": "Austria"
         },
@@ -3991,11 +3991,6 @@
         },
         {
           "name": "Alessandro Schöpf",
-          "position": "Midfield",
-          "nationality": "Austria"
-        },
-        {
-          "name": "Konrad Laimer",
           "position": "Midfield",
           "nationality": "Austria"
         },
@@ -4025,7 +4020,7 @@
           "nationality": "Austria"
         },
         {
-          "name": "Patrick Wimmer",
+          "name": "Alexander Prass",
           "position": "Midfield",
           "nationality": "Austria"
         },
@@ -4051,6 +4046,11 @@
         },
         {
           "name": "Saša Kalajdžić",
+          "position": "Offence",
+          "nationality": "Austria"
+        },
+        {
+          "name": "Patrick Wimmer",
           "position": "Offence",
           "nationality": "Austria"
         }
@@ -6180,11 +6180,6 @@
           "nationality": "Norway"
         },
         {
-          "name": "Antonio Nusa",
-          "position": "Midfield",
-          "nationality": "Norway"
-        },
-        {
           "name": "Alexander Sørloth",
           "position": "Offence",
           "nationality": "Norway"
@@ -6201,6 +6196,11 @@
         },
         {
           "name": "Andreas Schjelderup",
+          "position": "Offence",
+          "nationality": "Norway"
+        },
+        {
+          "name": "Antonio Nusa",
           "position": "Offence",
           "nationality": "Norway"
         },
