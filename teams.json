@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T20:00:40.126Z",
+  "updatedAt": "2026-07-21T20:30:33.849Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -4940,11 +4940,6 @@
           "nationality": "Panama"
         },
         {
-          "name": "Cecilio Waterman",
-          "position": "Midfield",
-          "nationality": "Panama"
-        },
-        {
           "name": "Édgar Bárcenas",
           "position": "Midfield",
           "nationality": "Panama"
@@ -4965,11 +4960,6 @@
           "nationality": "Panama"
         },
         {
-          "name": "César Yanis",
-          "position": "Midfield",
-          "nationality": "Panama"
-        },
-        {
           "name": "Christian Martinez",
           "position": "Midfield",
           "nationality": "Panama"
@@ -4985,12 +4975,22 @@
           "nationality": "Panama"
         },
         {
+          "name": "Cecilio Waterman",
+          "position": "Offence",
+          "nationality": "Panama"
+        },
+        {
           "name": "Ismael Díaz",
           "position": "Offence",
           "nationality": "Panama"
         },
         {
           "name": "Tomas Rodriguez",
+          "position": "Offence",
+          "nationality": "Panama"
+        },
+        {
+          "name": "César Yanis",
           "position": "Offence",
           "nationality": "Panama"
         },
