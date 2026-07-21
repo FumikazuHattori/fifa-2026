@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T20:30:33.849Z",
+  "updatedAt": "2026-07-21T20:41:20.268Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -3335,11 +3335,6 @@
           "nationality": "Tunisia"
         },
         {
-          "name": "Elias Achouri",
-          "position": "Midfield",
-          "nationality": "Tunisia"
-        },
-        {
           "name": "Hadj Mahmoud",
           "position": "Midfield",
           "nationality": "Tunisia"
@@ -3351,6 +3346,11 @@
         },
         {
           "name": "Firas Chaouat",
+          "position": "Offence",
+          "nationality": "Tunisia"
+        },
+        {
+          "name": "Elias Achouri",
           "position": "Offence",
           "nationality": "Tunisia"
         },
