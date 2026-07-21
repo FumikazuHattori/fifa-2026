@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T21:00:36.617Z",
+  "updatedAt": "2026-07-21T21:30:35.143Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -3325,11 +3325,6 @@
           "nationality": "Tunisia"
         },
         {
-          "name": "Ismaël Gharbi",
-          "position": "Midfield",
-          "nationality": "Tunisia"
-        },
-        {
           "name": "Hannibal Mejbri",
           "position": "Midfield",
           "nationality": "Tunisia"
@@ -3346,6 +3341,11 @@
         },
         {
           "name": "Firas Chaouat",
+          "position": "Offence",
+          "nationality": "Tunisia"
+        },
+        {
+          "name": "Ismaël Gharbi",
           "position": "Offence",
           "nationality": "Tunisia"
         },
@@ -5085,11 +5085,6 @@
           "nationality": "Cape Verde Islands"
         },
         {
-          "name": "Telmo Arcanjo",
-          "position": "Midfield",
-          "nationality": "Cape Verde Islands"
-        },
-        {
           "name": "Jamiro Monteiro",
           "position": "Midfield",
           "nationality": "Cape Verde Islands"
@@ -5111,6 +5106,11 @@
         },
         {
           "name": "Jovane Cabral",
+          "position": "Offence",
+          "nationality": "Cape Verde Islands"
+        },
+        {
+          "name": "Telmo Arcanjo",
           "position": "Offence",
           "nationality": "Cape Verde Islands"
         },
