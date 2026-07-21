@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T19:30:34.380Z",
+  "updatedAt": "2026-07-21T20:00:40.126Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -4145,11 +4145,6 @@
           "nationality": "Colombia"
         },
         {
-          "name": "Jaminton Campaz",
-          "position": "Midfield",
-          "nationality": "Colombia"
-        },
-        {
           "name": "Richard Rios",
           "position": "Midfield",
           "nationality": "Colombia"
@@ -4181,6 +4176,11 @@
         },
         {
           "name": "Cucho Hernández",
+          "position": "Offence",
+          "nationality": "Colombia"
+        },
+        {
+          "name": "Jaminton Campaz",
           "position": "Offence",
           "nationality": "Colombia"
         },
