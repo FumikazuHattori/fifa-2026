@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-22T14:32:06.131Z",
+  "updatedAt": "2026-07-22T15:00:47.989Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -2375,6 +2375,11 @@
           "nationality": "New Zealand"
         },
         {
+          "name": "Elijah Just",
+          "position": "Midfield",
+          "nationality": "New Zealand"
+        },
+        {
           "name": "Callum McCowatt",
           "position": "Midfield",
           "nationality": "New Zealand"
@@ -2411,11 +2416,6 @@
         },
         {
           "name": "Ben Waine",
-          "position": "Offence",
-          "nationality": "New Zealand"
-        },
-        {
-          "name": "Elijah Just",
           "position": "Offence",
           "nationality": "New Zealand"
         },
@@ -2785,6 +2785,11 @@
           "nationality": "Sweden"
         },
         {
+          "name": "Benjamin Nygren",
+          "position": "Midfield",
+          "nationality": "Sweden"
+        },
+        {
           "name": "Yasin Ayari",
           "position": "Midfield",
           "nationality": "Sweden"
@@ -2816,11 +2821,6 @@
         },
         {
           "name": "Gustaf Nilsson",
-          "position": "Offence",
-          "nationality": "Sweden"
-        },
-        {
-          "name": "Benjamin Nygren",
           "position": "Offence",
           "nationality": "Sweden"
         },
@@ -6310,11 +6310,6 @@
           "nationality": "Scotland"
         },
         {
-          "name": "Findlay Curtis",
-          "position": "Midfield",
-          "nationality": "Scotland"
-        },
-        {
           "name": "Tyler Fletcher",
           "position": "Midfield",
           "nationality": "England"
@@ -6346,6 +6341,11 @@
         },
         {
           "name": "Ben Doak",
+          "position": "Offence",
+          "nationality": "Scotland"
+        },
+        {
+          "name": "Findlay Curtis",
           "position": "Offence",
           "nationality": "Scotland"
         }
