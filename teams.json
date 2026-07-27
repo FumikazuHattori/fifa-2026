@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T17:30:39.153Z",
+  "updatedAt": "2026-07-27T18:00:47.868Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -495,6 +495,11 @@
           "nationality": "Paraguay"
         },
         {
+          "name": "Julio Enciso",
+          "position": "Midfield",
+          "nationality": "Paraguay"
+        },
+        {
           "name": "Damian Bobadilla",
           "position": "Midfield",
           "nationality": "Paraguay"
@@ -521,11 +526,6 @@
         },
         {
           "name": "Ramón Sosa",
-          "position": "Offence",
-          "nationality": "Paraguay"
-        },
-        {
-          "name": "Julio Enciso",
           "position": "Offence",
           "nationality": "Paraguay"
         },
@@ -600,11 +600,6 @@
           "nationality": "Argentina"
         },
         {
-          "name": "Valentin Barco",
-          "position": "Defence",
-          "nationality": "Argentina"
-        },
-        {
           "name": "Rodrigo de Paul",
           "position": "Midfield",
           "nationality": "Argentina"
@@ -636,6 +631,11 @@
         },
         {
           "name": "Enzo Fernández",
+          "position": "Midfield",
+          "nationality": "Argentina"
+        },
+        {
+          "name": "Valentin Barco",
           "position": "Midfield",
           "nationality": "Argentina"
         },
@@ -1555,6 +1555,11 @@
           "nationality": "USA"
         },
         {
+          "name": "Tim Weah",
+          "position": "Midfield",
+          "nationality": "USA"
+        },
+        {
           "name": "Cristian Roldan",
           "position": "Midfield",
           "nationality": "USA"
@@ -1586,11 +1591,6 @@
         },
         {
           "name": "Christian Pulisic",
-          "position": "Offence",
-          "nationality": "USA"
-        },
-        {
-          "name": "Tim Weah",
           "position": "Offence",
           "nationality": "USA"
         },
@@ -1845,16 +1845,6 @@
           "nationality": "France"
         },
         {
-          "name": "Maghnes Akliouche",
-          "position": "Midfield",
-          "nationality": "France"
-        },
-        {
-          "name": "Desire Doue",
-          "position": "Midfield",
-          "nationality": "France"
-        },
-        {
           "name": "Warren Zaïre-Emery",
           "position": "Midfield",
           "nationality": "France"
@@ -1886,6 +1876,16 @@
         },
         {
           "name": "Bradley Barcola",
+          "position": "Offence",
+          "nationality": "France"
+        },
+        {
+          "name": "Maghnes Akliouche",
+          "position": "Offence",
+          "nationality": "France"
+        },
+        {
+          "name": "Desire Doue",
           "position": "Offence",
           "nationality": "France"
         }
