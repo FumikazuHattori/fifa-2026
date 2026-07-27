@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T18:30:37.752Z",
+  "updatedAt": "2026-07-27T18:54:05.006Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -5350,11 +5350,6 @@
           "nationality": "Ivory Coast"
         },
         {
-          "name": "Parfait Guiagon",
-          "position": "Midfield",
-          "nationality": "Ivory Coast"
-        },
-        {
           "name": "Christ Ravynel Inao Oulaï",
           "position": "Midfield",
           "nationality": "Ivory Coast"
@@ -5371,6 +5366,11 @@
         },
         {
           "name": "Amad Diallo",
+          "position": "Offence",
+          "nationality": "Ivory Coast"
+        },
+        {
+          "name": "Parfait Guiagon",
           "position": "Offence",
           "nationality": "Ivory Coast"
         },
