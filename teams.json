@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T18:00:47.868Z",
+  "updatedAt": "2026-07-27T18:30:37.752Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -1155,11 +1155,6 @@
           "nationality": "Japan"
         },
         {
-          "name": "Keito Nakamura",
-          "position": "Midfield",
-          "nationality": "Japan"
-        },
-        {
           "name": "Ao Tanaka",
           "position": "Midfield",
           "nationality": "Japan"
@@ -1176,6 +1171,11 @@
         },
         {
           "name": "Daizen Maeda",
+          "position": "Offence",
+          "nationality": "Japan"
+        },
+        {
+          "name": "Keito Nakamura",
           "position": "Offence",
           "nationality": "Japan"
         },
@@ -2265,6 +2265,11 @@
           "nationality": "Australia"
         },
         {
+          "name": "Nestor Irankunda",
+          "position": "Midfield",
+          "nationality": "Australia"
+        },
+        {
           "name": "Paul Okon-Engstler",
           "position": "Midfield",
           "nationality": "Australia"
@@ -2283,11 +2288,6 @@
           "name": "Cristian Volpato",
           "position": "Offence",
           "nationality": "Italy"
-        },
-        {
-          "name": "Nestor Irankunda",
-          "position": "Offence",
-          "nationality": "Australia"
         },
         {
           "name": "Tete Yengi",
@@ -2355,6 +2355,11 @@
           "nationality": "New Zealand"
         },
         {
+          "name": "Ben Old",
+          "position": "Defence",
+          "nationality": "New Zealand"
+        },
+        {
           "name": "Tyler Bindon",
           "position": "Defence",
           "nationality": "New Zealand"
@@ -2391,11 +2396,6 @@
         },
         {
           "name": "Marko Stamenic",
-          "position": "Midfield",
-          "nationality": "New Zealand"
-        },
-        {
-          "name": "Ben Old",
           "position": "Midfield",
           "nationality": "New Zealand"
         },
