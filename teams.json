@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-09T14:59:57.734Z",
+  "updatedAt": "2026-08-09T15:00:41.212Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -290,6 +290,11 @@
           "nationality": "Spain"
         },
         {
+          "name": "Marcos Llorente",
+          "position": "Defence",
+          "nationality": "Spain"
+        },
+        {
           "name": "Aymeric Laporte",
           "position": "Defence",
           "nationality": "Spain"
@@ -330,11 +335,6 @@
           "nationality": "Spain"
         },
         {
-          "name": "Marcos Llorente",
-          "position": "Midfield",
-          "nationality": "Spain"
-        },
-        {
           "name": "Rodri",
           "position": "Midfield",
           "nationality": "Spain"
@@ -346,11 +346,6 @@
         },
         {
           "name": "Dani Olmo",
-          "position": "Midfield",
-          "nationality": "Spain"
-        },
-        {
-          "name": "Ferrán Torres",
           "position": "Midfield",
           "nationality": "Spain"
         },
@@ -370,11 +365,6 @@
           "nationality": "Spain"
         },
         {
-          "name": "Mikel Oyarzabal",
-          "position": "Midfield",
-          "nationality": "Spain"
-        },
-        {
           "name": "Álex Baena",
           "position": "Midfield",
           "nationality": "Spain"
@@ -385,12 +375,22 @@
           "nationality": "Spain"
         },
         {
+          "name": "Ferrán Torres",
+          "position": "Offence",
+          "nationality": "Spain"
+        },
+        {
           "name": "Yeremi Pino",
           "position": "Offence",
           "nationality": "Spain"
         },
         {
           "name": "Nico Williams",
+          "position": "Offence",
+          "nationality": "Spain"
+        },
+        {
+          "name": "Mikel Oyarzabal",
           "position": "Offence",
           "nationality": "Spain"
         },
@@ -1025,11 +1025,6 @@
           "nationality": "Portugal"
         },
         {
-          "name": "Gonçalo Guedes",
-          "position": "Midfield",
-          "nationality": "Portugal"
-        },
-        {
           "name": "Samuel Almeida Costa",
           "position": "Midfield",
           "nationality": "Portugal"
@@ -1051,6 +1046,11 @@
         },
         {
           "name": "Pedro Neto",
+          "position": "Offence",
+          "nationality": "Portugal"
+        },
+        {
+          "name": "Gonçalo Guedes",
           "position": "Offence",
           "nationality": "Portugal"
         },
@@ -1150,11 +1150,6 @@
           "nationality": "Japan"
         },
         {
-          "name": "Takefusa Kubo",
-          "position": "Midfield",
-          "nationality": "Japan"
-        },
-        {
           "name": "Ao Tanaka",
           "position": "Midfield",
           "nationality": "Japan"
@@ -1171,6 +1166,11 @@
         },
         {
           "name": "Daizen Maeda",
+          "position": "Offence",
+          "nationality": "Japan"
+        },
+        {
+          "name": "Takefusa Kubo",
           "position": "Offence",
           "nationality": "Japan"
         },
@@ -1425,11 +1425,6 @@
           "nationality": "England"
         },
         {
-          "name": "Anthony Gordon",
-          "position": "Midfield",
-          "nationality": "England"
-        },
-        {
           "name": "Declan Rice",
           "position": "Midfield",
           "nationality": "England"
@@ -1466,6 +1461,11 @@
         },
         {
           "name": "Ivan Toney",
+          "position": "Offence",
+          "nationality": "England"
+        },
+        {
+          "name": "Anthony Gordon",
           "position": "Offence",
           "nationality": "England"
         },
@@ -2520,11 +2520,6 @@
           "nationality": "Switzerland"
         },
         {
-          "name": "Ruben Vargas",
-          "position": "Midfield",
-          "nationality": "Switzerland"
-        },
-        {
           "name": "Ardon Jasari",
           "position": "Midfield",
           "nationality": "Switzerland"
@@ -2551,6 +2546,11 @@
         },
         {
           "name": "Cédric Itten",
+          "position": "Offence",
+          "nationality": "Switzerland"
+        },
+        {
+          "name": "Ruben Vargas",
           "position": "Offence",
           "nationality": "Switzerland"
         },
@@ -3855,11 +3855,6 @@
           "nationality": "Morocco"
         },
         {
-          "name": "Brahim Diaz",
-          "position": "Midfield",
-          "nationality": "Morocco"
-        },
-        {
           "name": "Azzedine Ounahi",
           "position": "Midfield",
           "nationality": "Morocco"
@@ -3887,6 +3882,11 @@
         {
           "name": "Samir El Mourabet",
           "position": "Midfield",
+          "nationality": "Morocco"
+        },
+        {
+          "name": "Brahim Diaz",
+          "position": "Offence",
           "nationality": "Morocco"
         },
         {
@@ -4400,11 +4400,6 @@
           "nationality": "Canada"
         },
         {
-          "name": "Tajon Buchanan",
-          "position": "Midfield",
-          "nationality": "Canada"
-        },
-        {
           "name": "Nathan-Dylan Saliba",
           "position": "Midfield",
           "nationality": "Canada"
@@ -4441,6 +4436,11 @@
         },
         {
           "name": "Jacob Shaffelburg",
+          "position": "Offence",
+          "nationality": "Canada"
+        },
+        {
+          "name": "Tajon Buchanan",
           "position": "Offence",
           "nationality": "Canada"
         },
