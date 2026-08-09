@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-09T07:30:34.509Z",
+  "updatedAt": "2026-08-09T07:46:39.252Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -90,11 +90,6 @@
           "nationality": "Uruguay"
         },
         {
-          "name": "Facundo Pellistri",
-          "position": "Midfield",
-          "nationality": "Uruguay"
-        },
-        {
           "name": "Emiliano Martínez",
           "position": "Midfield",
           "nationality": "Uruguay"
@@ -131,6 +126,11 @@
         },
         {
           "name": "Federico Viñas",
+          "position": "Offence",
+          "nationality": "Uruguay"
+        },
+        {
+          "name": "Facundo Pellistri",
           "position": "Offence",
           "nationality": "Uruguay"
         }
@@ -2800,11 +2800,6 @@
           "nationality": "Sweden"
         },
         {
-          "name": "Taha Ali",
-          "position": "Midfield",
-          "nationality": "Sweden"
-        },
-        {
           "name": "Lucas Bergvall",
           "position": "Midfield",
           "nationality": "Sweden"
@@ -2831,6 +2826,11 @@
         },
         {
           "name": "Anthony Elanga",
+          "position": "Offence",
+          "nationality": "Sweden"
+        },
+        {
+          "name": "Taha Ali",
           "position": "Offence",
           "nationality": "Sweden"
         }
