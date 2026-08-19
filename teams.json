@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19T04:30:35.569Z",
+  "updatedAt": "2026-08-19T05:00:27.652Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -2765,11 +2765,6 @@
           "nationality": "Sweden"
         },
         {
-          "name": "Elliot Stroud",
-          "position": "Defence",
-          "nationality": "Sweden"
-        },
-        {
           "name": "Ken Sema",
           "position": "Midfield",
           "nationality": "Sweden"
@@ -2796,6 +2791,11 @@
         },
         {
           "name": "Besfort Zeneli",
+          "position": "Midfield",
+          "nationality": "Sweden"
+        },
+        {
+          "name": "Elliot Stroud",
           "position": "Midfield",
           "nationality": "Sweden"
         },
@@ -3750,6 +3750,11 @@
           "nationality": "Belgium"
         },
         {
+          "name": "Charles De Ketelaere",
+          "position": "Midfield",
+          "nationality": "Belgium"
+        },
+        {
           "name": "Diego Moreira",
           "position": "Midfield",
           "nationality": "Belgium"
@@ -3771,11 +3776,6 @@
         },
         {
           "name": "Jeremy Doku",
-          "position": "Offence",
-          "nationality": "Belgium"
-        },
-        {
-          "name": "Charles De Ketelaere",
           "position": "Offence",
           "nationality": "Belgium"
         },
@@ -6010,22 +6010,12 @@
           "nationality": "Netherlands"
         },
         {
-          "name": "Donyell Malen",
-          "position": "Midfield",
-          "nationality": "Netherlands"
-        },
-        {
           "name": "Frenkie de Jong",
           "position": "Midfield",
           "nationality": "Netherlands"
         },
         {
           "name": "Justin Kluivert",
-          "position": "Midfield",
-          "nationality": "Netherlands"
-        },
-        {
-          "name": "Noa Lang",
           "position": "Midfield",
           "nationality": "Netherlands"
         },
@@ -6055,7 +6045,17 @@
           "nationality": "Netherlands"
         },
         {
+          "name": "Donyell Malen",
+          "position": "Offence",
+          "nationality": "Netherlands"
+        },
+        {
           "name": "Cody Gakpo",
+          "position": "Offence",
+          "nationality": "Netherlands"
+        },
+        {
+          "name": "Noa Lang",
           "position": "Offence",
           "nationality": "Netherlands"
         },
