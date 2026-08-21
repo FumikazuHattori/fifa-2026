@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-21T19:30:34.086Z",
+  "updatedAt": "2026-08-21T19:45:18.066Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -3275,11 +3275,6 @@
           "nationality": "Tunisia"
         },
         {
-          "name": "Mortadha Ben Ouanes",
-          "position": "Defence",
-          "nationality": "Tunisia"
-        },
-        {
           "name": "Omar Rekik",
           "position": "Defence",
           "nationality": "Tunisia"
@@ -3341,6 +3336,11 @@
         },
         {
           "name": "Firas Chaouat",
+          "position": "Offence",
+          "nationality": "Tunisia"
+        },
+        {
+          "name": "Mortadha Ben Ouanes",
           "position": "Offence",
           "nationality": "Tunisia"
         },
@@ -3470,11 +3470,6 @@
           "nationality": "Turkey"
         },
         {
-          "name": "Baris Yilmaz",
-          "position": "Midfield",
-          "nationality": "Turkey"
-        },
-        {
           "name": "Can Uzun",
           "position": "Midfield",
           "nationality": "Turkey"
@@ -3491,6 +3486,11 @@
         },
         {
           "name": "Oguz Aydin",
+          "position": "Offence",
+          "nationality": "Turkey"
+        },
+        {
+          "name": "Baris Yilmaz",
           "position": "Offence",
           "nationality": "Turkey"
         },
@@ -5905,11 +5905,6 @@
           "nationality": "Uzbekistan"
         },
         {
-          "name": "Abbosbek Fayzullaev",
-          "position": "Midfield",
-          "nationality": "Uzbekistan"
-        },
-        {
           "name": "Azizjon Ganiev",
           "position": "Midfield",
           "nationality": "Uzbekistan"
@@ -5936,6 +5931,11 @@
         },
         {
           "name": "Ruslanbek Jiyanov",
+          "position": "Offence",
+          "nationality": "Uzbekistan"
+        },
+        {
+          "name": "Abbosbek Fayzullaev",
           "position": "Offence",
           "nationality": "Uzbekistan"
         },
