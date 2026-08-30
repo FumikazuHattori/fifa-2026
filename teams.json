@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T16:00:39.743Z",
+  "updatedAt": "2026-08-30T16:30:36.100Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -2265,11 +2265,6 @@
           "nationality": "Australia"
         },
         {
-          "name": "Nestor Irankunda",
-          "position": "Midfield",
-          "nationality": "Australia"
-        },
-        {
           "name": "Paul Okon-Engstler",
           "position": "Midfield",
           "nationality": "Australia"
@@ -2286,6 +2281,11 @@
         },
         {
           "name": "Cristian Volpato",
+          "position": "Offence",
+          "nationality": "Australia"
+        },
+        {
+          "name": "Nestor Irankunda",
           "position": "Offence",
           "nationality": "Australia"
         },
