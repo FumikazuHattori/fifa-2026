@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-07T11:30:32.502Z",
+  "updatedAt": "2026-09-07T12:00:46.647Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -2725,6 +2725,11 @@
           "nationality": "Sweden"
         },
         {
+          "name": "Ken Sema",
+          "position": "Defence",
+          "nationality": "Sweden"
+        },
+        {
           "name": "Carl Starfelt",
           "position": "Defence",
           "nationality": "Sweden"
@@ -2760,16 +2765,6 @@
           "nationality": "Sweden"
         },
         {
-          "name": "Herman Johansson",
-          "position": "Defence",
-          "nationality": "Sweden"
-        },
-        {
-          "name": "Ken Sema",
-          "position": "Midfield",
-          "nationality": "Sweden"
-        },
-        {
           "name": "Mattias Svanberg",
           "position": "Midfield",
           "nationality": "Sweden"
@@ -2786,6 +2781,11 @@
         },
         {
           "name": "Yasin Ayari",
+          "position": "Midfield",
+          "nationality": "Sweden"
+        },
+        {
+          "name": "Herman Johansson",
           "position": "Midfield",
           "nationality": "Sweden"
         },
@@ -2915,11 +2915,6 @@
           "nationality": "Czech Republic"
         },
         {
-          "name": "Lukáš Provod",
-          "position": "Midfield",
-          "nationality": "Czech Republic"
-        },
-        {
           "name": "Pavel Šulc",
           "position": "Midfield",
           "nationality": "Czech Republic"
@@ -2966,6 +2961,11 @@
         },
         {
           "name": "Mojmír Chytil",
+          "position": "Offence",
+          "nationality": "Czech Republic"
+        },
+        {
+          "name": "Lukáš Provod",
           "position": "Offence",
           "nationality": "Czech Republic"
         }
@@ -3470,6 +3470,11 @@
           "nationality": "Turkey"
         },
         {
+          "name": "İrfan Kahveci",
+          "position": "Midfield",
+          "nationality": "Turkey"
+        },
+        {
           "name": "Can Uzun",
           "position": "Midfield",
           "nationality": "Turkey"
@@ -3491,11 +3496,6 @@
         },
         {
           "name": "Baris Yilmaz",
-          "position": "Offence",
-          "nationality": "Turkey"
-        },
-        {
-          "name": "İrfan Kahveci",
           "position": "Offence",
           "nationality": "Turkey"
         },
