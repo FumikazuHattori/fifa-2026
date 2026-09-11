@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T10:00:49.363Z",
+  "updatedAt": "2026-09-11T10:30:33.462Z",
   "teams": {
     "URU": {
       "crest": "https://crests.football-data.org/758.svg",
@@ -2230,11 +2230,6 @@
           "nationality": "Australia"
         },
         {
-          "name": "Mathew Leckie",
-          "position": "Midfield",
-          "nationality": "Australia"
-        },
-        {
           "name": "Jackson Irvine",
           "position": "Midfield",
           "nationality": "Australia"
@@ -2255,11 +2250,6 @@
           "nationality": "Australia"
         },
         {
-          "name": "Awer Mabil",
-          "position": "Midfield",
-          "nationality": "Australia"
-        },
-        {
           "name": "Cameron Devlin",
           "position": "Midfield",
           "nationality": "Australia"
@@ -2267,6 +2257,16 @@
         {
           "name": "Paul Okon-Engstler",
           "position": "Midfield",
+          "nationality": "Australia"
+        },
+        {
+          "name": "Mathew Leckie",
+          "position": "Offence",
+          "nationality": "Australia"
+        },
+        {
+          "name": "Awer Mabil",
+          "position": "Offence",
           "nationality": "Australia"
         },
         {
@@ -2400,6 +2400,11 @@
           "nationality": "New Zealand"
         },
         {
+          "name": "Lachlan Bayliss",
+          "position": "Midfield",
+          "nationality": "New Zealand"
+        },
+        {
           "name": "Kosta Barbarouses",
           "position": "Offence",
           "nationality": "New Zealand"
@@ -2416,11 +2421,6 @@
         },
         {
           "name": "Ben Waine",
-          "position": "Offence",
-          "nationality": "New Zealand"
-        },
-        {
-          "name": "Lachlan Bayliss",
           "position": "Offence",
           "nationality": "New Zealand"
         },
